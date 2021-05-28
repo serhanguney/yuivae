@@ -10,8 +10,8 @@ export default function UserContext({ children }) {
   useEffect(() => {
     console.log("UserContext useEffect");
     if (!currentUser) {
+      console.log("UserContext redirects");
       router.push("/");
-      // console.log("currentuser", currentUser);
     }
   }, [currentUser]);
   console.log("UserContext rendered");

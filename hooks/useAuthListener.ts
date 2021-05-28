@@ -11,7 +11,8 @@ export default function useAuthListener() {
   //   }
   // }, []);
   useEffect(() => {
-    console.log("useAuthListener useEffect");
+    console.log("useAuthListener useEffect setting firebase");
+
     const unsubscribe = firebase
       .auth()
       .onAuthStateChanged((user) => setCurrentUser(user));

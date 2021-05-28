@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuthContext } from "../src/Context";
+import { useAuthContext } from "../context/FirebaseContext";
 
 interface Value {
   email: string;

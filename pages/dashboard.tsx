@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import useForm from "../hooks/useForm";
-import { useAuthContext } from "../src/Context";
+import { useAuthContext } from "../context/FirebaseContext";
 
 export default function dashboard() {
   const dashboardForm = {

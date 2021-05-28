@@ -1,7 +1,8 @@
 import useForm from "../hooks/useForm";
-import { useAuthContext } from "../src/Context";
+import { login } from "../services/firebase";
+import { USER_LOCALSTORAGE } from "../constants";
 
-export default function login() {
+export default function loginPage() {
   const formObject = {
     email: {
       content: "",
@@ -19,13 +20,16 @@ export default function login() {
     },
   };
   const { values, handleChange, errors, fieldsArray } = useForm(formObject);
-  const { login } = useAuthContext();
 
   async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     try {
-      await login(values.email.content, values.password.content);
-      console.log("youre logged in");
+      const loginResponse = await login(
+        values.email.content,
+        values.password.content
+      );
+      console.log("youre logged in", loginResponse);
+      localStorage.setItem(USER_LOCALSTORAGE, loginResponse.user.uid);
     } catch (err) {
       console.log(err.message);
     }

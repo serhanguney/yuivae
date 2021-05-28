@@ -1,12 +1,15 @@
 import "../styles/globals.css";
-import Context from "../src/Context";
+import FirebaseContext from "../context/FirebaseContext";
 import type { AppProps } from "next/app";
+import UserContext from "../context/UserContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Context>
-      <Component {...pageProps} />
-    </Context>
+    <FirebaseContext>
+      <UserContext>
+        <Component {...pageProps} />
+      </UserContext>
+    </FirebaseContext>
   );
 }
 

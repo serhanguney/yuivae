@@ -1,4 +1,6 @@
 import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
 
 const config = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -12,6 +14,6 @@ const config = {
 
 export default function firebaseClient() {
   if (!firebase.apps.length) {
-    firebase.initializeApp(config);
+    return firebase.initializeApp(config);
   }
 }

@@ -1,9 +1,9 @@
 import styles from "./FormInput.module.scss";
 
-export default function FormInput({ register }) {
+export default function FormInput({ field }) {
   return (
     <div className={styles.inputContainer}>
-      <input {...register} />
+      <input {...field} />
       <label></label>
       {/* {!errors.isNone && <p>{field.error}</p>} */}
     </div>

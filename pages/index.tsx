@@ -27,12 +27,11 @@ export default function Home() {
       </div>
       <form>
         <FormInput
-          register={{
-            ...register({
-              name: "phrase",
-              type: "text",
-              onChange: (e) => handleChange(e),
-            }),
+          field={{
+            name: "phrase",
+            type: "text",
+            placeholder: "enter your phrase",
+            error: "phrase is required",
           }}
         />
         <button type="submit" onClick={(e) => handleSubmit(e)}>

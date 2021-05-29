@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useUserContext } from "../context/UserContext";
 import useForm from "../hooks/useForm";
-import { useAuthContext } from "../context/FirebaseContext";
+import { addPhrase } from "../services/firebase";
 
 export default function dashboard() {
+  const { currentUser } = useUserContext();
+  const router = useRouter();
+
   const dashboardForm = {
     phrase: {
       type: "text",
@@ -12,22 +17,30 @@ export default function dashboard() {
       placeholder: "Please enter your phrase.",
     },
   };
+
   const { values, errors, handleChange, fieldsArray, validate } =
     useForm(dashboardForm);
-  const { addPhrase } = useAuthContext();
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await addPhrase({
-        phrase: values.phrase.content,
-        time_stamp: new Date(),
-      });
+      await addPhrase(
+        {
+          phrase: values.phrase.content,
+          time_stamp: new Date(),
+        },
+        currentUser.uid
+      );
       console.log("post successful");
     } catch (err) {
       console.log(err.message);
     }
   }
-  useEffect(() => console.log(fieldsArray), [values]);
+  useEffect(() => {
+    if (!currentUser) {
+      router.push("/login");
+    }
+  }, [values]);
   return (
     <div>
       <form>

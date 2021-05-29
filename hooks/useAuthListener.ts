@@ -17,7 +17,7 @@ export default function useAuthListener() {
       .auth()
       .onAuthStateChanged((user) => setCurrentUser(user));
     return () => unsubscribe();
-  }, [firebase]);
+  }, []);
   console.log("useAuthListener rendered");
   return { currentUser };
 }

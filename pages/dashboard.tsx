@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { useUserContext } from "../context/UserContext";
 import useForm from "../hooks/useForm";
-import { addPhrase } from "../services/firebase";
+import { addPhrase, getAllYuipass } from "../services/firebase";
 
 export default function dashboard() {
   const { currentUser } = useUserContext();
-  const router = useRouter();
+  const [yuiPhrases, setYuiPhrases] = useState(null);
 
   const dashboardForm = {
     phrase: {
@@ -26,21 +25,26 @@ export default function dashboard() {
     try {
       await addPhrase(
         {
-          phrase: values.phrase.content,
+          phrase: "friend",
+          yuipass: "friendyuipass_@",
           time_stamp: new Date(),
         },
-        currentUser.uid
+        currentUser
       );
       console.log("post successful");
     } catch (err) {
       console.log(err.message);
     }
   }
+
   useEffect(() => {
-    if (!currentUser) {
-      router.push("/login");
+    async function getData() {
+      const result = await getAllYuipass();
+      setYuiPhrases(result);
     }
-  }, [values]);
+    getData();
+  }, []);
+  useEffect(() => console.log(currentUser), [currentUser]);
   return (
     <div>
       <form>
@@ -57,6 +61,10 @@ export default function dashboard() {
           Post
         </button>
       </form>
+      {yuiPhrases &&
+        yuiPhrases[0].data.data.map((phrase) => (
+          <p key={phrase.time_stamp}>{phrase.phrase}</p>
+        ))}
     </div>
   );
 }

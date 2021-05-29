@@ -3,31 +3,35 @@ import "firebase/auth";
 import "firebase/firestore";
 //signup with firebase
 export async function signUp(email: string, password: string) {
-  return firebase.auth().createUserWithEmailAndPassword(email, password);
+  return await firebase.auth().createUserWithEmailAndPassword(email, password);
 }
 //login with firebase
 export async function login(email: string, password: string) {
-  return firebase.auth().signInWithEmailAndPassword(email, password);
+  return await firebase.auth().signInWithEmailAndPassword(email, password);
 }
 
+type Body = {
+  phrase: string;
+  yuipass: string;
+  time_stamp: Date;
+};
 //add password to database
-export async function addPhrase(
-  body: { phrase: string; time_stamp: Date },
-  currentUser: { uid: string }
-) {
+export async function addPhrase(body: Body, currentUser: { uid: string }) {
   const userRef = firebase
     .firestore()
     .collection("users")
     .doc(`${currentUser.uid}`);
   return userRef.set(
     {
-      lastUpdated: body.time_stamp,
-      phrase: firebase.firestore.FieldValue.arrayUnion(body.phrase),
+      data: firebase.firestore.FieldValue.arrayUnion(body),
     },
     { merge: true }
   );
 }
-
+export async function getAllYuipass() {
+  const result = await firebase.firestore().collection("users").get();
+  return result.docs.map((item) => ({ data: item.data(), docID: item.id }));
+}
 export async function removePhrase(
   body: { phrase: string; time_stamp: Date },
   currentUser: { uid: string }
@@ -38,8 +42,7 @@ export async function removePhrase(
     .doc(`${currentUser.uid}`);
   return userRef.set(
     {
-      lastUpdated: body.time_stamp,
-      phrase: firebase.firestore.FieldValue.arrayRemove(body.phrase),
+      data: firebase.firestore.FieldValue.arrayUnion(body),
     },
     { merge: true }
   );

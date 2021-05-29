@@ -1,5 +1,4 @@
 import firebaseClient from "../lib/firebase";
-
 import React, { useContext } from "react";
 
 const Context = React.createContext(null);
@@ -13,6 +12,6 @@ export default function FirebaseContext({
   //initialise firebase app here
   const firebase = firebaseClient();
   const value = { firebase };
-  console.log("firebasecontext rendered");
+  console.log("firebasecontext rendered", firebase);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }

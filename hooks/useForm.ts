@@ -1,45 +1,58 @@
 import { useState } from "react";
 
-type IField = {
-  content: string;
-  error: string;
-  required: boolean;
-  placeholder?: string;
-  type: string;
-};
-type FormObject = {
-  [field: string]: IField;
-};
 type Errors = {
-  [error: string]: string | boolean;
+  message: string;
+  isRequired: boolean;
 };
-
-export default function useForm(formObject: FormObject) {
-  const [values, setValues] = useState<FormObject>(formObject);
+type Register = {
+  name: string;
+  type: string;
+  placeholder?: string;
+  error?: string;
+  onChange?: (e: React.ChangeEvent<HTMLButtonElement>) => void;
+};
+type Value = {
+  [field: string]: string;
+};
+export default function useForm() {
+  const [values, setValues] = useState<Value>({});
   const [errors, setErrors] = useState<Errors>();
-  const fieldsArray = Object.entries(values);
+  const fieldsArray = Object.keys(values);
+
   function handleChange(e: React.ChangeEvent<HTMLButtonElement>) {
     setValues((prev) => ({
       ...prev,
-      [e.target.name]: { ...prev[e.target.name], content: e.target.value },
+      [e.target.name]: e.target.value,
     }));
-    // console.log(fieldsArray);
   }
 
+  function register({
+    name,
+    type,
+    placeholder = "",
+    error = "",
+    onChange,
+  }: Register) {
+    console.log("registered");
+    setValues((prev) => ({ ...prev, [name]: "" }));
+    if (error !== "") {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: { message: error, isRequired: false },
+      }));
+    }
+    return { name, type, placeholder, onChange };
+  }
   function validate() {
-    const issues: { [key: string]: string | boolean } = {};
-
-    for (const [key, value] of fieldsArray) {
-      if (value.required && value.content === "") {
-        issues[key] = value.error;
-        issues.isNone = true;
+    for (const key of fieldsArray) {
+      if (errors[key] && values[key] === "") {
+        setErrors((prev) => ({
+          ...prev,
+          [key]: { ...errors[key], isRequired: true },
+        }));
       }
     }
-    if (Object.entries(issues).length === 0) {
-      issues.isNone = true;
-    }
-    setErrors(issues);
   }
-
-  return { values, errors, handleChange, validate, fieldsArray };
+  console.log("useForm rendered");
+  return { values, errors, handleChange, validate, setValues, register };
 }

@@ -1,8 +1,11 @@
 import useForm from "../hooks/useForm";
 import { login } from "../services/firebase";
-import { USER_LOCALSTORAGE } from "../constants";
+
+import { useRouter } from "next/router";
+import { ROUTE_DASHBOARD, ROUTER_NETWORK_ERROR } from "../constants";
 
 export default function loginPage() {
+  const router = useRouter();
   const formObject = {
     email: {
       content: "",
@@ -29,9 +32,10 @@ export default function loginPage() {
         values.password.content
       );
       console.log("youre logged in", loginResponse);
-      localStorage.setItem(USER_LOCALSTORAGE, loginResponse.user.uid);
+      router.push(ROUTE_DASHBOARD);
     } catch (err) {
       console.log(err.message);
+      router.push(ROUTER_NETWORK_ERROR);
     }
   }
 

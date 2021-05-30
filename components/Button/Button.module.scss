@@ -1,0 +1,40 @@
+@use '../../styles/abstract/' as a;
+.buttonSecondary {
+  width: 40px;
+  height: 40px;
+  color: a.$white;
+  border-radius: 50%;
+  background-color: a.$secondary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+.buttonPrimary {
+  height: 3.5rem;
+  width: 100%;
+  background-color: a.$primary-color;
+  color: white;
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-left: auto;
+  @include a.for-desktops {
+    height: 2.5rem;
+    width: 8.75rem;
+  }
+  svg {
+    margin-right: 1rem;
+    width: 24px;
+    height: 24px;
+  }
+}
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}

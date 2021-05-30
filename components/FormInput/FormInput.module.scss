@@ -1,0 +1,73 @@
+@use '../../styles/abstract/' as a;
+.inputContainer {
+  position: relative;
+  height: 70px;
+  width: 100%;
+  margin-bottom: 1rem;
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: inherit;
+    padding: 0 0.5rem;
+    padding-top: 1.5rem;
+    border: none;
+    outline: none;
+    background: none;
+    &::placeholder {
+      opacity: 0.5;
+    }
+    &:valid + label {
+      opacity: 1;
+      span {
+        transform: translateY(0) scale(0.9);
+      }
+    }
+    &:focus + label {
+      opacity: 1;
+      &::before {
+        transform: translateX(0%);
+      }
+      span {
+        transform: translateY(0) scale(0.9);
+      }
+    }
+  }
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  label {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-bottom: 1px solid a.$primary-color;
+    pointer-events: none;
+    overflow: hidden;
+    padding: 0 0.3rem;
+    opacity: 0.5;
+    will-change: opacity;
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      border-bottom: 2px solid a.$primary-color;
+      will-change: transform opacity;
+      transform: translateX(-100%);
+      transition: transform 400ms ease;
+    }
+    span {
+      display: inline-block;
+      opacity: 0.5;
+      will-change: transform;
+      transform: translateY(1.5rem);
+      transition: transform 400ms ease;
+    }
+  }
+}

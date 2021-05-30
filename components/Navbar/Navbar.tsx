@@ -12,7 +12,9 @@ export default function Navbar() {
       return (
         <ul className={styles.navbarOptions}>
           {navbarOptions.map((option) => (
-            <li key={option}>{option}</li>
+            <li key={option} className={styles.option}>
+              {option}
+            </li>
           ))}
         </ul>
       );
@@ -26,7 +28,7 @@ export default function Navbar() {
   }, []);
   return (
     <nav className={styles.navbar}>
-      <h3 className={styles.logo}></h3>
+      <h3 className={styles.logo}>Yuivae</h3>
       {width && renderOptions()}
     </nav>
   );

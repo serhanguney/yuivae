@@ -1,58 +1,72 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 type Errors = {
-  message: string;
-  isRequired: boolean;
+  [message: string]: string;
 };
 type Register = {
   name: string;
   type: string;
   placeholder?: string;
   error?: string;
-  onChange?: (e: React.ChangeEvent<HTMLButtonElement>) => void;
+  autoComplete?: string;
 };
 type Value = {
   [field: string]: string;
 };
 export default function useForm() {
   const [values, setValues] = useState<Value>({});
-  const [errors, setErrors] = useState<Errors>();
-  const fieldsArray = Object.keys(values);
+  const [errors, setErrors] = useState<Errors>({});
 
-  function handleChange(e: React.ChangeEvent<HTMLButtonElement>) {
+  const requiredFields = useRef({});
+
+  const handleChange = (e: React.ChangeEvent<HTMLButtonElement>) => {
+    //keeps track of input values
     setValues((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
-  }
+  };
 
   function register({
     name,
     type,
     placeholder = "",
     error = "",
-    onChange,
+    autoComplete = "on",
   }: Register) {
-    console.log("registered");
-    setValues((prev) => ({ ...prev, [name]: "" }));
-    if (error !== "") {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: { message: error, isRequired: false },
-      }));
+    if (values[name] === undefined) {
+      setValues((prev) => ({ ...prev, [name]: "" }));
     }
-    return { name, type, placeholder, onChange };
+    //check if the field is required
+    if (error !== "") {
+      requiredFields.current = { ...requiredFields.current, [name]: error };
+    }
+    return {
+      name,
+      type,
+      onChange: handleChange,
+      placeholder,
+      value: values[name],
+      autoComplete,
+    };
   }
   function validate() {
-    for (const key of fieldsArray) {
-      if (errors[key] && values[key] === "") {
-        setErrors((prev) => ({
-          ...prev,
-          [key]: { ...errors[key], isRequired: true },
-        }));
+    let emptyFields = {};
+    //checks if required fields are empty
+    for (const [key, value] of Object.entries(values)) {
+      if (value === "" && requiredFields.current[key] !== undefined) {
+        emptyFields = { ...emptyFields, [key]: requiredFields.current[key] };
       }
     }
+    if (Object.keys(emptyFields).length > 0) {
+      setErrors(emptyFields);
+      return false;
+    }
+    return true;
   }
-  console.log("useForm rendered");
-  return { values, errors, handleChange, validate, setValues, register };
+  function reset() {
+    setValues({});
+    setErrors({});
+  }
+  return { values, errors, validate, register, setValues, reset };
 }

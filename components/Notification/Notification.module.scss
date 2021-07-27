@@ -1,0 +1,36 @@
+@use '../../styles/abstract/' as a;
+
+@keyframes come-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+}
+.notification {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  background-color: a.$white;
+  transform: translate(-50%, 0);
+  width: 20rem;
+  height: 3rem;
+  line-height: 3rem;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 2px 2px 24px rgba(0, 0, 0, 0.15);
+  color: a.$secondary-color;
+  animation: come-in 2s;
+  z-index: 9999;
+}

@@ -1,19 +1,34 @@
 import { useEffect, useState } from "react";
 import Menu from "../Menu/Menu";
+import Link from "next/link";
 import styles from "./Navbar.module.scss";
+import Dropdown from "../Dropdown/Dropdown";
 
 export default function Navbar() {
   const [width, setWidth] = useState(null);
-  const navbarOptions = ["Blog", "Tools that I use", "Yuipass", "Login"];
+  const navbarOptions = [
+    "My thoughts",
+    { name: "My Tools", content: ["Yuipass", "Yuipoll"] },
+  ];
   function renderOptions() {
     if (width < 600) {
       return <Menu options={navbarOptions} />;
     } else {
       return (
         <ul className={styles.navbarOptions}>
-          {navbarOptions.map((option) => (
-            <li key={option} className={styles.option}>
-              {option}
+          {navbarOptions.map((option, index) => (
+            <li key={index} className={styles.option}>
+              {typeof option === "string" ? (
+                <Link href={`/${option.toLowerCase().replace(" ", "-")}`}>
+                  {option}
+                </Link>
+              ) : (
+                <Dropdown
+                  array={option.content}
+                  title={option.name}
+                  klass={styles.option}
+                />
+              )}
             </li>
           ))}
         </ul>

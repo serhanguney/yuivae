@@ -1,3 +1,4 @@
+@use './abstract/' as a;
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 html {
   font-family: "Ubuntu";
@@ -5,7 +6,6 @@ html {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  font-family: "Raleway", sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
 }
@@ -28,7 +28,6 @@ li {
 button {
   background: none;
   border: none;
-  outline: none;
   cursor: pointer;
 }
 input,
@@ -58,4 +57,24 @@ a {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+//GLOBAL STYLES
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+.background {
+  background: url("/background.svg") no-repeat;
+  background-size: 150%;
+  background-position: center 20%;
+  @include a.for-desktops {
+    background-size: contain;
+    background-position: center center;
+  }
 }

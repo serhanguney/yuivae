@@ -1,5 +1,10 @@
-@mixin for-tablets {
+@mixin for-small-tablets {
   @media screen and (min-width: 38rem) {
+    @content;
+  }
+}
+@mixin for-big-tablets {
+  @media screen and (min-width: 55rem) {
     @content;
   }
 }

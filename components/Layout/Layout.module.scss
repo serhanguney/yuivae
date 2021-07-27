@@ -1,0 +1,90 @@
+@use '../../styles/abstract/' as a;
+.pageContainer {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0 0.8rem;
+  padding-bottom: 6rem;
+  @include a.for-desktops {
+    padding-bottom: 0;
+  }
+
+  .textContainer {
+    margin-bottom: 3rem;
+    .title {
+      color: a.$primary-color;
+      padding: 0.2em 0;
+      font-size: 2rem;
+      @include a.for-big-tablets {
+        font-size: 2.5rem;
+      }
+      @include a.for-desktops {
+        line-height: 4rem;
+        font-size: 3rem;
+      }
+    }
+    .paragraph {
+      color: a.$primary-color;
+      @include a.for-desktops {
+        font-size: 1rem;
+      }
+    }
+  }
+  .fieldContainer {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .description {
+    grid-column: 1/-1;
+    grid-row: 9/13;
+    @include a.for-small-tablets {
+      padding: 0 10rem;
+    }
+    @include a.for-big-tablets {
+      padding: 0;
+      grid-column: 9/13;
+      grid-row: 7/13;
+    }
+    @include a.for-desktops {
+      grid-column: 9/12;
+      grid-row: 7/13;
+    }
+
+    .secondaryTitle {
+      color: a.$primary-color;
+      letter-spacing: 0.1rem;
+      font-size: 2rem;
+      @include a.for-desktops {
+        font-size: 2.3rem;
+      }
+    }
+    .list {
+      .container {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        span {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          background-color: a.$inactive-color;
+          border-radius: 50%;
+          color: a.$white;
+          text-align: center;
+          margin-right: 10px;
+          flex-shrink: 0;
+          @include a.for-desktops {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 1.2rem;
+            margin-right: 20px;
+          }
+        }
+        p {
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
-import Button from "../Button/Button";
 import styles from "./FormInput.module.scss";
-import { ButtonType } from "../Button/Button";
+import React, { forwardRef } from "react";
 
 type Field = {
   name: string;
@@ -12,15 +11,12 @@ type Props = {
   label?: string | null;
   disabled?: boolean;
 };
-export default function FormInput({
-  field,
-  label = null,
-  disabled = false,
-}: Props) {
+function FormInput({ field, label = null, disabled = false }: Props) {
   return (
     <div className={styles.inputContainer}>
       <input className={disabled ? styles.disabled : ""} {...field} required />
-      <label>{label && <span>phrase</span>}</label>
+      <label>{label && <span>{label}</span>}</label>
     </div>
   );
 }
+export default FormInput;

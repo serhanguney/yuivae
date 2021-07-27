@@ -1,0 +1,49 @@
+@use '../../styles/abstract/' as a;
+.dropdownContainer {
+  position: relative;
+  cursor: pointer;
+  &:hover .dropdownOffset {
+    opacity: 1;
+    transform: translate(50%, 0);
+  }
+  .dropdownOffset {
+    //needed to give space between title and dropdown
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    padding-top: 10px;
+    transform: translate(45%, 10px);
+    opacity: 0;
+    will-change: transform;
+    transition: all 0.2s ease;
+
+    .dropdownContent {
+      position: relative;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 1px 3px 16px rgba(0, 0, 0, 0.2);
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom: 10px solid white;
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+      }
+    }
+    .dropdownItem {
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      &:hover {
+        background-color: a.$white;
+      }
+    }
+    .reveal {
+      transform: translate(50%, 0);
+      opacity: 0;
+    }
+  }
+}

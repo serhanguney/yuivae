@@ -1,16 +1,10 @@
 import "../styles/globals.scss";
-import FirebaseContext from "../context/FirebaseContext";
 import type { AppProps } from "next/app";
-import UserContext from "../context/UserContext";
+import firebaseClient from "../lib/firebase";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <FirebaseContext>
-      <UserContext>
-        <Component {...pageProps} />
-      </UserContext>
-    </FirebaseContext>
-  );
+  firebaseClient();
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

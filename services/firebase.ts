@@ -21,12 +21,32 @@ export async function addPhrase(body: Body, currentUser: { uid: string }) {
     .firestore()
     .collection("users")
     .doc(`${currentUser.uid}`);
-  return userRef.set(
+  return await userRef.set(
     {
       data: firebase.firestore.FieldValue.arrayUnion(body),
     },
     { merge: true }
   );
+}
+//anonymous adds poll
+export async function addPoll(body) {
+  const userRef = firebase.firestore().collection("polls");
+  return await userRef.add(body);
+}
+
+//anonymous gets poll
+// export async function getPoll(id) {
+//   const userRef = firebase.firestore().collection("polls").doc(id);
+//   return await userRef.get();
+// }
+
+//anonymous votes
+export async function vote(id, optionNumber) {
+  const pollRef = firebase.firestore().collection("polls").doc(id);
+  const name = `answers.${optionNumber}.vote`;
+  return await pollRef.update({
+    [name]: firebase.firestore.FieldValue.increment(1),
+  });
 }
 export async function getAllYuipass() {
   const result = await firebase.firestore().collection("users").get();
@@ -40,7 +60,7 @@ export async function removePhrase(
     .firestore()
     .collection("users")
     .doc(`${currentUser.uid}`);
-  return userRef.set(
+  return await userRef.set(
     {
       data: firebase.firestore.FieldValue.arrayUnion(body),
     },

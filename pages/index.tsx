@@ -1,113 +1,33 @@
-import Button from "../components/Button/Button";
-import FormInput from "../components/FormInput/FormInput";
+import Layout from "../components/Layout/Layout";
+import IntroText from "../components/Layout/IntroText";
 import Navbar from "../components/Navbar/Navbar";
-import Yuipass from "../helpers/yuipass";
-import useForm from "../hooks/useForm";
-import styles from "../styles/Home.module.scss";
-import Check from "../SVGs/check";
-import Copy from "../SVGs/Copy";
-import Refresh from "../SVGs/Refresh";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-
+import Description from "../components/Layout/Description";
 export default function Home() {
-  const { values, setValues, register, validate, reset } = useForm();
-  function handleSubmit(e) {
-    e.preventDefault();
-    const isValid = validate();
-    if (isValid) {
-      const password = new Yuipass(values.phrase);
-      setValues((prev) => ({
-        ...prev,
-        yuipass: password.yuiPass,
-      }));
-    }
-  }
-  return (
-    <div className={styles.pageContainer}>
-      <Navbar />
-      <div className={styles.textContainer}>
-        <h1 className={styles.title}>Replace passwords with Yuipass</h1>
-        <p className={styles.paragraph}>
-          Yuipass is an encrypted password created by a phrase that you think is
-          awesome.
-        </p>
-      </div>
-      <form className={styles.form}>
-        <div className={styles.fieldContainer}>
-          <FormInput
-            field={register({
-              name: "phrase",
-              type: "text",
-              error: "phrase is required",
-              autoComplete: "off",
-            })}
-            label="phrase"
-          />
-          <Button
-            onClick={(e) => handleSubmit(e)}
-            icon={<Check />}
-            disabled={values.phrase === ""}
-          />
-        </div>
-        <div className={styles.fieldContainer}>
-          <FormInput
-            field={register({
-              name: "yuipass",
-              placeholder: "get your yuipass",
-              type: "text",
-              autoComplete: "off",
-            })}
-            disabled={true}
-          />
-          <CopyToClipboard
-            text={values.yuipass}
-            onCopy={() => console.log("copied", values.yuipass)}
-          >
-            <Button
-              onClick={(e) => e.preventDefault()}
-              icon={<Copy />}
-              disabled={values.yuipass === ""}
-            />
-          </CopyToClipboard>
-        </div>
+  const textTitle = "Frontend Development";
 
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            reset();
-          }}
-          text="Clear"
-          icon={<Refresh />}
-          disabled={values.yuipass === ""}
-        />
-      </form>
-      <div className={styles.howItWorks}>
-        <h2 className={styles.secondaryTitle}>How it works</h2>
-        <ul className={styles.list}>
-          <li className={styles.container}>
-            <span>1</span>
-            <p>
-              Find a phrase, a simple word that you think could replace a
-              password.
-            </p>
-          </li>
-          <li className={styles.container}>
-            <span>2</span>
-            <p>
-              Enter your phrase and get your yuipass. Yuipass is not
-              case-sensitive.
-            </p>
-          </li>
-          <li className={styles.container}>
-            <span>3</span>
-            <p>Copy your yuipass and use it as a password.</p>
-          </li>
-          <li className={styles.container}>
-            <span>4</span>
-            <p>You’ll always get the same yuipass for the same phrase.</p>
-          </li>
-        </ul>
-      </div>
-    </div>
+  const paragraph =
+    "My name is Serhan Guney and I’m a frontend developer. I made this website mainly to present my experience as a frontend developer. I also had a hidden intention to include my passion for branding so hopefully you'll enjoy a bit of my little personal brand Yuivae.";
+  const introTextStyle = `
+    grid-row: 3/8;
+    grid-column: 2/8;
+    `;
+
+  const descriptionTitle = "What you'll find here";
+  const descriptionArray = [
+    "The tools I built for personal use, they are available to everyone.",
+    "My blog; the knowledge which was hard to find throughout the learning process.",
+    "My projects; a brief look at the projects I did for my clients.",
+    "My thoughts. For those of you who like to read a personality description, I tried to make it short :)",
+  ];
+  return (
+    <Layout>
+      <Navbar />
+      <IntroText
+        title={textTitle}
+        paragraph={paragraph}
+        componentStyle={introTextStyle}
+      />
+      <Description title={descriptionTitle} array={descriptionArray} />
+    </Layout>
   );
 }

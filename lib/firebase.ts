@@ -14,6 +14,7 @@ const config = {
 
 export default function firebaseClient() {
   if (!firebase.apps.length) {
-    return firebase.initializeApp(config);
+    firebase.initializeApp(config);
   }
 }
+export { firebase };

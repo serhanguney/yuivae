@@ -1,0 +1,99 @@
+@use '../../styles/abstract' as a;
+
+.blog {
+  display: flex;
+  max-height: calc(100vh - #{a.$navbar-height});
+  overflow: hidden;
+  .headers {
+    position: relative;
+    padding-top: 10rem;
+    flex: 0.3;
+    border-right: 1px solid a.$white;
+    background-color: rgba(255, 255, 255, 0.9);
+    .scrollProgress {
+      position: absolute;
+      bottom: 0;
+      right: -2px;
+      width: 2px;
+      background-color: a.$secondary-color;
+    }
+    .scrollUpButton {
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      transform: translate(120%, 10px);
+      transition: all 0.5s ease-in-out;
+      pointer-events: none;
+    }
+    .buttonReveal {
+      opacity: 1;
+      transform: translate(120%, 0);
+      pointer-events: auto;
+    }
+    .headersList {
+      width: max-content;
+      margin: 0 auto;
+      .headerElement {
+        padding: 0.6rem 0;
+        font-weight: 500;
+        button {
+          color: a.$inactive-color;
+          cursor: pointer;
+          &:hover {
+            color: a.$secondary-color;
+          }
+        }
+      }
+    }
+  }
+  .article {
+    flex: 0.7;
+    padding: 5rem 10rem 0 10rem;
+    color: a.$primary-color;
+    display: flex;
+    flex-direction: column;
+    .articleInfo {
+      padding-bottom: 1em;
+      .articleTitle {
+        font-size: 3.5rem;
+      }
+      .articleDetails {
+        font-size: 1rem;
+        color: a.$inactive-color;
+      }
+    }
+
+    .articleContent {
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+
+      .heading1 {
+        font-size: 1.8rem;
+        margin: 1.5rem 0;
+      }
+      .heading2 {
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+      }
+      .heading3 {
+        font-size: 1.2rem;
+      }
+      .paragraph {
+        margin: 1rem 0;
+      }
+      .author {
+        text-align: right;
+        padding: 3rem 0;
+        color: a.$inactive-color;
+      }
+    }
+  }
+}

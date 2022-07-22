@@ -1,0 +1,44 @@
+import { css } from "styled-components";
+
+import { colors } from "./colors";
+
+export const font = {
+  base: '"League Spartan", sans-serif',
+  headings: '"Cardo", sans-serif',
+};
+
+const defaultStyles = css`
+  font-weight: inherit;
+  color: ${colors.text.default};
+`;
+const defaultHeadingStyles = css`
+  font-family: ${font.headings};
+  font-weight: lighter;
+`;
+const defaultParagraphStyles = css`
+  font-family: ${font.base};
+  font-size: 1.6rem;
+  line-height: 1.3em;
+`;
+export const typography = {
+  h1: {},
+  h2: css`
+    ${defaultHeadingStyles};
+    margin-bottom: 1rem;
+  `,
+  h3: {},
+  p: css`
+    ${defaultParagraphStyles};
+  `,
+  tag: css`
+    ${defaultParagraphStyles};
+    color: ${colors.tag.default};
+  `,
+  button: css`
+    ${defaultStyles};
+    font-family: ${font.base};
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 2rem;
+  `,
+};

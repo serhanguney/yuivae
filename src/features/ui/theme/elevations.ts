@@ -1,6 +1,9 @@
 import { css } from "styled-components";
 
 export const elevations = {
+  0: css`
+    z-index: 0;
+  `,
   1: css`
     z-index: 1;
   `,

@@ -5,5 +5,6 @@ export const colors = {
   tag: { default: palette.gray[600] },
   secondary: { default: palette.lila },
   dianaGuney: { primary: palette.orange, secondary: palette.creme },
+  pyc: { primary: palette.blue, secondary: palette.lightBlue },
   background: { default: palette.white },
 };

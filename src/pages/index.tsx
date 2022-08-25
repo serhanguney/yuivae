@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import { DianaGuney } from "~/features/myWork";
+import { MyWork } from "~/features/myWork";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <DianaGuney />
+      <MyWork />
     </div>
   );
 };

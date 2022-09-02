@@ -3,6 +3,13 @@ import styled from "styled-components";
 
 import { typography } from "~/features/ui/theme/typography";
 
+const SectionTitle = styled.h1`
+  ${typography.h1};
+  font-size: 6rem;
+  margin-right: 4rem;
+  text-align: right;
+`;
+
 const Container = styled(motion.div)`
   margin-bottom: 4rem;
 `;
@@ -40,6 +47,7 @@ export {
   ProjectDescription,
   ProjectDetails,
   ProjectTitle,
+  SectionTitle,
   Tag,
   TagContainer,
 };

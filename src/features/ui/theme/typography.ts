@@ -21,7 +21,10 @@ const defaultParagraphStyles = css`
   line-height: 1.3em;
 `;
 export const typography = {
-  h1: {},
+  h1: css`
+    ${defaultHeadingStyles};
+    margin-bottom: 1.5rem;
+  `,
   h2: css`
     ${defaultHeadingStyles};
     margin-bottom: 1rem;

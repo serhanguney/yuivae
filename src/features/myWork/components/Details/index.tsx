@@ -10,6 +10,7 @@ import {
   ProjectTitle,
   Tag,
 } from "~/features/ui/components/Details";
+
 import { MyWorkDetails, MyWorkTagContainer } from "../../styles";
 
 const MOTION = {

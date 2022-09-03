@@ -3,15 +3,14 @@ import { FC } from "react";
 
 import { durations } from "~/features/core/animations/constants";
 import { Project } from "~/features/myWork/constants/projects";
+import { AnimatedButton } from "~/features/ui/components/AnimatedButton";
 import {
-  Container,
+  DetailsWrapper,
   ProjectDescription,
-  ProjectDetails,
   ProjectTitle,
   Tag,
-  TagContainer,
-} from "~/features/myWork/styles";
-import { AnimatedButton } from "~/features/ui/components/AnimatedButton";
+} from "~/features/ui/components/Details";
+import { MyWorkDetails, MyWorkTagContainer } from "../../styles";
 
 const MOTION = {
   register: { initial: {}, animate: {}, exit: {} },
@@ -38,14 +37,17 @@ type Props = {
 };
 
 export const Details: FC<Props> = ({ project }) => (
-  <ProjectDetails
+  <MyWorkDetails
     initial="initial"
     animate="animate"
     exit="exit"
     variants={MOTION.register}
   >
     <AnimatePresence exitBeforeEnter>
-      <Container key={`${project.title}-details`} variants={MOTION.register}>
+      <DetailsWrapper
+        key={`${project.title}-details`}
+        variants={MOTION.register}
+      >
         <ProjectTitle
           custom={0}
           variants={MOTION.revealParagraph}
@@ -60,7 +62,7 @@ export const Details: FC<Props> = ({ project }) => (
         >
           {project.description}
         </ProjectDescription>
-        <TagContainer>
+        <MyWorkTagContainer>
           {project.tags.map((tag, index) => (
             <Tag
               key={tag}
@@ -71,9 +73,9 @@ export const Details: FC<Props> = ({ project }) => (
               {tag}
             </Tag>
           ))}
-        </TagContainer>
-      </Container>
+        </MyWorkTagContainer>
+      </DetailsWrapper>
     </AnimatePresence>
     <AnimatedButton>Go to project</AnimatedButton>
-  </ProjectDetails>
+  </MyWorkDetails>
 );

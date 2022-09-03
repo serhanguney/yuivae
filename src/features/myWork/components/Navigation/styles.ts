@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import styled from "styled-components";
 
 import { colors } from "~/features/ui/theme/colors";
@@ -11,7 +11,7 @@ const Container = styled.div`
   display: flex;
   align-items: flex-end;
 `;
-const Button = styled(motion.button)`
+const Button = styled(m.button)`
   color: ${colors.text.hover};
   cursor: pointer;
   flex: 1;
@@ -19,13 +19,13 @@ const Button = styled(motion.button)`
     color: ${colors.text.default};
   }
 `;
-const PageNoContainer = styled(motion.div)`
+const PageNoContainer = styled(m.div)`
   width: 33.33%;
   flex: 1;
   display: flex;
   margin-top: clamp(20rem, 20vw, 50rem);
 `;
-const PageNo = styled(motion.h1)`
+const PageNo = styled(m.h1)`
   ${elevations["1"]};
   font-family: ${font.headings};
   font-size: 10rem;

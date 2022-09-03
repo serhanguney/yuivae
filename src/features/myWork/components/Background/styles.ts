@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import styled from "styled-components";
 
 import { elevations } from "~/features/ui/theme/elevations";
@@ -7,7 +7,7 @@ type Color = {
   $color?: string;
 };
 
-const PrimaryColumn = styled(motion.div)<Color>`
+const PrimaryColumn = styled(m.div)<Color>`
   ${elevations["0"]};
   min-width: 20%;
   background-color: ${(props) => props.$color};
@@ -16,7 +16,7 @@ const PrimaryColumn = styled(motion.div)<Color>`
   left: 0;
   bottom: 0;
 `;
-const SecondaryColumn = styled(motion.div)<Color>`
+const SecondaryColumn = styled(m.div)<Color>`
   background-color: ${(props) => props.$color};
   ${elevations["0"]};
   position: absolute;
@@ -35,7 +35,7 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-const ImageWrapper = styled(motion.div)<{ $isMobile: boolean }>`
+const ImageWrapper = styled(m.div)<{ $isMobile: boolean }>`
   ${elevations["900"]};
   margin: 0 1rem;
   width: ${(props) => (props.$isMobile ? "14%" : "60%")};

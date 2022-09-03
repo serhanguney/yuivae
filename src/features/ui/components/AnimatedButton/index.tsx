@@ -1,4 +1,4 @@
-import { animate, motion, useMotionValue, useTransform } from "framer-motion";
+import { animate, m, useMotionValue, useTransform } from "framer-motion";
 import { FC, ReactNode, useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -8,7 +8,7 @@ import { typography } from "~/features/ui/theme/typography";
 
 import { Arrow } from "./parts/Arrow";
 
-const Line = styled(motion.span)<{ $borderNo: number }>`
+const Line = styled(m.span)<{ $borderNo: number }>`
   background-color: ${colors.text.default};
   position: absolute;
   left: ${(props) => (props.$borderNo === 2 ? "99%" : "0")};
@@ -30,7 +30,7 @@ const ButtonContainer = styled.div`
     height: auto;
   }
 `;
-const Button = styled(motion.button)`
+const Button = styled(m.button)`
   ${typography.button}
   position: relative;
   color: ${colors.background.default};
@@ -48,12 +48,12 @@ const Button = styled(motion.button)`
   span:nth-of-type(4) {
   }
 `;
-const Text = styled(motion.span)`
+const Text = styled(m.span)`
   position: relative;
   mix-blend-mode: difference;
   opacity: 0;
 `;
-const BackgroundColor = styled(motion.span)`
+const BackgroundColor = styled(m.span)`
   top: 0;
   position: absolute;
   display: inline-block;

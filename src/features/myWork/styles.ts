@@ -2,6 +2,7 @@ import { m } from "framer-motion";
 import styled from "styled-components";
 
 import { TagContainer } from "~/features/ui/components/Details";
+import Navigation from "~/features/ui/components/Navigation";
 import { typography } from "~/features/ui/theme/typography";
 
 const SectionTitle = styled.h1`
@@ -24,4 +25,8 @@ const MyWorkTagContainer = styled(TagContainer)`
   justify-content: flex-end;
 `;
 
-export { MyWorkDetails, MyWorkTagContainer, SectionTitle };
+const MyWorkNavigation = styled(Navigation)`
+  align-self: flex-end;
+  grid-column: span 2;
+`;
+export { MyWorkDetails, MyWorkNavigation, MyWorkTagContainer, SectionTitle };

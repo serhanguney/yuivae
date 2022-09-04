@@ -4,7 +4,7 @@ import { FC } from "react";
 import {
   arrowAnimation,
   ArrowProps,
-} from "~/features/myWork/components/Navigation/PreviosArrow";
+} from "~/features/ui/components/Navigation/PreviosArrow";
 
 const NextArrow: FC<ArrowProps> = ({ isHidden }) => (
   <svg

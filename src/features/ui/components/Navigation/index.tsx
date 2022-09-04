@@ -2,8 +2,9 @@ import { useAnimationControls } from "framer-motion";
 import { FC, useEffect, useState } from "react";
 
 import { easings } from "~/features/core/animations/constants";
-import PreviousArrow from "~/features/myWork/components/Navigation/PreviosArrow";
-import { myWorkArray, Project } from "~/features/myWork/constants/projects";
+import { Story } from "~/features/myStory/constants/stories";
+import { Project } from "~/features/myWork/constants/projects";
+import PreviousArrow from "~/features/ui/components/Navigation/PreviosArrow";
 
 import NextArrow from "./NextArrow";
 import { Button, Container, PageNo, PageNoContainer } from "./styles";
@@ -13,13 +14,23 @@ const clamp = (a: number, b: number, c: number) => Math.min(Math.max(a, b), c);
 type AnimationOptions = {
   delay: number;
 };
+type NavigatedMaterial = Project | Story;
+
 type Props = {
   projectCount: number;
-  animation: AnimationOptions;
-  onChange: (project: Project) => void;
+  animation?: AnimationOptions;
+  onChange: (changedWithNavigation: NavigatedMaterial) => void;
+  arrayToMatchPageStateWith: Array<NavigatedMaterial>;
+  className?: string;
 };
 
-const Navigation: FC<Props> = ({ projectCount, animation, onChange }) => {
+const Navigation: FC<Props> = ({
+  projectCount,
+  animation,
+  onChange,
+  arrayToMatchPageStateWith,
+  className,
+}) => {
   const [pageState, setPageState] = useState(0);
   const [hoveredButton, setHoveredButton] = useState<-1 | 0 | 1>(0);
   const controls = useAnimationControls();
@@ -35,7 +46,7 @@ const Navigation: FC<Props> = ({ projectCount, animation, onChange }) => {
   };
 
   useEffect(() => {
-    onChange(myWorkArray[pageState]);
+    onChange(arrayToMatchPageStateWith[pageState]);
     void controls.start((i) => animatePageNo(i));
   }, [pageState]);
 
@@ -55,7 +66,7 @@ const Navigation: FC<Props> = ({ projectCount, animation, onChange }) => {
   };
 
   return (
-    <Container>
+    <Container className={className}>
       <Button
         onClick={handleClick(withSubtract)}
         onHoverStart={() => setHoveredButton(-1)}
@@ -66,7 +77,7 @@ const Navigation: FC<Props> = ({ projectCount, animation, onChange }) => {
       <PageNoContainer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: animation.delay }}
+        transition={{ duration: 0.5, delay: animation?.delay }}
       >
         {pages.map((pageNo, i) => (
           <PageNo key={pageNo} custom={i} initial={false} animate={controls}>
@@ -86,3 +97,7 @@ const Navigation: FC<Props> = ({ projectCount, animation, onChange }) => {
 };
 
 export default Navigation;
+
+Navigation.defaultProps = {
+  animation: { delay: 1.5 },
+};

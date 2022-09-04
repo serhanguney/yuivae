@@ -6,8 +6,6 @@ import { elevations } from "~/features/ui/theme/elevations";
 import { font } from "~/features/ui/theme/typography";
 
 const Container = styled.div`
-  align-self: flex-end;
-  grid-column: span 2;
   display: flex;
   align-items: flex-end;
 `;
@@ -23,7 +21,6 @@ const PageNoContainer = styled(m.div)`
   width: 33.33%;
   flex: 1;
   display: flex;
-  margin-top: clamp(20rem, 20vw, 50rem);
 `;
 const PageNo = styled(m.h1)`
   ${elevations["1"]};

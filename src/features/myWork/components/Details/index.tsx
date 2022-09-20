@@ -1,7 +1,10 @@
 import { AnimatePresence } from "framer-motion";
 import { FC } from "react";
 
-import { durations } from "~/features/core/animations/constants";
+import {
+  durations,
+  revealParagraph,
+} from "~/features/core/animations/constants";
 import { Project } from "~/features/myWork/constants/projects";
 import { AnimatedButton } from "~/features/ui/components/AnimatedButton";
 import {
@@ -15,22 +18,7 @@ import { MyWorkDetails, MyWorkTagContainer } from "../../styles";
 
 const MOTION = {
   register: { initial: {}, animate: {}, exit: {} },
-  revealParagraph: {
-    initial: { y: "20%", opacity: 0, filter: "blur(5px)" },
-    animate: (i: number) => ({
-      y: "0%",
-      opacity: 1,
-      filter: "blur(0px)",
-      transition: {
-        duration: durations.myWork.medium,
-        delay: i + durations.myWork.medium / 2,
-      },
-    }),
-    exit: {
-      opacity: 0,
-      filter: "blur(5px)",
-    },
-  },
+  revealParagraph,
 };
 
 type Props = {

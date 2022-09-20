@@ -1,6 +1,14 @@
+import { AnimatePresence } from "framer-motion";
 import { FC } from "react";
+import { v4 as uuid } from "uuid";
 
-import { Story } from "~/features/myStory/constants/stories";
+import {
+  durations,
+  revealParagraph,
+} from "~/features/core/animations/constants";
+import { stories, Story } from "~/features/myStory/constants/stories";
+import { MyStoryNavigation } from "~/features/myStory/styles";
+import { Project } from "~/features/myWork/constants/projects";
 import {
   ProjectDescription,
   ProjectTitle,
@@ -15,20 +23,64 @@ import {
 
 type Props = {
   story: Story;
+  drillForNavigation: { onChange: (changedProject: Project | Story) => void };
 };
 
-const MyStoryDetails: FC<Props> = ({ story }) => {
+const MOTION = {
+  register: { initial: {}, animate: {}, exit: {} },
+  revealParagraph,
+};
+
+const MyStoryDetails: FC<Props> = ({ story, drillForNavigation }) => {
   const { title, details, tags } = story;
+  console.log("Details");
   return (
-    <StoryDetailsContainer>
+    <StoryDetailsContainer
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={MOTION.register}
+    >
       <MyStoryTagContainer>
-        {tags.map((tag) => (
-          <Tag key={tag.name}>{tag.name}</Tag>
+        {tags.map((tag, index) => (
+          <Tag
+            key={uuid()}
+            custom={(index + durations.myWork.medium) * 0.25}
+            variants={MOTION.revealParagraph}
+            exit={MOTION.revealParagraph.exit}
+          >
+            {tag.name}
+          </Tag>
         ))}
       </MyStoryTagContainer>
-      <TextWrapper>
-        <ProjectTitle>{title}</ProjectTitle>
-        <ProjectDescription>{details}</ProjectDescription>
+
+      <TextWrapper variants={MOTION.register}>
+        <AnimatePresence exitBeforeEnter>
+          <ProjectTitle
+            key={story.title}
+            style={{ marginTop: "auto" }}
+            custom={0}
+            variants={MOTION.revealParagraph}
+            exit={MOTION.revealParagraph.exit}
+          >
+            {title}
+          </ProjectTitle>
+        </AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
+          <ProjectDescription
+            key={story.details}
+            custom={0.2}
+            variants={MOTION.revealParagraph}
+            exit={MOTION.revealParagraph.exit}
+          >
+            {details}
+          </ProjectDescription>
+        </AnimatePresence>
+        <MyStoryNavigation
+          projectCount={stories.length}
+          onChange={drillForNavigation.onChange}
+          arrayToMatchPageStateWith={stories}
+        />
       </TextWrapper>
     </StoryDetailsContainer>
   );

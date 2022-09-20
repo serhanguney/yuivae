@@ -10,9 +10,13 @@ const StoryDetailsContainer = styled(m.div)`
   margin-left: clamp(2vw, 5rem, 4vw);
 `;
 
-const TextWrapper = styled.div`
+const TextWrapper = styled(m.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-left: 2rem;
   border-left: 1px solid ${colors.tag.default};
+  max-width: 30rem; // to prevent the border from shifting
 `;
 
 const MyStoryTagContainer = styled(TagContainer)`

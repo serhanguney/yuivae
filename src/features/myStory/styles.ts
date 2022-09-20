@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import Navigation from "~/features/ui/components/Navigation";
 import { typography } from "~/features/ui/theme/typography";
 
 const SectionTitle = styled.h2`
@@ -8,4 +9,10 @@ const SectionTitle = styled.h2`
   margin-left: 4rem;
 `;
 
-export { SectionTitle };
+const MyStoryNavigation = styled(Navigation)`
+  width: 70%;
+  margin-top: auto;
+  margin-left: auto;
+`;
+
+export { MyStoryNavigation, SectionTitle };

@@ -1,5 +1,5 @@
 import { m } from "framer-motion";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import { colors } from "~/features/ui/theme/colors";
 import { typography } from "~/features/ui/theme/typography";
@@ -26,12 +26,11 @@ const ButtonContainer = styled.div`
     height: auto;
   }
 `;
-const Button = styled(m.button)`
-  ${typography.button}
+const HoverableButton = styled(m.button)`
+  ${typography.button};
   position: relative;
   color: ${colors.background.default};
   padding: 2rem 2.5rem;
-  cursor: pointer;
   overflow: hidden;
   span:nth-of-type(1) {
     left: 0;
@@ -43,6 +42,14 @@ const Button = styled(m.button)`
   span:nth-of-type(3),
   span:nth-of-type(4) {
   }
+`;
+
+const StaticButton = styled(m.button)`
+  ${typography.button};
+  position: relative;
+  color: ${colors.background.default};
+  padding: 2rem 2.5rem;
+  overflow: hidden;
 `;
 const Text = styled(m.span)`
   position: relative;
@@ -58,4 +65,11 @@ const BackgroundColor = styled(m.span)`
   z-index: -1;
 `;
 
-export { BackgroundColor, Button, ButtonContainer, Line, Text };
+export {
+  BackgroundColor,
+  ButtonContainer,
+  HoverableButton,
+  Line,
+  StaticButton,
+  Text,
+};

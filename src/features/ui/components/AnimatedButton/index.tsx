@@ -1,11 +1,18 @@
-import { animate, m, useMotionValue, useTransform } from "framer-motion";
-import { FC, ReactNode, useEffect, useState } from "react";
+import { animate, useMotionValue, useTransform } from "framer-motion";
+import { AllHTMLAttributes, FC, ReactNode, useEffect, useState } from "react";
 
 import { easings } from "~/features/core/animations/constants";
 import { colors } from "~/features/ui/theme/colors";
 
 import { Arrow } from "./parts/Arrow";
-import { BackgroundColor, Button, ButtonContainer, Line, Text } from "./styles";
+import { Lines } from "./parts/Lines";
+import {
+  BackgroundColor,
+  ButtonContainer,
+  HoverableButton,
+  StaticButton,
+  Text,
+} from "./styles";
 
 const hoverTransition = { duration: 0.7, ease: easings.cubic1 };
 const hoverAnimation = {
@@ -13,26 +20,20 @@ const hoverAnimation = {
   hoverOut: { x: 0, transition: hoverTransition },
 };
 
-const borders = Array.from({ length: 4 }, (_, i) => i);
+type Props = AllHTMLAttributes<HTMLButtonElement> & {
+  children: ReactNode;
+  isStatic: boolean;
+};
 
-const AnimatedButton: FC<{ children: ReactNode }> = ({ children }) => {
+const AnimatedButton: FC<Props> = ({ children, isStatic }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [hasToGo, setHasToGo] = useState(false);
+  const [isLineAnimationFinished, setIsLineAnimationFinished] = useState(false);
 
   const lineMotionValue = useMotionValue(0);
 
-  const lineMotion = useTransform(
-    lineMotionValue,
-    (value) => `${100 - value / 2}%`
-  );
-  const reverseLineMotion = useTransform(
-    lineMotionValue,
-    (value) => `-${100 - value / 2}%`
-  );
-
   const backgroundMotion = useTransform(
     lineMotionValue,
-    [150, 200],
+    [120, 200],
     [colors.background.default, colors.text.default]
   );
 
@@ -41,7 +42,7 @@ const AnimatedButton: FC<{ children: ReactNode }> = ({ children }) => {
       duration: 1.6,
       delay: 0.8,
       onComplete: () => {
-        setHasToGo(true);
+        setIsLineAnimationFinished(true);
       },
     });
     return controls.stop;
@@ -49,9 +50,16 @@ const AnimatedButton: FC<{ children: ReactNode }> = ({ children }) => {
 
   const { hoverIn, hoverOut } = hoverAnimation;
 
-  return (
-    <ButtonContainer>
-      <Button
+  const renderStaticButton = () => (
+    <StaticButton style={{ backgroundColor: backgroundMotion }}>
+      {!isLineAnimationFinished && <Lines lineMotionValue={lineMotionValue} />}
+      {children}
+    </StaticButton>
+  );
+
+  const renderHoverableButton = () => (
+    <>
+      <HoverableButton
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
       >
@@ -60,31 +68,23 @@ const AnimatedButton: FC<{ children: ReactNode }> = ({ children }) => {
           style={{ backgroundColor: backgroundMotion }}
         />
         <BackgroundColor animate={isHovered ? hoverIn : hoverOut} />
-        {!hasToGo &&
-          borders.map((borderNo) => {
-            const isEven = borderNo % 2 === 0;
-            const isReversed = borderNo === 2 || borderNo === 3;
-            return (
-              <Line
-                key={borderNo}
-                $borderNo={borderNo}
-                style={{
-                  x: isEven ? 0 : isReversed ? reverseLineMotion : lineMotion,
-                  y: !isEven ? 0 : isReversed ? reverseLineMotion : lineMotion,
-                }}
-                transition={{ duration: 1 }}
-              />
-            );
-          })}
-
+        {!isLineAnimationFinished && (
+          <Lines lineMotionValue={lineMotionValue} />
+        )}
         <Text
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.6 }}
         >
           {children}
         </Text>
-      </Button>
+      </HoverableButton>
       <Arrow isHovered={isHovered} />
+    </>
+  );
+
+  return (
+    <ButtonContainer>
+      {isStatic ? renderStaticButton() : renderHoverableButton()}
     </ButtonContainer>
   );
 };

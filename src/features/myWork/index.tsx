@@ -7,7 +7,7 @@ import { Details } from "~/features/myWork/components/Details";
 import { myWorkArray, Project } from "~/features/myWork/constants/projects";
 import { Grid } from "~/features/ui/components/Grid";
 
-import { MyWorkNavigation,SectionTitle } from "./styles";
+import { MyWorkNavigation, SectionTitle } from "./styles";
 
 const MyWork = () => {
   const [project, setProject] = useState<Project>(myWorkArray[0]);
@@ -21,7 +21,7 @@ const MyWork = () => {
       <Grid>
         <MyWorkNavigation
           animation={{ delay: 1.5 }}
-          projectCount={2}
+          projectCount={myWorkArray.length}
           onChange={changeProject}
           arrayToMatchPageStateWith={myWorkArray}
         />

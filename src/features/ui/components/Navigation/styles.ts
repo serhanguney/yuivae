@@ -22,7 +22,7 @@ const PageNoContainer = styled(m.div)`
   flex: 1;
   display: flex;
 `;
-const PageNo = styled(m.h1)`
+const PageNo = styled(m.h3)`
   ${elevations["1"]};
   font-family: ${font.headings};
   font-size: 10rem;

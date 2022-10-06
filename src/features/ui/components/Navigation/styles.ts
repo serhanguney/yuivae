@@ -25,7 +25,7 @@ const PageNoContainer = styled(m.div)`
 const PageNo = styled(m.h3)`
   ${elevations["1"]};
   font-family: ${font.headings};
-  font-size: 10rem;
+  font-size: clamp(8rem, 7.8vw, 10rem);
   line-height: 8rem;
   font-weight: lighter;
   pointer-events: none;

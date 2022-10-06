@@ -3,22 +3,27 @@ import styled from "styled-components";
 
 import { TagContainer } from "~/features/ui/components/Details";
 import Navigation from "~/features/ui/components/Navigation";
+import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
+
+const myWorkConstants = {
+  mobileWidth: { value: 100, unit: "rem" },
+};
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  margin: clamp(2rem, 2vw, 4rem);
   ${mediaQueries.laptopMin} {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     max-width: 160rem;
-    margin: 4rem;
   }
 `;
 
 const SectionTitle = styled.h1`
   ${typography.h1};
-  font-size: 6rem;
+  font-size: clamp(5rem, 4.6vw, 6rem);
   margin-right: 4rem;
   text-align: right;
 `;
@@ -26,8 +31,11 @@ const SectionTitle = styled.h1`
 const MyWorkDetails = styled(m.div)`
   display: flex;
   flex-direction: column;
-  grid-column: 3/6;
+  grid-column: 1/-1;
   text-align: right;
+  ${mediaQueries.laptopMin} {
+    grid-column: 3/6;
+  }
   margin-right: clamp(2vw, 5rem, 4vw);
 `;
 
@@ -43,6 +51,7 @@ const MyWorkNavigation = styled(Navigation)`
 
 export {
   Container,
+  myWorkConstants,
   MyWorkDetails,
   MyWorkNavigation,
   MyWorkTagContainer,

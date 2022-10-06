@@ -8,6 +8,7 @@ import {
   BackgroundContainer,
   ImageContainer,
   ImageWrapper,
+  OverflowContainer,
   PrimaryColumn,
   SecondaryColumn,
 } from "./styles";
@@ -74,41 +75,44 @@ const Background: FC<Props> = ({ duration, colors, images }) => {
   });
 
   return (
-    <BackgroundContainer>
-      <AnimatePresence exitBeforeEnter>
-        <PrimaryColumn
-          key={colors.primary}
-          $color={colors.primary}
-          {...animatePrimaryColumn}
-        />
-        <SecondaryColumn
-          key={colors.secondary}
-          $color={colors.secondary}
-          {...animateSecondaryColumn}
-        />
+    <OverflowContainer>
+      <BackgroundContainer>
+        <AnimatePresence exitBeforeEnter>
+          <PrimaryColumn
+            key={colors.primary}
+            $color={colors.primary}
+            {...animatePrimaryColumn}
+          />
+          <SecondaryColumn
+            key={colors.secondary}
+            $color={colors.secondary}
+            {...animateSecondaryColumn}
+          />
 
-        <ImageContainer>
-          {images.map((image, index) => {
-            const isMobile = index !== 0;
-            return (
-              <ImageWrapper
-                key={index}
-                $isMobile={isMobile}
-                {...animateImages(index)}
-              >
-                <Image
-                  src={image}
-                  alt=""
-                  objectFit="cover"
-                  layout="responsive"
-                  {...(isMobile ? imageLayouts.mobile : imageLayouts.desktop)}
-                />
-              </ImageWrapper>
-            );
-          })}
-        </ImageContainer>
-      </AnimatePresence>
-    </BackgroundContainer>
+          <ImageContainer>
+            {images.map((image, index) => {
+              const isMobile = index !== 0;
+              return (
+                <ImageWrapper
+                  key={index}
+                  $isMobile={isMobile}
+                  {...animateImages(index)}
+                >
+                  <Image
+                    src={image}
+                    alt=""
+                    objectFit="cover"
+                    layout="responsive"
+                    priority={!isMobile}
+                    {...(isMobile ? imageLayouts.mobile : imageLayouts.desktop)}
+                  />
+                </ImageWrapper>
+              );
+            })}
+          </ImageContainer>
+        </AnimatePresence>
+      </BackgroundContainer>
+    </OverflowContainer>
   );
 };
 

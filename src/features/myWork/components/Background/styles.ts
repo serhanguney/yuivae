@@ -1,11 +1,17 @@
 import { m } from "framer-motion";
 import styled from "styled-components";
 
+import { myWorkConstants } from "~/features/myWork/styles";
 import { elevations } from "~/features/ui/theme/elevations";
+import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 
 type Color = {
   $color?: string;
 };
+
+const columnOffset = `${myWorkConstants.mobileWidth.value * 0.2}${
+  myWorkConstants.mobileWidth.unit
+}`;
 
 const PrimaryColumn = styled(m.div)<Color>`
   ${elevations["0"]};
@@ -24,14 +30,22 @@ const SecondaryColumn = styled(m.div)<Color>`
   top: 0;
   bottom: 0;
 `;
-const BackgroundContainer = styled.div`
+
+const OverflowContainer = styled.div`
+  overflow-x: scroll;
   grid-column: span 7;
+  margin-top: 4rem;
+`;
+const BackgroundContainer = styled.div`
   position: relative;
   display: flex;
+  ${mediaQueries.mobileMax} {
+    width: ${myWorkConstants.mobileWidth.value}${myWorkConstants.mobileWidth.unit};
+  }
 `;
 const ImageContainer = styled.div`
   width: 100%;
-  margin: 4rem 2rem;
+  margin: clamp(2rem, 3vw, 4rem) 2rem;
   display: flex;
   align-items: center;
 `;
@@ -45,6 +59,7 @@ export {
   BackgroundContainer,
   ImageContainer,
   ImageWrapper,
+  OverflowContainer,
   PrimaryColumn,
   SecondaryColumn,
 };

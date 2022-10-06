@@ -9,8 +9,8 @@ const DetailsWrapper = styled(m.div)`
 
 const ProjectTitle = styled(m.h2)`
   ${typography.h2}
-  font-size: 4.6rem;
-  margin-top: 3rem;
+  font-size: clamp(3.5rem,3.5vw,4.6rem);
+  margin-top: clamp(1rem, 2.3vw, 3rem);
 `;
 const ProjectDescription = styled(m.p)`
   ${typography.p}

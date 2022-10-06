@@ -5,7 +5,7 @@ import TheRing from "~/features/myStory/components/theRing";
 import { stories, Story } from "~/features/myStory/constants/stories";
 import { Project } from "~/features/myWork/constants/projects";
 
-import { SectionTitle, Container } from "./styles";
+import { Container, SectionTitle } from "./styles";
 
 const MyStory = () => {
   const [story, setStory] = useState<Story>(stories[0]);

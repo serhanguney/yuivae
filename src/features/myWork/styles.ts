@@ -5,6 +5,17 @@ import { TagContainer } from "~/features/ui/components/Details";
 import Navigation from "~/features/ui/components/Navigation";
 import { typography } from "~/features/ui/theme/typography";
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${mediaQueries.laptopMin} {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 160rem;
+    margin: 4rem;
+  }
+`;
+
 const SectionTitle = styled.h1`
   ${typography.h1};
   font-size: 6rem;
@@ -29,4 +40,11 @@ const MyWorkNavigation = styled(Navigation)`
   align-self: flex-end;
   grid-column: span 2;
 `;
-export { MyWorkDetails, MyWorkNavigation, MyWorkTagContainer, SectionTitle };
+
+export {
+  Container,
+  MyWorkDetails,
+  MyWorkNavigation,
+  MyWorkTagContainer,
+  SectionTitle,
+};

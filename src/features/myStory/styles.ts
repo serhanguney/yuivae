@@ -8,6 +8,13 @@ const SectionTitle = styled.h2`
   font-size: 6rem;
   margin-left: 4rem;
 `;
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 160rem;
+  min-height: 50rem;
+  margin: 4rem;
+`;
 
 const MyStoryNavigation = styled(Navigation)`
   width: 70%;
@@ -15,4 +22,4 @@ const MyStoryNavigation = styled(Navigation)`
   margin-left: auto;
 `;
 
-export { MyStoryNavigation, SectionTitle };
+export { Container, MyStoryNavigation, SectionTitle };

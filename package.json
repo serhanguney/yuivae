@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "ANALYZE=true next build",
+    "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
+    "start:no-cache": "yarn build && yarn start",
     "lint": "yarn eslint --fix .",
     "prepare": "husky install"
   },
@@ -14,6 +16,7 @@
     "next": "12.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sharp": "^0.31.1",
     "styled-components": "^5.3.5",
     "uuid": "^8.3.2"
   },

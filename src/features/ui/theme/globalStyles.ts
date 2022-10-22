@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-import { font } from "./typography";
+import { font, typography } from "./typography";
 
 export const GlobalStyles = createGlobalStyle`
   * , *::before , *::after {
@@ -11,11 +11,13 @@ export const GlobalStyles = createGlobalStyle`
   html,
   body, #__next {
     padding: 0;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
   }
 
   html {
     font-size: 62.5%;
+    overflow: hidden;
   }
 
   body {
@@ -30,9 +32,14 @@ export const GlobalStyles = createGlobalStyle`
   button {
     background: none;
     border: none;
+    cursor: pointer;
   }
 
   ul{
     list-style: none;
+  }
+  input{
+    ${typography.p};
+    border: none;
   }
 `;

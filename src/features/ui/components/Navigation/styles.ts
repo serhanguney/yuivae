@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { colors } from "~/features/ui/theme/colors";
 import { elevations } from "~/features/ui/theme/elevations";
+import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { font } from "~/features/ui/theme/typography";
 
 const Container = styled.div`
@@ -21,6 +22,9 @@ const PageNoContainer = styled(m.div)`
   width: 33.33%;
   flex: 1;
   display: flex;
+  ${mediaQueries.mobileMax} {
+    padding-bottom: 1rem;
+  }
 `;
 const PageNo = styled(m.h3)`
   ${elevations["1"]};

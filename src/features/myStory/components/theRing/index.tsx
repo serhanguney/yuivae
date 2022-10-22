@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from "react";
 import { easings } from "~/features/core/animations/constants";
 import { stories, Story } from "~/features/myStory/constants/stories";
 
-import { Circle, Container, ImageWrapper, Shadow } from "./styles";
+import { Circle, Container, ImageWrapper } from "./styles";
 
 type Props = {
   story: Story;
@@ -72,7 +72,6 @@ const TheRing: FC<Props> = ({ story }) => {
             </ImageWrapper>
           );
         })}
-        <Shadow $color={storyColor} />
       </Circle>
     </Container>
   );

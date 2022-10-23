@@ -17,7 +17,8 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     font-size: 62.5%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   body {
@@ -41,5 +42,8 @@ export const GlobalStyles = createGlobalStyle`
   input{
     ${typography.p};
     border: none;
+  }
+  a,button {
+    cursor: pointer;
   }
 `;

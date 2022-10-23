@@ -11,6 +11,7 @@ import { typography } from "~/features/ui/theme/typography";
 import Github from "~/icons/Github";
 import Linkedin from "~/icons/Linkedin";
 import AnimatedSection from "~/features/ui/components/AnimatedSection";
+import Footer from "~/features/ui/components/Footer";
 
 const Container = styled.div`
   margin: auto;
@@ -129,6 +130,7 @@ const Home: NextPage = () => {
       <AnimatedSection id="my-work" offset={500}>
         <MyWork />
       </AnimatedSection>
+      <Footer />
     </div>
   );
 };

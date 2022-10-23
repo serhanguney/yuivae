@@ -43,6 +43,9 @@ export const GlobalStyles = createGlobalStyle`
     ${typography.p};
     border: none;
   }
+  a{
+    text-decoration: none;
+  }
   a,button {
     cursor: pointer;
   }

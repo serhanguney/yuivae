@@ -9,6 +9,7 @@ import { font } from "~/features/ui/theme/typography";
 const Container = styled.div`
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
 `;
 const Button = styled(m.button)`
   color: ${colors.text.hover};
@@ -18,6 +19,7 @@ const Button = styled(m.button)`
     color: ${colors.text.default};
   }
 `;
+
 const PageNoContainer = styled(m.div)`
   width: 33.33%;
   flex: 1;

@@ -1,7 +1,7 @@
 import { useAnimationControls } from "framer-motion";
 import { FC, useEffect, useState } from "react";
 
-import { easings, revealParagraph } from "~/features/core/animations/constants";
+import { easings } from "~/features/core/animations/constants";
 import { Story } from "~/features/myStory/constants/stories";
 import { Project } from "~/features/myWork/constants/projects";
 import PreviousArrow from "~/features/ui/components/Navigation/PreviosArrow";

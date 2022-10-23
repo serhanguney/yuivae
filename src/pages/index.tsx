@@ -4,21 +4,21 @@ import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
 
-import { easings, revealParagraph } from "~/features/core/animations/constants";
+import { revealParagraph } from "~/features/core/animations/constants";
 import MyStory from "~/features/myStory";
 import { MyWork } from "~/features/myWork";
+import AnimatedSection from "~/features/ui/components/AnimatedSection";
+import Footer from "~/features/ui/components/Footer";
 import { typography } from "~/features/ui/theme/typography";
 import Github from "~/icons/Github";
 import Linkedin from "~/icons/Linkedin";
-import AnimatedSection from "~/features/ui/components/AnimatedSection";
-import Footer from "~/features/ui/components/Footer";
+import { LINKS } from "~/features/core/constants";
 
 const Container = styled.div`
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //align-items: center;
   width: fit-content;
   max-width: clamp(30rem, 60vw, 90rem);
   text-align: center;
@@ -104,7 +104,7 @@ const Home: NextPage = () => {
           Or you can just skip the whole thing...
         </HomePageText>
         <LinkContainer>
-          <Link href="https://linkedin.com/in/serhan-guney/">
+          <Link href={LINKS.LINKEDIN}>
             <m.a
               initial={revealParagraph.initial}
               animate={revealParagraph.animate(1.6)}
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
               <Linkedin />
             </m.a>
           </Link>
-          <Link href="https://github.com/serhanguney">
+          <Link href={LINKS.GITHUB}>
             <m.a
               initial={revealParagraph.initial}
               animate={revealParagraph.animate(1.7)}

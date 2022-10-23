@@ -11,7 +11,7 @@ const Container = styled.div`
   margin-right: clamp(2vw, 5rem, 4vw);
 `;
 
-const Circle = styled.div<{ $borderColor: string }>`
+const Circle = styled(m.div)<{ $borderColor: string }>`
   position: relative;
   flex: 0.4;
   margin: auto 0;

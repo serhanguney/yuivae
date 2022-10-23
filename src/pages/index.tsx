@@ -10,6 +10,7 @@ import { MyWork } from "~/features/myWork";
 import { typography } from "~/features/ui/theme/typography";
 import Github from "~/icons/Github";
 import Linkedin from "~/icons/Linkedin";
+import AnimatedSection from "~/features/ui/components/AnimatedSection";
 
 const Container = styled.div`
   margin: auto;
@@ -122,8 +123,12 @@ const Home: NextPage = () => {
           </Link>
         </LinkContainer>
       </Container>
-      <MyStory />
-      {/*<MyWork />*/}
+      <AnimatedSection id="my-story" offset={300}>
+        <MyStory />
+      </AnimatedSection>
+      <AnimatedSection id="my-work" offset={500}>
+        <MyWork />
+      </AnimatedSection>
     </div>
   );
 };

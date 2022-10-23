@@ -1,6 +1,9 @@
 import { useState } from "react";
 
-import { durations } from "~/features/core/animations/constants";
+import {
+  durations,
+  revealParagraph,
+} from "~/features/core/animations/constants";
 import { Story } from "~/features/myStory/constants/stories";
 import { Background } from "~/features/myWork/components/Background";
 import { Details } from "~/features/myWork/components/Details";
@@ -16,7 +19,12 @@ const MyWork = () => {
 
   return (
     <>
-      <SectionTitle>My Work</SectionTitle>
+      <SectionTitle
+        initial={revealParagraph.initial}
+        animate={revealParagraph.animate(0)}
+      >
+        My Work
+      </SectionTitle>
       <Container>
         <MyWorkNavigation
           animation={{ delay: 1.5 }}

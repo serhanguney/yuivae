@@ -13,7 +13,9 @@ const myWorkConstants = {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: clamp(2rem, 2vw, 4rem);
+  margin-right: clamp(2rem, 2vw, 4rem);
+  margin-left: clamp(2rem, 2vw, 4rem);
+  margin-bottom: 20rem;
   ${mediaQueries.laptopMin} {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -21,7 +23,7 @@ const Container = styled.div`
   }
 `;
 
-const SectionTitle = styled.h1`
+const SectionTitle = styled(m.h2)`
   ${typography.h1};
   font-size: clamp(5rem, 4.6vw, 6rem);
   margin-right: 4rem;

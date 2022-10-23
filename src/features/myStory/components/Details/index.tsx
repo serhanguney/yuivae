@@ -27,7 +27,7 @@ type Props = {
 };
 
 const MOTION = {
-  register: { initial: {}, animate: {}, exit: {} },
+  register: { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: {} },
   revealParagraph,
 };
 

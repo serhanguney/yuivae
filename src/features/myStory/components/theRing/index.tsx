@@ -51,7 +51,12 @@ const TheRing: FC<Props> = ({ story }) => {
   const storyColor = stories[currentStoryIndex ?? 0].color;
   return (
     <Container>
-      <Circle $borderColor={storyColor}>
+      <Circle
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1 }}
+        $borderColor={storyColor}
+      >
         {stories.map((mappedStory, index) => {
           const isCurrentStory =
             stories.indexOf(mappedStory) === currentStoryIndex;

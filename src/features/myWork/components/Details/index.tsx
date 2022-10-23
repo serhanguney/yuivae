@@ -65,6 +65,6 @@ export const Details: FC<Props> = ({ project }) => (
         </MyWorkTagContainer>
       </DetailsWrapper>
     </AnimatePresence>
-    <AnimatedButton isStatic>Go to project</AnimatedButton>
+    <AnimatedButton isStatic={false}>Go to project</AnimatedButton>
   </MyWorkDetails>
 );

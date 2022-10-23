@@ -65,6 +65,12 @@ const Background: FC<Props> = ({ duration, colors, images }) => {
       opacity: 1,
       filter: "blur(0px)",
     },
+    exit: {
+      x: -20,
+      opacity: 0,
+      filter: "blur(5px)",
+      transition: { delay: index * 0.2 },
+    },
     transition: {
       type: "spring",
       stiffness: 250,
@@ -83,18 +89,32 @@ const Background: FC<Props> = ({ duration, colors, images }) => {
             $color={colors.primary}
             {...animatePrimaryColumn}
           />
+        </AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           <SecondaryColumn
             key={colors.secondary}
             $color={colors.secondary}
             {...animateSecondaryColumn}
           />
+        </AnimatePresence>
 
-          <ImageContainer>
-            {images.map((image, index) => {
-              const isMobile = index !== 0;
-              return (
+        <ImageContainer>
+          {images.map((image, index) => {
+            const isMobile = index !== 0;
+            let componentKey: string = "";
+
+            if (typeof image === "string") {
+              componentKey = image;
+            } else if ("default" in image) {
+              componentKey = image.default.src;
+            } else if ("src" in image) {
+              componentKey = image.src;
+            }
+
+            return (
+              <AnimatePresence key={index} exitBeforeEnter>
                 <ImageWrapper
-                  key={index}
+                  key={componentKey}
                   $isMobile={isMobile}
                   {...animateImages(index)}
                 >
@@ -107,10 +127,10 @@ const Background: FC<Props> = ({ duration, colors, images }) => {
                     {...(isMobile ? imageLayouts.mobile : imageLayouts.desktop)}
                   />
                 </ImageWrapper>
-              );
-            })}
-          </ImageContainer>
-        </AnimatePresence>
+              </AnimatePresence>
+            );
+          })}
+        </ImageContainer>
       </BackgroundContainer>
     </OverflowContainer>
   );

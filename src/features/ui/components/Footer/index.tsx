@@ -2,13 +2,13 @@ import Link from "next/link";
 import { FC } from "react";
 import styled from "styled-components";
 
-import { LINKS } from "~/features/core/constants";
+import { LINKS, ROUTES } from "~/features/core/constants";
 import { colors } from "~/features/ui/theme/colors";
+import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
 import Github from "~/icons/Github";
 import Linkedin from "~/icons/Linkedin";
 import { Logo } from "~/icons/Logo";
-import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 
 const Container = styled.footer`
   display: flex;
@@ -71,15 +71,15 @@ const FooterLogo = styled(Logo)`
 const footerLinks = [
   {
     text: "My work",
-    link: "#my-work",
+    link: ROUTES.MY_WORK,
   },
   {
     text: "My story",
-    link: "#my-story",
+    link: ROUTES.MY_STORY,
   },
   {
     text: "Yuipass",
-    link: "/yuipass",
+    link: ROUTES.YUIPASS,
   },
 ];
 

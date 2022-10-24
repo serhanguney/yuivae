@@ -5,6 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import { revealParagraph } from "~/features/core/animations/constants";
+import { LINKS } from "~/features/core/constants";
 import MyStory from "~/features/myStory";
 import { MyWork } from "~/features/myWork";
 import AnimatedSection from "~/features/ui/components/AnimatedSection";
@@ -12,7 +13,6 @@ import Footer from "~/features/ui/components/Footer";
 import { typography } from "~/features/ui/theme/typography";
 import Github from "~/icons/Github";
 import Linkedin from "~/icons/Linkedin";
-import { LINKS } from "~/features/core/constants";
 
 const Container = styled.div`
   margin: auto;

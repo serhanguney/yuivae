@@ -19,6 +19,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 62.5%;
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth;
   }
 
   body {

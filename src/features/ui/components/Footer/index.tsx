@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FC } from "react";
 import styled from "styled-components";
 
-import { LINKS, ROUTES } from "~/features/core/constants";
+import { LINKS, listOfLinks } from "~/features/core/constants";
 import { colors } from "~/features/ui/theme/colors";
 import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
@@ -68,21 +68,6 @@ const FooterLogo = styled(Logo)`
   color: ${colors.text.darkTheme};
 `;
 
-const footerLinks = [
-  {
-    text: "My work",
-    link: ROUTES.MY_WORK,
-  },
-  {
-    text: "My story",
-    link: ROUTES.MY_STORY,
-  },
-  {
-    text: "Yuipass",
-    link: ROUTES.YUIPASS,
-  },
-];
-
 const Footer: FC = () => {
   return (
     <Container>
@@ -99,7 +84,7 @@ const Footer: FC = () => {
         </Link>
       </IconContainer>
       <LinkContainer>
-        {footerLinks.map((item) => (
+        {listOfLinks.map((item) => (
           <li key={item.text}>
             <Link href={item.link}>{item.text}</Link>
           </li>

@@ -8,3 +8,18 @@ export enum ROUTES {
   MY_STORY = "/#my-story",
   YUIPASS = "/yuipass",
 }
+
+export const listOfLinks = [
+  {
+    text: "My work",
+    link: ROUTES.MY_WORK,
+  },
+  {
+    text: "My story",
+    link: ROUTES.MY_STORY,
+  },
+  {
+    text: "Yuipass",
+    link: ROUTES.YUIPASS,
+  },
+];

@@ -10,6 +10,7 @@ import MyStory from "~/features/myStory";
 import { MyWork } from "~/features/myWork";
 import AnimatedSection from "~/features/ui/components/AnimatedSection";
 import Footer from "~/features/ui/components/Footer";
+import Header from "~/features/ui/components/Header";
 import { typography } from "~/features/ui/theme/typography";
 import Github from "~/icons/Github";
 import Linkedin from "~/icons/Linkedin";
@@ -66,6 +67,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Portfolio website of Serhan Guney." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <Container>
         <HomePageTitle>
           Y

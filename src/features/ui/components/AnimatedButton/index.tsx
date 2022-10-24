@@ -23,9 +23,10 @@ const hoverAnimation = {
 type Props = AllHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
   isStatic: boolean;
+  link: string;
 };
 
-const AnimatedButton: FC<Props> = ({ children, isStatic }) => {
+const AnimatedButton: FC<Props> = ({ children, isStatic, link }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isLineAnimationFinished, setIsLineAnimationFinished] = useState(false);
 
@@ -57,9 +58,11 @@ const AnimatedButton: FC<Props> = ({ children, isStatic }) => {
     </StaticButton>
   );
 
-  const renderHoverableButton = () => (
+  const renderHoverableButton = (link: string) => (
     <>
       <HoverableButton
+        target="_blank"
+        href={link}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
       >
@@ -84,7 +87,7 @@ const AnimatedButton: FC<Props> = ({ children, isStatic }) => {
 
   return (
     <ButtonContainer>
-      {isStatic ? renderStaticButton() : renderHoverableButton()}
+      {isStatic ? renderStaticButton() : renderHoverableButton(link)}
     </ButtonContainer>
   );
 };

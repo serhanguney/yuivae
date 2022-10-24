@@ -26,12 +26,17 @@ const ButtonContainer = styled.div`
     height: auto;
   }
 `;
-const HoverableButton = styled(m.button)`
+
+const HoverableButton = styled(m.a)`
   ${typography.button};
+  display: block;
   position: relative;
   color: ${colors.background.default};
-  padding: 2rem 2.5rem;
+  padding: 2rem clamp(1.5rem, 1.8vw, 2.5rem);
   overflow: hidden;
+  text-align: center;
+  width: fit-content;
+  margin-left: auto;
   span:nth-of-type(1) {
     left: 0;
   }
@@ -44,7 +49,7 @@ const HoverableButton = styled(m.button)`
   }
 `;
 
-const StaticButton = styled(m.button)`
+const StaticButton = styled(m.a)`
   ${typography.button};
   position: relative;
   color: ${colors.background.default};

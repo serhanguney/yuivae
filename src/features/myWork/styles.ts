@@ -15,7 +15,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   ${sectionStyles.spacing};
-  ${mediaQueries.laptopMin} {
+  ${mediaQueries.mobileMin} {
     ${sectionStyles.grid};
   }
 `;
@@ -32,21 +32,24 @@ const MyWorkDetails = styled(m.div)`
   display: flex;
   flex-direction: column;
   grid-column: 1/-1;
+  grid-row: 2;
   text-align: right;
-  ${mediaQueries.laptopMin} {
+  ${mediaQueries.mobileMin} {
     grid-column: 3/6;
   }
-  margin-right: clamp(2vw, 5rem, 4vw);
+  margin-right: clamp(2rem, 2.2vw, 5rem);
 `;
 
 const MyWorkTagContainer = styled(TagContainer)`
   flex-wrap: wrap;
   justify-content: flex-end;
+  margin-left: auto;
 `;
 
 const MyWorkNavigation = styled(Navigation)`
   align-self: flex-end;
   grid-column: span 2;
+  grid-row: 2;
   margin-left: auto;
 `;
 

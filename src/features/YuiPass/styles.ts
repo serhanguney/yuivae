@@ -2,7 +2,6 @@ import { m } from "framer-motion";
 import styled from "styled-components";
 
 import { Input } from "~/features/ui/components/Input";
-import { elevations } from "~/features/ui/theme/elevations";
 import { typography } from "~/features/ui/theme/typography";
 
 const YuiPassLayout = styled.div`
@@ -15,8 +14,21 @@ const YuiPassLayout = styled.div`
 `;
 
 const YuiPassTitle = styled.h1`
-  ${typography.h1};
-  font-size: 7.5rem;
+  ${typography.pageTitle};
+  display: flex;
+  justify-content: center;
+  margin-top: 20rem;
+  .stroked {
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+
+  span {
+    display: inline-block;
+    overflow: hidden;
+    height: min-content;
+  }
 `;
 
 const YuiPassBody = styled.p`

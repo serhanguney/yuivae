@@ -1,7 +1,8 @@
 export const palette = {
   gray: {
-    100: "#777777",
-    600: "#BDBDBD",
+    100: "#414141",
+    500: "#777777",
+    800: "#BDBDBD",
   },
   white: "#FFFFFF",
   black: "#212121",

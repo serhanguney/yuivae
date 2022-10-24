@@ -2,7 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 import { revealParagraph } from "~/features/core/animations/constants";
-import { AnimatedButton } from "~/features/ui/components/AnimatedButton";
+import { Button } from "~/features/ui/components/Button/styles";
 
 import {
   YuiPassBody,
@@ -35,7 +35,9 @@ const YuiPass = () => {
 
   return (
     <YuiPassLayout>
-      <YuiPassTitle>YuiPass</YuiPassTitle>
+      <YuiPassTitle>
+        Yui<span className="stroked">Pass</span>
+      </YuiPassTitle>
       <YuiPassBody>
         Hi. This is where I’ve had to put a stop to{" "}
         <span>losing my passwords all the time.</span> <br />
@@ -50,9 +52,7 @@ const YuiPass = () => {
           placeholder="enter any phrase"
           onChange={handleInput}
         />
-        <AnimatedButton type="submit" isStatic={true}>
-          GET YUIPASS
-        </AnimatedButton>
+        <Button type="submit">GET YUIPASS</Button>
       </YuiPassForm>
       <AnimatePresence>
         {isSubmitted && (

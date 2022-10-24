@@ -29,7 +29,10 @@ export const typography = {
     ${defaultHeadingStyles};
     margin-bottom: 1rem;
   `,
-  h3: {},
+  pageTitle: css`
+    ${defaultHeadingStyles};
+    font-size: 8.5rem;
+  `,
   p: css`
     ${defaultParagraphStyles};
   `,
@@ -43,5 +46,6 @@ export const typography = {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 2rem;
+    white-space: nowrap;
   `,
 };

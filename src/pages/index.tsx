@@ -26,8 +26,7 @@ const Container = styled.div`
 `;
 
 const HomePageTitle = styled.h2`
-  ${typography.h2};
-  font-size: 8.5rem;
+  ${typography.pageTitle};
   display: flex;
   justify-content: center;
   margin-top: 20rem;

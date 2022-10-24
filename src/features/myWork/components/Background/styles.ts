@@ -34,11 +34,13 @@ const SecondaryColumn = styled(m.div)<Color>`
 const OverflowContainer = styled.div`
   overflow-x: scroll;
   grid-column: span 7;
+  grid-row: 2;
   margin-top: 4rem;
 `;
 const BackgroundContainer = styled.div`
   position: relative;
   display: flex;
+  height: 100%;
   ${mediaQueries.mobileMax} {
     width: ${myWorkConstants.mobileWidth.value}${myWorkConstants.mobileWidth.unit};
   }

@@ -1,10 +1,7 @@
 import { m } from "framer-motion";
 import { FC } from "react";
 
-import {
-  arrowAnimation,
-  ArrowProps,
-} from "~/features/ui/components/Navigation/PreviosArrow";
+import { arrowAnimation, ArrowProps } from "~/features/ui/icons/PreviosArrow";
 
 const NextArrow: FC<ArrowProps> = ({ isHidden }) => (
   <svg

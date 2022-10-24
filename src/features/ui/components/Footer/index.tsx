@@ -6,9 +6,9 @@ import { LINKS, listOfLinks } from "~/features/core/constants";
 import { colors } from "~/features/ui/theme/colors";
 import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
-import Github from "~/icons/Github";
-import Linkedin from "~/icons/Linkedin";
-import { Logo } from "~/icons/Logo";
+import Github from "~/features/ui/icons/Github";
+import Linkedin from "~/features/ui/icons/Linkedin";
+import { Logo } from "~/features/ui/icons/Logo";
 
 const Container = styled.footer`
   display: flex;

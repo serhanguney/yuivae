@@ -7,7 +7,7 @@ import { listOfLinks } from "~/features/core/constants";
 import { colors } from "~/features/ui/theme/colors";
 import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
-import { InvertedLogo } from "~/icons/Logo";
+import { InvertedLogo } from "~/features/ui/icons/Logo";
 
 const HeaderContainer = styled.header`
   display: flex;

@@ -12,8 +12,8 @@ import AnimatedSection from "~/features/ui/components/AnimatedSection";
 import Footer from "~/features/ui/components/Footer";
 import Header from "~/features/ui/components/Header";
 import { typography } from "~/features/ui/theme/typography";
-import Github from "~/icons/Github";
-import Linkedin from "~/icons/Linkedin";
+import Github from "~/features/ui/icons/Github";
+import Linkedin from "~/features/ui/icons/Linkedin";
 
 const Container = styled.div`
   margin: auto;

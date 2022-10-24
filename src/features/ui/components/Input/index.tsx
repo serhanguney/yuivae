@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { colors } from "~/features/ui/theme/colors";
 
-import { PencilIcon } from "./icons/pencil";
+import { PencilIcon } from "../../icons/Pencil";
 
 type Props = AllHTMLAttributes<HTMLInputElement> & {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;

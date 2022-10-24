@@ -4,9 +4,9 @@ import { FC, useEffect, useState } from "react";
 import { easings } from "~/features/core/animations/constants";
 import { Story } from "~/features/myStory/constants/stories";
 import { Project } from "~/features/myWork/constants/projects";
-import PreviousArrow from "~/features/ui/components/Navigation/PreviosArrow";
+import PreviousArrow from "~/features/ui/icons/PreviosArrow";
 
-import NextArrow from "./NextArrow";
+import NextArrow from "../../icons/NextArrow";
 import { Button, Container, PageNo, PageNoContainer } from "./styles";
 
 const clamp = (a: number, b: number, c: number) => Math.min(Math.max(a, b), c);

@@ -4,7 +4,7 @@ import { AllHTMLAttributes, FC, ReactNode, useEffect, useState } from "react";
 import { easings } from "~/features/core/animations/constants";
 import { colors } from "~/features/ui/theme/colors";
 
-import { Arrow } from "./parts/Arrow";
+import { Arrow } from "../../icons/ButtonArrow";
 import { Lines } from "./parts/Lines";
 import {
   BackgroundColor,

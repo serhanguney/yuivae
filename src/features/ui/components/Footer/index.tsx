@@ -7,6 +7,66 @@ import { colors } from "~/features/ui/theme/colors";
 import { typography } from "~/features/ui/theme/typography";
 import Github from "~/icons/Github";
 import Linkedin from "~/icons/Linkedin";
+import { Logo } from "~/icons/Logo";
+import { mediaQueries } from "~/features/ui/theme/mediaQueries";
+
+const Container = styled.footer`
+  display: flex;
+  align-items: center;
+  background-color: ${colors.background.darkTheme};
+  padding: 4rem 2rem;
+  ${mediaQueries.mobileMax} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+const LinkContainer = styled.ul`
+  display: flex;
+  align-items: center;
+  ${mediaQueries.mobileMax} {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  li {
+    margin: 0 1rem;
+    ${mediaQueries.mobileMax} {
+      margin: 0.5rem 0;
+    }
+  }
+  li > a {
+    ${typography.p};
+    color: ${colors.text.darkTheme};
+    &:hover {
+      color: ${colors.secondary.default};
+    }
+  }
+`;
+
+const IconContainer = styled.ul`
+  display: flex;
+  ${mediaQueries.mobileMax} {
+    margin-bottom: 2rem;
+  }
+  a {
+    &:first-of-type {
+      margin-left: 0;
+    }
+    margin: 0 1rem;
+    color: ${colors.text.darkTheme};
+    &:hover {
+      color: ${colors.secondary.default};
+    }
+    svg {
+      fill: currentColor;
+    }
+  }
+`;
+
+const FooterLogo = styled(Logo)`
+  margin-left: auto;
+  color: ${colors.text.darkTheme};
+`;
 
 const footerLinks = [
   {
@@ -23,36 +83,6 @@ const footerLinks = [
   },
 ];
 
-const Container = styled.footer`
-  background-color: ${colors.background.darkTheme};
-  padding: 4rem 2rem;
-`;
-const LinkContainer = styled.ul`
-  display: flex;
-  padding-top: 4rem;
-  a {
-    ${typography.p};
-    margin: 0 1rem;
-    color: ${colors.text.darkTheme};
-    &:hover {
-      color: ${colors.secondary.default};
-    }
-  }
-`;
-
-const IconContainer = styled.ul`
-  display: flex;
-  a {
-    margin: 0 1rem;
-    color: ${colors.text.darkTheme};
-    &:hover {
-      color: ${colors.secondary.default};
-    }
-    svg {
-      fill: currentColor;
-    }
-  }
-`;
 const Footer: FC = () => {
   return (
     <Container>
@@ -75,6 +105,7 @@ const Footer: FC = () => {
           </li>
         ))}
       </LinkContainer>
+      <FooterLogo />
     </Container>
   );
 };

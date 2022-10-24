@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { TagContainer } from "~/features/ui/components/Details";
 import Navigation from "~/features/ui/components/Navigation";
+import { sectionStyles } from "~/features/ui/theme/constants";
 import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
 
@@ -13,18 +14,15 @@ const myWorkConstants = {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: clamp(2rem, 2vw, 4rem);
-  margin-left: clamp(2rem, 2vw, 4rem);
-  margin-bottom: 20rem;
+  ${sectionStyles.spacing};
   ${mediaQueries.laptopMin} {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    max-width: 160rem;
+    ${sectionStyles.grid};
   }
 `;
 
 const SectionTitle = styled(m.h2)`
   ${typography.h1};
+  grid-column: span 12;
   font-size: clamp(5rem, 4.6vw, 6rem);
   margin-right: 4rem;
   text-align: right;
@@ -49,6 +47,7 @@ const MyWorkTagContainer = styled(TagContainer)`
 const MyWorkNavigation = styled(Navigation)`
   align-self: flex-end;
   grid-column: span 2;
+  margin-left: auto;
 `;
 
 export {

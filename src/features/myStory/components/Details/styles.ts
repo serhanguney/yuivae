@@ -21,7 +21,6 @@ const TextWrapper = styled(m.div)`
   justify-content: center;
   padding-left: 2rem;
   border-left: 1px solid ${colors.tag.default};
-  max-width: 30rem; // to prevent the border from shifting
   width: 60%;
   ${mediaQueries.mobileMax} {
     width: 100%;
@@ -35,9 +34,11 @@ const TextWrapper = styled(m.div)`
 const MyStoryTagContainer = styled(TagContainer)`
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end;
   padding-right: 2rem;
   flex-wrap: wrap;
   width: 40%;
+  text-align: right;
   ${mediaQueries.mobileMax} {
     width: 100%;
     flex-direction: row;

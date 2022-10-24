@@ -16,10 +16,9 @@ const Circle = styled(m.div)<{ $borderColor: string }>`
   flex: 0.4;
   margin: auto 0;
   border: 1px solid ${(props) => props.$borderColor};
-  border-radius: 150px;
-  max-height: clamp(34rem, 27vw, 40rem);
-  min-height: clamp(24rem, 24vw, 34rem);
-  max-width: clamp(20rem, 22vw, 32rem);
+  border-radius: clamp(150px, 10vw, 250px);
+  height: clamp(30rem, 27vw, 60rem);
+  max-width: clamp(25rem, 22vw, 50rem);
   transition: all 500ms ease;
   ${mediaQueries.mobileMax} {
     flex: 0.8;
@@ -33,7 +32,7 @@ const ImageWrapper = styled(m.div)<{ $hasFocus: boolean }>`
   width: 100%;
   height: 100%;
   padding: 1.5rem;
-  border-radius: 150px;
+  border-radius: clamp(150px, 10vw, 250px);
   background-color: ${(props) =>
     props.$hasFocus ? "antiquewhite" : colors.tag.default};
   background-clip: content-box;

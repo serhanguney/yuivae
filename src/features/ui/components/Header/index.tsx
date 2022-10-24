@@ -4,11 +4,11 @@ import { FC, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 import { listOfLinks } from "~/features/core/constants";
+import { InvertedLogo } from "~/features/ui/icons/Logo";
+import PreviosArrow from "~/features/ui/icons/PreviosArrow";
 import { colors } from "~/features/ui/theme/colors";
 import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
-import { InvertedLogo } from "~/features/ui/icons/Logo";
-import PreviosArrow from "~/features/ui/icons/PreviosArrow";
 
 const HeaderContainer = styled.header`
   display: flex;

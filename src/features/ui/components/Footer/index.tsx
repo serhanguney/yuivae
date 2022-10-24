@@ -3,18 +3,19 @@ import { FC } from "react";
 import styled from "styled-components";
 
 import { LINKS, listOfLinks } from "~/features/core/constants";
-import { colors } from "~/features/ui/theme/colors";
-import { mediaQueries } from "~/features/ui/theme/mediaQueries";
-import { typography } from "~/features/ui/theme/typography";
 import Github from "~/features/ui/icons/Github";
 import Linkedin from "~/features/ui/icons/Linkedin";
 import { Logo } from "~/features/ui/icons/Logo";
+import { colors } from "~/features/ui/theme/colors";
+import { mediaQueries } from "~/features/ui/theme/mediaQueries";
+import { typography } from "~/features/ui/theme/typography";
 
 const Container = styled.footer`
   display: flex;
   align-items: center;
   background-color: ${colors.background.darkTheme};
   padding: 4rem 2rem;
+  margin-top: clamp(25rem, 30vw, 45rem);
   ${mediaQueries.mobileMax} {
     flex-direction: column;
     align-items: flex-start;

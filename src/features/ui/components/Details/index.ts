@@ -27,7 +27,9 @@ const Tag = styled(m.p)`
   ${typography.tag}
   margin: 0.5rem 1rem;
   flex: 0;
-  white-space: nowrap;
+  ${mediaQueries.laptopMin} {
+    white-space: nowrap;
+  }
 `;
 const TagContainer = styled(m.div)`
   display: flex;

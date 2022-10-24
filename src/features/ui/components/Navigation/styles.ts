@@ -10,6 +10,8 @@ const Container = styled.div`
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  max-width: 20rem;
+  min-width: 20rem;
 `;
 const Button = styled(m.button)`
   color: ${colors.text.hover};

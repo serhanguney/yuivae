@@ -15,10 +15,9 @@ const AnimatedSection: FC<Props> = ({ children, id, offset }) => {
     if (!ref.current) return;
 
     const sectionPosition = ref.current.getBoundingClientRect().y;
-    console.log("animated section", sectionPosition);
+
     return scrollY.onChange((latest) => {
       if (sectionPosition - offset < latest && !isPresent) {
-        console.log("animated section", ref.current);
         setIsPresent(true);
       }
     });
@@ -29,7 +28,7 @@ const AnimatedSection: FC<Props> = ({ children, id, offset }) => {
       {isPresent ? (
         <AnimatePresence>{children}</AnimatePresence>
       ) : (
-        <div style={{ height: "100vh", width: "100vw", background: "white" }} />
+        <div style={{ height: "40vh", width: "100vw", background: "white" }} />
       )}
     </section>
   );

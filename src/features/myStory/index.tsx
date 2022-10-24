@@ -17,18 +17,16 @@ const MyStory = () => {
     setStory(changedStory as Story);
 
   return (
-    <>
+    <Container>
       <SectionTitle
         initial={revealParagraph.initial}
         animate={revealParagraph.animate(0)}
       >
         My Story
       </SectionTitle>
-      <Container>
-        <TheRing story={story} />
-        <MyStoryDetails story={story} drillForNavigation={{ onChange }} />
-      </Container>
-    </>
+      <TheRing story={story} />
+      <MyStoryDetails story={story} drillForNavigation={{ onChange }} />
+    </Container>
   );
 };
 

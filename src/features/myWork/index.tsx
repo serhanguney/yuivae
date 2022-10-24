@@ -18,31 +18,29 @@ const MyWork = () => {
     setProject(chosenProject as Project);
 
   return (
-    <>
+    <Container>
       <SectionTitle
         initial={revealParagraph.initial}
         animate={revealParagraph.animate(0)}
       >
         My Work
       </SectionTitle>
-      <Container>
-        <MyWorkNavigation
-          animation={{ delay: 1.5 }}
-          projectCount={myWorkArray.length}
-          onChange={changeProject}
-          arrayToMatchPageStateWith={myWorkArray}
-        />
-        <Details project={project} />
-        <Background
-          duration={durations.myWork.long}
-          colors={{
-            primary: project.colors.primary,
-            secondary: project.colors.secondary,
-          }}
-          images={project.images}
-        />
-      </Container>
-    </>
+      <MyWorkNavigation
+        animation={{ delay: 1.5 }}
+        projectCount={myWorkArray.length}
+        onChange={changeProject}
+        arrayToMatchPageStateWith={myWorkArray}
+      />
+      <Details project={project} />
+      <Background
+        duration={durations.myWork.long}
+        colors={{
+          primary: project.colors.primary,
+          secondary: project.colors.secondary,
+        }}
+        images={project.images}
+      />
+    </Container>
   );
 };
 

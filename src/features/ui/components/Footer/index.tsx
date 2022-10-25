@@ -39,7 +39,7 @@ const LinkContainer = styled.ul`
     ${typography.p};
     color: ${colors.text.darkTheme};
     &:hover {
-      color: ${colors.secondary.default};
+      color: ${colors.secondary.darkTheme};
     }
   }
 `;
@@ -56,7 +56,7 @@ const IconContainer = styled.ul`
     margin: 0 1rem;
     color: ${colors.text.darkTheme};
     &:hover {
-      color: ${colors.secondary.default};
+      color: ${colors.secondary.darkTheme};
     }
     svg {
       fill: currentColor;

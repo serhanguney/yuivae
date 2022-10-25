@@ -2,6 +2,7 @@ import { m } from "framer-motion";
 import styled from "styled-components";
 
 import { Input } from "~/features/ui/components/Input";
+import { colors } from "~/features/ui/theme/colors";
 import { typography } from "~/features/ui/theme/typography";
 
 const YuiPassLayout = styled.div`
@@ -53,12 +54,36 @@ const YuiPassInput = styled(Input)`
   margin-bottom: 2rem;
 `;
 
-const YuiPassHash = styled(m.h2)`
+const YuiPassHash = styled(m.button)`
   ${typography.h2};
+  display: flex;
+  align-items: center;
   font-size: 2.5rem;
   letter-spacing: 0.4rem;
+  color: ${colors.backgroundHover.default};
+  &:hover {
+    color: ${colors.secondary.default};
+  }
+  &:active {
+    color: ${colors.secondary.default};
+  }
+  svg {
+    margin-left: 2rem;
+    color: inherit;
+  }
+`;
+
+const Notification = styled(m.p)`
+  ${typography.p};
+  margin-top: 3rem;
+  color: ${colors.secondary.default};
+  svg {
+    color: inherit;
+    margin-right: 1.2rem;
+  }
 `;
 export {
+  Notification,
   YuiPassBody,
   YuiPassForm,
   YuiPassHash,

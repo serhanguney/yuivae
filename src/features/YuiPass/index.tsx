@@ -3,11 +3,12 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { revealParagraph } from "~/features/core/animations/constants";
+import { API_ROUTES } from "~/features/core/constants";
+import useFetch from "~/features/hooks/useFetch";
 import { Button } from "~/features/ui/components/Button/styles";
 import Layout from "~/features/ui/components/Layout";
 import Check from "~/features/ui/icons/Check";
 import Copy from "~/features/ui/icons/Copy";
-import Yuipass from "~/features/YuiPass/yuipass";
 
 import {
   Notification,
@@ -29,6 +30,7 @@ const YuiPass = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const { runFetch, status } = useFetch();
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -41,11 +43,17 @@ const YuiPass = () => {
     setYuiPass((prevState) => ({ ...prevState, value: value.toLowerCase() }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!yuiPass.value) return;
-    const password = new Yuipass(yuiPass.value);
-    setYuiPass((prevState) => ({ ...prevState, hash: password.yuiPass }));
+    const result = await runFetch<{ yuiPass: string }>(API_ROUTES.YUIPASS, {
+      method: "POST",
+      body: yuiPass.value,
+    });
+
+    if (result === null) return;
+
+    setYuiPass((prevState) => ({ ...prevState, hash: result.yuiPass }));
     setIsSubmitted(true);
   };
 
@@ -101,6 +109,16 @@ const YuiPass = () => {
           >
             <Check />
             Your YuiPass is copied
+          </Notification>
+        )}
+        {status && (
+          <Notification
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2 }}
+            $isError
+          >
+            {status.error}
           </Notification>
         )}
       </YuiPassLayout>

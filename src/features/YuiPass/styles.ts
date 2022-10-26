@@ -91,10 +91,11 @@ const YuiPassHash = styled(m.button)`
   }
 `;
 
-const Notification = styled(m.p)`
+const Notification = styled(m.p)<{ $isError?: boolean }>`
   ${typography.p};
   margin-top: 3rem;
-  color: ${colors.secondary.default};
+  color: ${(props) =>
+    props.$isError ? colors.destructive.default : colors.secondary.default};
   svg {
     color: inherit;
     margin-right: 1.2rem;

@@ -7,6 +7,7 @@ export const colors = {
     hover: palette.gray[500],
   },
   positive: { default: palette.green },
+  destructive: { default: palette.red },
   tag: { default: palette.gray[800] },
   secondary: { default: palette.darkLila, darkTheme: palette.lila },
   dianaGuney: { primary: palette.orange, secondary: palette.creme },

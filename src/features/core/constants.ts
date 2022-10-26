@@ -23,3 +23,7 @@ export const listOfLinks = [
     link: ROUTES.YUIPASS,
   },
 ];
+
+export enum API_ROUTES {
+  YUIPASS = "/api/yuipass",
+}

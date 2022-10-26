@@ -1,9 +1,4 @@
-import {
-  animate,
-  MotionValue,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
+import { animate, MotionValue, useTransform } from "framer-motion";
 import { FC, useEffect } from "react";
 
 import { Line } from "~/features/ui/components/AnimatedButton/styles";
@@ -29,7 +24,7 @@ const Lines: FC<Props> = ({ lineMotionValue }) => {
       delay: 0.8,
     });
     return controls.stop;
-  }, []);
+  }, [lineMotionValue]);
 
   return (
     <>

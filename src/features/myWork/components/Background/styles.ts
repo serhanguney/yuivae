@@ -9,10 +9,6 @@ type Color = {
   $color?: string;
 };
 
-const columnOffset = `${myWorkConstants.mobileWidth.value * 0.2}${
-  myWorkConstants.mobileWidth.unit
-}`;
-
 const PrimaryColumn = styled(m.div)<Color>`
   ${elevations["0"]};
   min-width: 20%;

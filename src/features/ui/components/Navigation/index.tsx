@@ -45,11 +45,6 @@ const Navigation: FC<Props> = ({
     setPageState(onHandle);
   };
 
-  useEffect(() => {
-    onChange(arrayToMatchPageStateWith[pageState]);
-    void controls.start((i) => animatePageNo(i));
-  }, [pageState]);
-
   const animatePageNo = (pageNo: number) => {
     const opacity = pageNo === pageState ? 1 : 0;
     const scale = pageNo === pageState ? 1 : 0.8;
@@ -64,6 +59,11 @@ const Navigation: FC<Props> = ({
       },
     };
   };
+
+  useEffect(() => {
+    onChange(arrayToMatchPageStateWith[pageState]);
+    void controls.start((i) => animatePageNo(i));
+  }, [pageState, arrayToMatchPageStateWith, controls, onChange]);
 
   return (
     <Container className={className}>

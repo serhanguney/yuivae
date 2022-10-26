@@ -1,6 +1,5 @@
 import { m } from "framer-motion";
 import type { NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -9,8 +8,6 @@ import { LINKS } from "~/features/core/constants";
 import MyStory from "~/features/myStory";
 import { MyWork } from "~/features/myWork";
 import AnimatedSection from "~/features/ui/components/AnimatedSection";
-import Footer from "~/features/ui/components/Footer";
-import Header from "~/features/ui/components/Header";
 import Layout from "~/features/ui/components/Layout";
 import Github from "~/features/ui/icons/Github";
 import Linkedin from "~/features/ui/icons/Linkedin";

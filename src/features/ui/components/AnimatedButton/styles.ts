@@ -1,5 +1,5 @@
 import { m } from "framer-motion";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import { colors } from "~/features/ui/theme/colors";
 import { typography } from "~/features/ui/theme/typography";

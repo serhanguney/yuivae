@@ -7,6 +7,7 @@ const Copy: FC<SVGAttributes<SVGSVGElement>> = (props) => (
     height="28"
     fill="none"
     viewBox="0 0 27 28"
+    {...props}
   >
     <rect
       width="18.5"

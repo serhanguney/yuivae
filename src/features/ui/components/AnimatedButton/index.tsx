@@ -47,7 +47,7 @@ const AnimatedButton: FC<Props> = ({ children, isStatic, link }) => {
       },
     });
     return controls.stop;
-  }, []);
+  }, [lineMotionValue]);
 
   const { hoverIn, hoverOut } = hoverAnimation;
 

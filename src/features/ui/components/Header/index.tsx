@@ -103,8 +103,9 @@ const ScrollCurtain = styled.p<{ $isHidden: boolean }>`
   padding-right: 2rem;
   opacity: ${(props) => (props.$isHidden ? 0 : 1)};
   transition: opacity 500ms ease-in-out;
+  color: ${colors.text.hover};
   svg {
-    color: ${colors.text.default};
+    color: inherit;
     margin-right: 1rem;
   }
 `;
@@ -127,7 +128,11 @@ const Header: FC = () => {
 
   return (
     <HeaderContainer>
-      <HeaderLogo />
+      <Link href="/">
+        <a>
+          <HeaderLogo />
+        </a>
+      </Link>
       <LinkContainer>
         <ul ref={ref}>
           <ScrollCurtain $isHidden={isScrolled}>

@@ -28,6 +28,7 @@ const StyledLabel = styled.label<{ $hasFocus: boolean }>`
 const StyledInput = styled.input`
   flex: 1;
   border-bottom: 1px solid ${colors.text.default};
+  border-radius: 0;
   padding: 1.2rem 0.8rem 0.8rem 0.8rem;
   outline: none;
 `;

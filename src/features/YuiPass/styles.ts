@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { Input } from "~/features/ui/components/Input";
 import { colors } from "~/features/ui/theme/colors";
+import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
 
 const YuiPassLayout = styled.div`
@@ -18,7 +19,8 @@ const YuiPassTitle = styled.h1`
   ${typography.pageTitle};
   display: flex;
   justify-content: center;
-  margin-top: 20rem;
+  margin-top: clamp(8rem, 14vw, 20rem);
+  margin-bottom: 3rem;
   .stroked {
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
@@ -48,9 +50,13 @@ const YuiPassForm = styled.form`
   flex-direction: column;
   align-items: center;
   margin: 5rem 0;
+  ${mediaQueries.mobileMax} {
+    width: 100%;
+  }
 `;
 const YuiPassInput = styled(Input)`
   width: 100%;
+  max-width: 30rem;
   margin-bottom: 2rem;
 `;
 
@@ -60,9 +66,21 @@ const YuiPassHash = styled(m.button)`
   align-items: center;
   font-size: 2.5rem;
   letter-spacing: 0.4rem;
-  color: ${colors.backgroundHover.default};
-  &:hover {
-    color: ${colors.secondary.default};
+  color: ${colors.text.default};
+  max-width: 35rem;
+  margin-top: 2rem;
+
+  span {
+    display: inline-block;
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  @media (hover: hover) {
+    &:hover {
+      color: ${colors.secondary.default};
+    }
   }
   &:active {
     color: ${colors.secondary.default};

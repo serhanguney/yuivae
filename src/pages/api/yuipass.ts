@@ -1,3 +1,18 @@
+import { NextApiHandler } from "next";
+
+const handler: NextApiHandler = (req, res) => {
+  const text = req.body;
+
+  if (!Boolean(text) && typeof text !== "string") {
+    return res
+      .status(400)
+      .end("Bad input. Make sure you are sending a valid string.");
+  }
+
+  const { yuiPass } = new Yuipass(text);
+  return res.status(200).json({ yuiPass });
+};
+
 const lowercase = [
   "a",
   "b",
@@ -26,7 +41,8 @@ const lowercase = [
   "y",
   "z",
 ];
-export default class Yuipass {
+
+class Yuipass {
   public phrase: string;
   private arrayOfPhrase: string[];
   private alphabetNumbers: number[];
@@ -104,3 +120,5 @@ export default class Yuipass {
     return yuiPass.join("");
   }
 }
+
+export default handler;

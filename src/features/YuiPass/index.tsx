@@ -1,8 +1,10 @@
 import { AnimatePresence } from "framer-motion";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { revealParagraph } from "~/features/core/animations/constants";
 import { Button } from "~/features/ui/components/Button/styles";
+import Layout from "~/features/ui/components/Layout";
 import Check from "~/features/ui/icons/Check";
 import Copy from "~/features/ui/icons/Copy";
 import Yuipass from "~/features/YuiPass/yuipass";
@@ -18,7 +20,10 @@ import {
 } from "./styles";
 
 const YuiPass = () => {
-  const [yuiPass, setYuiPass] = useState<{ value: string; hash: string }>({
+  const [yuiPass, setYuiPass] = useState<{
+    value: string;
+    hash: string;
+  }>({
     value: "",
     hash: "",
   });
@@ -44,59 +49,62 @@ const YuiPass = () => {
     setIsSubmitted(true);
   };
 
-  const copyHash = async () => {
-    try {
-      await navigator.clipboard.writeText(yuiPass.hash);
-      setIsCopied(true);
-    } catch (e) {
-      console.warn(e);
-    }
-  };
   return (
-    <YuiPassLayout>
-      <YuiPassTitle>
-        Yui<span className="stroked">Pass</span>
-      </YuiPassTitle>
-      <YuiPassBody>
-        Hi. This is where I’ve had to put a stop to{" "}
-        <span>losing my passwords all the time.</span> <br />
-        This very simple, and not secure algorithm is something I made for
-        myself so that I can reflect my &quot;OCD&quot; to how I secure my
-        personal accounts.
-      </YuiPassBody>
-      <YuiPassForm onSubmit={handleSubmit}>
-        <YuiPassInput
-          type="text"
-          value={yuiPass.value}
-          placeholder="enter any phrase"
-          onChange={handleInput}
-        />
-        <Button type="submit">GET YUIPASS</Button>
-      </YuiPassForm>
-      <AnimatePresence>
-        {isSubmitted && (
-          <YuiPassHash
-            initial={revealParagraph.initial}
-            animate={revealParagraph.animate(0)}
-            exit={revealParagraph.exit}
-            onClick={copyHash}
+    <Layout
+      title="Yuipass"
+      description="A password algorithm to hash your passwords."
+    >
+      <YuiPassLayout>
+        <YuiPassTitle>
+          Yui<span className="stroked">Pass</span>
+        </YuiPassTitle>
+        <YuiPassBody>
+          Hi. This is where I’ve had to put a stop to{" "}
+          <span>losing my passwords all the time.</span> <br />
+          This very simple, and not secure algorithm is something I made for
+          myself so that I can reflect my &quot;OCD&quot; to how I secure my
+          personal accounts.
+        </YuiPassBody>
+        <YuiPassForm onSubmit={handleSubmit}>
+          <YuiPassInput
+            type="text"
+            value={yuiPass.value}
+            placeholder="enter any phrase"
+            onChange={handleInput}
+          />
+          <Button type="submit" style={{ width: "100%", maxWidth: "30rem" }}>
+            GET YUIPASS
+          </Button>
+        </YuiPassForm>
+        <AnimatePresence>
+          {isSubmitted && (
+            <CopyToClipboard
+              text={yuiPass.hash}
+              onCopy={() => setIsCopied(true)}
+            >
+              <YuiPassHash
+                initial={revealParagraph.initial}
+                animate={revealParagraph.animate(0)}
+                exit={revealParagraph.exit}
+              >
+                <span>{yuiPass.hash}</span>
+                <Copy />
+              </YuiPassHash>
+            </CopyToClipboard>
+          )}
+        </AnimatePresence>
+        {isCopied && (
+          <Notification
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2 }}
           >
-            {yuiPass.hash}
-            <Copy />
-          </YuiPassHash>
+            <Check />
+            Your YuiPass is copied
+          </Notification>
         )}
-      </AnimatePresence>
-      {isCopied && (
-        <Notification
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <Check />
-          Your YuiPass is copied
-        </Notification>
-      )}
-    </YuiPassLayout>
+      </YuiPassLayout>
+    </Layout>
   );
 };
 

@@ -11,6 +11,7 @@ import { MyWork } from "~/features/myWork";
 import AnimatedSection from "~/features/ui/components/AnimatedSection";
 import Footer from "~/features/ui/components/Footer";
 import Header from "~/features/ui/components/Header";
+import Layout from "~/features/ui/components/Layout";
 import Github from "~/features/ui/icons/Github";
 import Linkedin from "~/features/ui/icons/Linkedin";
 import { typography } from "~/features/ui/theme/typography";
@@ -58,13 +59,10 @@ const LinkContainer = styled.div`
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <Head>
-        <title>Serhan&apos;s Portfolio Website</title>
-        <meta name="description" content="Portfolio website of Serhan Guney." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
+    <Layout
+      title="Serhan's portfolio website"
+      description="A website that showcases Serhan Guney's portfolio"
+    >
       <Container>
         <HomePageTitle>
           Y
@@ -129,8 +127,7 @@ const Home: NextPage = () => {
       <AnimatedSection id="my-story" offset={100}>
         <MyStory />
       </AnimatedSection>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

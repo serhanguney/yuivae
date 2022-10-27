@@ -20,6 +20,10 @@ const Button = styled(m.button)`
   &:hover {
     color: ${colors.text.default};
   }
+  &:disabled {
+    color: ${colors.text.hover};
+    cursor: unset;
+  }
 `;
 
 const PageNoContainer = styled(m.div)`

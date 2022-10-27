@@ -31,13 +31,12 @@ const Navigation: FC<Props> = ({
   arrayToMatchPageStateWith,
   className,
 }) => {
-  const [pageState, setPageState] = useState(0);
+  const [pageState, setPageState] = useState(1);
   const [hoveredButton, setHoveredButton] = useState<-1 | 0 | 1>(0);
   const controls = useAnimationControls();
 
   const pages = Array.from({ length: projectCount }, (_, i) => i + 1);
-  const withAdd = (prevState: number) =>
-    clamp(0, prevState + 1, pages.length - 1);
+  const withAdd = (prevState: number) => clamp(0, prevState + 1, pages.length);
   const withSubtract = (prevState: number) =>
     clamp(0, prevState - 1, pages.length);
 
@@ -49,7 +48,7 @@ const Navigation: FC<Props> = ({
     const opacity = pageNo === pageState ? 1 : 0;
     const scale = pageNo === pageState ? 1 : 0.8;
     return {
-      x: `${pageState * 100 * -1}%`,
+      x: `${(pageState - 1) * 100 * -1}%`,
       opacity,
       scale,
       transition: {
@@ -61,7 +60,7 @@ const Navigation: FC<Props> = ({
   };
 
   useEffect(() => {
-    onChange(arrayToMatchPageStateWith[pageState]);
+    onChange(arrayToMatchPageStateWith[pageState - 1]);
     void controls.start((i) => animatePageNo(i));
   }, [pageState, arrayToMatchPageStateWith, controls, onChange]);
 
@@ -69,26 +68,35 @@ const Navigation: FC<Props> = ({
     <Container className={className}>
       <Button
         onClick={handleClick(withSubtract)}
-        onHoverStart={() => setHoveredButton(-1)}
+        onHoverStart={() => pageState !== pages[0] && setHoveredButton(-1)}
         onHoverEnd={() => setHoveredButton(0)}
+        disabled={pageState === pages[0]}
       >
         <PreviousArrow isHidden={hoveredButton === 1} />
       </Button>
+
       <PageNoContainer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: animation?.delay }}
       >
-        {pages.map((pageNo, i) => (
-          <PageNo key={pageNo} custom={i} initial={false} animate={controls}>
+        {pages.map((pageNo) => (
+          <PageNo
+            key={pageNo}
+            custom={pageNo}
+            initial={false}
+            animate={controls}
+          >
             {pageNo}
           </PageNo>
         ))}
       </PageNoContainer>
+
       <Button
         onClick={handleClick(withAdd)}
-        onHoverStart={() => setHoveredButton(1)}
+        onHoverStart={() => pageState !== pages.length && setHoveredButton(1)}
         onHoverEnd={() => setHoveredButton(0)}
+        disabled={pageState === pages.length}
       >
         <NextArrow isHidden={hoveredButton === -1} />
       </Button>

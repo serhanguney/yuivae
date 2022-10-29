@@ -1,4 +1,4 @@
-import { AnimatePresence, useViewportScroll } from "framer-motion";
+import { AnimatePresence, useScroll } from "framer-motion";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 };
 const AnimatedSection: FC<Props> = ({ children, id, offset }) => {
   const [isPresent, setIsPresent] = useState<boolean>(false);
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useScroll();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

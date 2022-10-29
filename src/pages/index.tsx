@@ -87,15 +87,16 @@ const Home: NextPage = () => {
     w ? Math.floor(w / 100) * 100 : undefined
   );
 
+  const isMobile = controlledWidth && controlledWidth < ScreenSize.medium;
+  const delayStart = 1.5;
+
   return (
     <Layout
       title="Yuivae"
       description="A website that showcases Serhan Guney's portfolio"
     >
       <Container>
-        {controlledWidth && controlledWidth < ScreenSize.medium
-          ? renderMobileTitle()
-          : renderDesktopTitle()}
+        {isMobile ? renderMobileTitle() : renderDesktopTitle()}
         <HomePageText
           initial={revealParagraph.initial}
           animate={revealParagraph.animate(1)}
@@ -106,7 +107,7 @@ const Home: NextPage = () => {
         </HomePageText>
         <HomePageText
           initial={revealParagraph.initial}
-          animate={revealParagraph.animate(1.5)}
+          animate={revealParagraph.animate(delayStart)}
           style={{ marginTop: "clamp(15rem, 21vw,30rem)" }}
         >
           Or you can just skip the whole thing...
@@ -114,13 +115,13 @@ const Home: NextPage = () => {
         <LinkContainer>
           <m.li
             initial={revealParagraph.initial}
-            animate={revealParagraph.animate(1.6)}
+            animate={revealParagraph.animate(delayStart + 0.1)}
           >
             <LinkedinLink />
           </m.li>
           <m.li
             initial={revealParagraph.initial}
-            animate={revealParagraph.animate(1.7)}
+            animate={revealParagraph.animate(delayStart + 0.2)}
           >
             <GithubLink />
           </m.li>

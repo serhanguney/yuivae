@@ -1,4 +1,4 @@
-import { useElementScroll } from "framer-motion";
+import { useElementScroll, useScroll } from "framer-motion";
 import Link from "next/link";
 import { FC, useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
@@ -94,11 +94,11 @@ const HeaderLogo = styled(InvertedLogo)`
   height: auto;
 `;
 
-const ScrollCurtain = styled.p<{ $isHidden: boolean }>`
+const ScrollCurtain = styled.li<{ $isHidden: boolean }>`
   ${mediaQueries.mobileMin} {
     display: none;
   }
-  ${typography.p};
+
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
@@ -112,6 +112,10 @@ const ScrollCurtain = styled.p<{ $isHidden: boolean }>`
   opacity: ${(props) => (props.$isHidden ? 0 : 1)};
   transition: opacity 500ms ease-in-out;
   color: ${colors.text.hover};
+  p {
+    ${typography.p};
+    color: inherit;
+  }
   svg {
     color: inherit;
     margin-right: 1rem;
@@ -119,7 +123,7 @@ const ScrollCurtain = styled.p<{ $isHidden: boolean }>`
 `;
 const Header: FC = () => {
   const ref = useRef<HTMLUListElement>(null);
-  const { scrollX } = useElementScroll(ref);
+  const { scrollX } = useScroll({ container: ref });
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(
@@ -143,12 +147,10 @@ const Header: FC = () => {
       </Link>
       <LinkContainer>
         <ul ref={ref}>
-          <li>
-            <ScrollCurtain $isHidden={isScrolled}>
-              scroll
-              <PreviosArrow isHidden={isScrolled} />
-            </ScrollCurtain>
-          </li>
+          <ScrollCurtain $isHidden={isScrolled}>
+            <p>scroll</p>
+            <PreviosArrow isHidden={isScrolled} />
+          </ScrollCurtain>
           {listOfLinks.map((item) => (
             <StyledLink key={item.text} $isAvailable={item.isAvailable}>
               <Link href={item.link}>

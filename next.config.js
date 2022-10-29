@@ -9,6 +9,10 @@ const nextConfig = {
   images: {
     formats: ["image/webp"],
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 };
 
 module.exports = withBundleAnalyzer(nextConfig);

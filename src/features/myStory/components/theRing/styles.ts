@@ -9,6 +9,9 @@ const Container = styled.div`
   flex-direction: row-reverse;
   grid-column: span 7;
   margin-right: clamp(2vw, 5rem, 4vw);
+  ${mediaQueries.mobileMin} {
+    height: 40rem;
+  }
 `;
 
 const Circle = styled(m.div)<{ $borderColor: string }>`

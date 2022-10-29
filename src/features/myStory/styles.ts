@@ -11,6 +11,10 @@ const SectionTitle = styled(m.h2)`
   grid-column: span 12;
   font-size: 6rem;
   margin-left: 4rem;
+  ${mediaQueries.mobileMax} {
+    text-align: right;
+    margin-bottom: 4rem;
+  }
 `;
 const Container = styled.div`
   display: flex;

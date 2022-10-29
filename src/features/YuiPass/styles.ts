@@ -9,10 +9,10 @@ import { typography } from "~/features/ui/theme/typography";
 const YuiPassLayout = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 0 auto;
   max-width: clamp(30rem, 50vw, 70rem);
+  height: 70rem;
 `;
 
 const YuiPassTitle = styled.h1`

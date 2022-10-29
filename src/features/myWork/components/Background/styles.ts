@@ -2,6 +2,7 @@ import { m } from "framer-motion";
 import styled from "styled-components";
 
 import { myWorkConstants } from "~/features/myWork/styles";
+import { colors } from "~/features/ui/theme/colors";
 import { elevations } from "~/features/ui/theme/elevations";
 import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 
@@ -47,10 +48,15 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-const ImageWrapper = styled(m.div)<{ $isMobile: boolean }>`
+const ImageWrapper = styled(m.div)<{
+  $isMobile: boolean;
+}>`
   ${elevations["900"]};
   margin: 0 1rem;
   width: ${(props) => (props.$isMobile ? "14%" : "60%")};
+  border: 1px solid ${colors.text.hover};
+  border-radius: 10px;
+  overflow: hidden;
 `;
 
 export {

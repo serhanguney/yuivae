@@ -2,6 +2,7 @@ import { m } from "framer-motion";
 import styled from "styled-components";
 
 import { colors } from "~/features/ui/theme/colors";
+import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
 
 const Line = styled(m.span)<{ $borderNo: number }>`
@@ -17,6 +18,9 @@ const Line = styled(m.span)<{ $borderNo: number }>`
 const ButtonContainer = styled.div`
   position: relative;
   margin-top: auto;
+  ${mediaQueries.mobileMax} {
+    margin-top: 0;
+  }
   svg {
     position: absolute;
     top: 50%;

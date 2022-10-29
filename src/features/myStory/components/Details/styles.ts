@@ -40,13 +40,14 @@ const MyStoryTagContainer = styled(TagContainer)`
   width: 40%;
   text-align: right;
   ${mediaQueries.mobileMax} {
+    display: block;
     width: 100%;
     flex-direction: row;
     order: 2;
-    justify-content: flex-end;
     margin-left: auto;
     padding-right: 0;
-    p:last-child {
+    white-space: nowrap;
+    p {
       margin-right: 0;
     }
   }

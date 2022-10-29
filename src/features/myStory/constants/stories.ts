@@ -2,14 +2,15 @@ import { ImageProps } from "next/image";
 
 import { colors } from "~/features/ui/theme/colors";
 
-import dianaGuney from "../assets/dianaGuney.jpg";
-import jewelryShop from "../assets/jewelryShop.png";
-import softwareEngineer from "../assets/softwareEngineer.jpg";
+import accolade from "../assets/Accolade.jpg";
+import freelancer from "../assets/freelancer.jpg";
+import jewelryShop from "../assets/jewelryShop.jpg";
+import STRV from "../assets/STRVGraduation.jpg";
 
 export type Story = {
   title: string;
   details: string;
-  tags: Array<{ name: string; hasFocus: boolean }>;
+  tags: string[];
   coverImage: ImageProps["src"];
   color: string;
 };
@@ -17,40 +18,59 @@ export type Story = {
 export const stories: Story[] = [
   {
     title: "A boutique jewelry store",
-    details:
-      "A family business that has roughly 10000 incoming visitors per year.",
+    details: `This is where I used various different tools (basic coding) to create systems to automatise the schedules of 40 employees, sales & finance processes and inventory control, which then led to me becoming a developer.`,
     tags: [
-      { name: "Teamwork", hasFocus: false },
-      { name: "Business understanding", hasFocus: true },
-      { name: "Communication", hasFocus: true },
+      "Sales automation",
+      "Finance automation",
+      "Inventory automation",
+      "Schedule system",
     ],
-    coverImage: dianaGuney,
-    color: colors.dianaGuney.primary,
+    coverImage: jewelryShop,
+    color: colors.text.hover,
   },
   {
     title: "Freelance projects",
     details:
-      "Portfolio projects that display products/services. These projects rely on animations to boos the impact of UI/UX",
+      "In my first year of learning programming I did a few freelance projects that enabled me to get basic experience. I mainly lacked the knowledge of re-usable code, project architecture and typescript which led me to make a lot of mistakes.",
     tags: [
-      { name: "Code quality", hasFocus: false },
-      { name: "CI/CD", hasFocus: false },
-      { name: "Programming knowledge", hasFocus: false },
-      { name: "Visual Quality", hasFocus: true },
-      { name: "ReactJS knowledge", hasFocus: true },
+      "Basic programming",
+      "Basic hosting",
+      "CSS/SASS",
+      "ReactJS",
+      "NextJS",
     ],
-    coverImage: dianaGuney,
-    color: colors.dianaGuney.secondary,
+    coverImage: freelancer,
+    color: colors.pyc.primary,
+  },
+  {
+    title: "Frontend Academy",
+    details: `When I was working at my first job as a software engineer I wanted to speed up my improvement and applied to the frontend academy led by <a href="https://strv.com" target="_blank" rel="noreferrer">STRV</a>. During this academy I had the opportunity to learn from the senior engineers in STRV. The knowledge I got from this academy was not something I could learn on my own.`,
+    tags: [
+      "HTML in Depth",
+      "React under the hood",
+      "Project Architecture",
+      "TypeScript",
+      "CI/CD",
+      "NextJS",
+      "Styled components",
+    ],
+    coverImage: STRV,
+    color: colors.text.hover,
   },
   {
     title: "Software engineer",
     details:
-      "Working as a team of developers indulging in complex application development. UI/UX development",
+      "At my first job as a software engineer I was involved in different teams that dealt with member applications with complex state management, and marketing websites. Being a part of a team of such senior engineers and working on complex applications gave me a broader and more professional perspective on software engineering, and improved my coding skills immensely.",
     tags: [
-      { name: "Programming knowledge", hasFocus: true },
-      { name: "TypeScript", hasFocus: true },
-      { name: "CI/CD", hasFocus: true },
+      "Redux",
+      "Advanced programming",
+      "Advanced NextJS",
+      "TypeScript",
+      "CI/CD",
+      "Basic Testing",
+      "Styled components",
     ],
-    coverImage: softwareEngineer,
-    color: colors.dianaGuney.primary,
+    coverImage: accolade,
+    color: colors.accolade.primary,
   },
 ];

@@ -12,6 +12,7 @@ export const colors = {
   secondary: { default: palette.darkLila, darkTheme: palette.lila },
   dianaGuney: { primary: palette.orange, secondary: palette.creme },
   pyc: { primary: palette.blue, secondary: palette.lightBlue },
+  accolade: { primary: palette.accoladeGreen },
   background: { default: palette.white, darkTheme: palette.black },
   backgroundHover: { default: palette.gray[100] },
 };

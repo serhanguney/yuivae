@@ -67,11 +67,12 @@ const YuiPass = () => {
           Yui<span className="stroked">Pass</span>
         </YuiPassTitle>
         <YuiPassBody>
-          Hi. This is where I’ve had to put a stop to{" "}
+          Hi. This is where I had to put a stop to{" "}
           <span>losing my passwords all the time.</span> <br />
           This very simple, and not secure algorithm is something I made for
           myself so that I can reflect my &quot;OCD&quot; to how I secure my
-          personal accounts.
+          personal accounts. <br /> Its simple; every time you enter the same
+          phrase it returns the same encrypted password.
         </YuiPassBody>
         <YuiPassForm onSubmit={handleSubmit}>
           <YuiPassInput

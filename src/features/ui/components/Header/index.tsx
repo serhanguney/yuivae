@@ -137,16 +137,18 @@ const Header: FC = () => {
   return (
     <HeaderContainer>
       <Link href="/">
-        <a>
+        <a aria-label="Go to homepage">
           <HeaderLogo />
         </a>
       </Link>
       <LinkContainer>
         <ul ref={ref}>
-          <ScrollCurtain $isHidden={isScrolled}>
-            scroll
-            <PreviosArrow isHidden={isScrolled} />
-          </ScrollCurtain>
+          <li>
+            <ScrollCurtain $isHidden={isScrolled}>
+              scroll
+              <PreviosArrow isHidden={isScrolled} />
+            </ScrollCurtain>
+          </li>
           {listOfLinks.map((item) => (
             <StyledLink key={item.text} $isAvailable={item.isAvailable}>
               <Link href={item.link}>

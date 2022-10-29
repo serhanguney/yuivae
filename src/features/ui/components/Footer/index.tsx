@@ -3,6 +3,7 @@ import { FC } from "react";
 import styled, { css } from "styled-components";
 
 import { LINKS, listOfLinks } from "~/features/core/constants";
+import { GithubLink, LinkedinLink } from "~/features/ui/iconLinks";
 import Github from "~/features/ui/icons/Github";
 import Linkedin from "~/features/ui/icons/Linkedin";
 import { Logo } from "~/features/ui/icons/Logo";
@@ -57,11 +58,13 @@ const IconContainer = styled.ul`
   ${mediaQueries.mobileMax} {
     margin-bottom: 2rem;
   }
-  a {
+  li {
     &:first-of-type {
       margin-left: 0;
     }
     margin: 0 1rem;
+  }
+  a {
     color: ${colors.text.darkTheme};
     &:hover {
       color: ${colors.secondary.darkTheme};
@@ -81,16 +84,12 @@ const Footer: FC = () => {
   return (
     <Container>
       <IconContainer>
-        <Link href={LINKS.GITHUB}>
-          <a target="_blank">
-            <Github />
-          </a>
-        </Link>
-        <Link href={LINKS.LINKEDIN}>
-          <a target="_blank">
-            <Linkedin />
-          </a>
-        </Link>
+        <li>
+          <GithubLink />
+        </li>
+        <li>
+          <LinkedinLink />
+        </li>
       </IconContainer>
       <LinkContainer>
         {listOfLinks.map((item) => (

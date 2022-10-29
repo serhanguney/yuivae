@@ -1,17 +1,14 @@
 import { m } from "framer-motion";
 import type { NextPage } from "next";
-import Link from "next/link";
 import styled from "styled-components";
 
 import { revealParagraph } from "~/features/core/animations/constants";
-import { LINKS } from "~/features/core/constants";
 import useResize from "~/features/hooks/useResize";
 import MyStory from "~/features/myStory";
 import { MyWork } from "~/features/myWork";
 import AnimatedSection from "~/features/ui/components/AnimatedSection";
 import Layout from "~/features/ui/components/Layout";
-import Github from "~/features/ui/icons/Github";
-import Linkedin from "~/features/ui/icons/Linkedin";
+import { GithubLink, LinkedinLink } from "~/features/ui/iconLinks";
 import { ScreenSize } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
 
@@ -48,7 +45,7 @@ const HomePageText = styled(m.p)`
   ${typography.p};
 `;
 
-const LinkContainer = styled.div`
+const LinkContainer = styled.ul`
   display: flex;
   justify-content: center;
   margin-top: 2rem;
@@ -115,28 +112,18 @@ const Home: NextPage = () => {
           Or you can just skip the whole thing...
         </HomePageText>
         <LinkContainer>
-          <Link href={LINKS.LINKEDIN}>
-            <m.a
-              initial={revealParagraph.initial}
-              animate={revealParagraph.animate(1.6)}
-              href={LINKS.LINKEDIN}
-              target="_blank"
-              aria-label="Go to Linkedin profile"
-            >
-              <Linkedin />
-            </m.a>
-          </Link>
-          <Link href={LINKS.GITHUB}>
-            <m.a
-              initial={revealParagraph.initial}
-              animate={revealParagraph.animate(1.7)}
-              href={LINKS.GITHUB}
-              target="_blank"
-              aria-label="Go to Github profile"
-            >
-              <Github />
-            </m.a>
-          </Link>
+          <m.li
+            initial={revealParagraph.initial}
+            animate={revealParagraph.animate(1.6)}
+          >
+            <LinkedinLink />
+          </m.li>
+          <m.li
+            initial={revealParagraph.initial}
+            animate={revealParagraph.animate(1.7)}
+          >
+            <GithubLink />
+          </m.li>
         </LinkContainer>
       </Container>
       <AnimatedSection id="my-work" offset={100}>

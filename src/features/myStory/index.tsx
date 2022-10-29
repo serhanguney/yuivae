@@ -11,7 +11,6 @@ import { Container, SectionTitle } from "./styles";
 const MyStory = () => {
   const [story, setStory] = useState<Story>(stories[0]);
 
-  console.log("Section");
   // TODO #1 (search for #1.YV in the project)
   const onChange = (changedStory: Story | Project) =>
     setStory(changedStory as Story);

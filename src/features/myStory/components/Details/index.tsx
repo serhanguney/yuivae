@@ -1,4 +1,5 @@
 import { AnimatePresence } from "framer-motion";
+import parse from "html-react-parser";
 import { FC } from "react";
 import { v4 as uuid } from "uuid";
 
@@ -33,7 +34,7 @@ const MOTION = {
 
 const MyStoryDetails: FC<Props> = ({ story, drillForNavigation }) => {
   const { title, details, tags } = story;
-  console.log("Details");
+
   return (
     <StoryDetailsContainer
       initial="initial"
@@ -49,7 +50,7 @@ const MyStoryDetails: FC<Props> = ({ story, drillForNavigation }) => {
             variants={MOTION.revealParagraph}
             exit={MOTION.revealParagraph.exit}
           >
-            {tag.name}
+            {tag}
           </Tag>
         ))}
       </MyStoryTagContainer>
@@ -73,7 +74,7 @@ const MyStoryDetails: FC<Props> = ({ story, drillForNavigation }) => {
             variants={MOTION.revealParagraph}
             exit={MOTION.revealParagraph.exit}
           >
-            {details}
+            {parse(details)}
           </ProjectDescription>
         </AnimatePresence>
         <MyStoryNavigation

@@ -14,15 +14,15 @@ const TheRing: FC<Props> = ({ story }) => {
   const [currentStoryIndex, setCurrentStoryIndex] = useState<number>(
     stories.indexOf(story)
   );
-  console.log("TheRing");
 
   const animateStory = (mappedStory: Story, mappedStoryIndex: number) => {
     const isCurrentStory = stories.indexOf(mappedStory) === currentStoryIndex;
     const isSeen = mappedStoryIndex < currentStoryIndex;
-    const isNextOne = mappedStoryIndex - currentStoryIndex === 1;
-    const isLastOne = mappedStoryIndex - currentStoryIndex === 2;
+    const notYetSeen = mappedStoryIndex > currentStoryIndex;
+    const diff = mappedStoryIndex - currentStoryIndex;
 
-    if (isCurrentStory) return { x: 0, opacity: 1, scale: 1 };
+    if (isCurrentStory)
+      return { x: 0, opacity: 1, scale: 1, filter: `blur(0px)` };
 
     if (isSeen)
       return {
@@ -32,23 +32,18 @@ const TheRing: FC<Props> = ({ story }) => {
         transition: { duration: 0.3 },
       };
 
-    if (isNextOne)
+    if (notYetSeen) {
       return {
-        x: "-100%",
-        scale: 0.7,
-        opacity: 0.5,
+        x: `-${200 - (1 / diff) * 100}%`,
+        filter: `blur(10px)`,
+        scale: 1 - 0.3 * diff,
+        opacity: (1 / diff) * 0.2,
       };
-
-    if (isLastOne)
-      return {
-        x: "-170%",
-        scale: 0.4,
-        opacity: 0.2,
-      };
+    }
   };
 
   useEffect(() => setCurrentStoryIndex(stories.indexOf(story)), [story]);
-  const storyColor = stories[currentStoryIndex ?? 0].color;
+  const storyColor = stories[currentStoryIndex ?? 0]?.color;
   return (
     <Container>
       <Circle

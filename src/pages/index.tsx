@@ -13,7 +13,7 @@ import Github from "~/features/ui/icons/Github";
 import Linkedin from "~/features/ui/icons/Linkedin";
 import { typography } from "~/features/ui/theme/typography";
 
-const Container = styled.div`
+const Container = styled.section`
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,8 @@ const HomePageTitle = styled.h2`
   ${typography.pageTitle};
   display: flex;
   justify-content: center;
-  margin-top: 20rem;
+  margin-top: clamp(10rem, 14vw, 20rem);
+
   .stroked {
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
@@ -85,15 +86,13 @@ const Home: NextPage = () => {
           animate={revealParagraph.animate(1)}
           style={{ marginTop: "3rem" }}
         >
-          Hi. This is my portfolio website where I present everything I find
-          worth mentioning when it comes to my career. Here you can see me
-          ‘bragging’ about the software I built during my career and the
-          knowledge I gathered over the years.
+          Hi. This is where you can see me ‘bragging’ about the software I built
+          during my career and the knowledge I gathered over the years.
         </HomePageText>
         <HomePageText
           initial={revealParagraph.initial}
           animate={revealParagraph.animate(1.5)}
-          style={{ marginTop: "30rem" }}
+          style={{ marginTop: "clamp(15rem, 21vw,30rem)" }}
         >
           Or you can just skip the whole thing...
         </HomePageText>

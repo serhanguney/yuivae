@@ -36,8 +36,7 @@ const StyledLink = styled.li<{ $isAvailable: boolean }>`
   ${mediaQueries.mobileMax} {
     margin: 0.5rem 0;
   }
-  color: ${(props) =>
-    props.$isAvailable ? colors.text.darkTheme : colors.text.hover};
+  color: ${colors.text.darkTheme};
   pointer-events: ${(props) => (props.$isAvailable ? "default" : "none")};
   &:hover {
     color: ${colors.secondary.darkTheme};

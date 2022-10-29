@@ -66,9 +66,15 @@ export const Details: FC<Props> = ({ project }) => (
       </DetailsWrapper>
     </AnimatePresence>
     {project.comingSoon ? (
-      <ComingSoon>
-        Coming <span className="stroked">Soon</span>
-      </ComingSoon>
+      <AnimatePresence exitBeforeEnter>
+        <ComingSoon
+          initial={revealParagraph.initial}
+          animate={revealParagraph.animate(0)}
+          exit={revealParagraph.exit}
+        >
+          Coming <span className="stroked">Soon</span>
+        </ComingSoon>
+      </AnimatePresence>
     ) : (
       <AnimatedButton isStatic={false} link={project.link}>
         Go to project

@@ -14,7 +14,7 @@ import {
   Tag,
 } from "~/features/ui/components/Details";
 
-import { MyWorkDetails, MyWorkTagContainer } from "../../styles";
+import { ComingSoon, MyWorkDetails, MyWorkTagContainer } from "../../styles";
 
 const MOTION = {
   register: { initial: {}, animate: {}, exit: {} },
@@ -65,8 +65,14 @@ export const Details: FC<Props> = ({ project }) => (
         </MyWorkTagContainer>
       </DetailsWrapper>
     </AnimatePresence>
-    <AnimatedButton isStatic={false} link={project.link}>
-      Go to project
-    </AnimatedButton>
+    {project.comingSoon ? (
+      <ComingSoon>
+        Coming <span className="stroked">Soon</span>
+      </ComingSoon>
+    ) : (
+      <AnimatedButton isStatic={false} link={project.link}>
+        Go to project
+      </AnimatedButton>
+    )}
   </MyWorkDetails>
 );

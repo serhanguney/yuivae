@@ -1,7 +1,7 @@
 import { useElementScroll } from "framer-motion";
 import Link from "next/link";
 import { FC, useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { listOfLinks } from "~/features/core/constants";
 import { InvertedLogo } from "~/features/ui/icons/Logo";
@@ -63,24 +63,32 @@ const LinkContainer = styled.nav`
     &::-webkit-scrollbar {
       display: none;
     }
-    li {
-      ${typography.p};
-      font-size: 1.8rem;
-      display: inline-block;
-      margin: 0 1rem;
-      flex-shrink: 0;
-
-      a {
-        color: ${colors.text.default};
-
-        &:hover {
-          color: ${colors.secondary.default};
-        }
-      }
-    }
   }
 `;
 
+const StyledLink = styled.li<{ $isAvailable: boolean }>`
+  ${typography.p};
+  font-size: 1.8rem;
+  display: inline-block;
+  margin: 0 1rem;
+  flex-shrink: 0;
+  pointer-events: ${(props) => (props.$isAvailable ? "default" : "none")};
+  a {
+    color: ${(props) =>
+      props.$isAvailable ? colors.text.default : colors.tag.default};
+
+    &:hover {
+      color: ${colors.secondary.default};
+    }
+    ${(props) =>
+      !props.$isAvailable &&
+      css`
+        &:after {
+          content: " (coming soon)";
+        }
+      `}
+  }
+`;
 const HeaderLogo = styled(InvertedLogo)`
   width: clamp(7rem, 6vw, 8.4rem);
   height: auto;
@@ -140,11 +148,11 @@ const Header: FC = () => {
             <PreviosArrow isHidden={isScrolled} />
           </ScrollCurtain>
           {listOfLinks.map((item) => (
-            <li key={item.text}>
+            <StyledLink key={item.text} $isAvailable={item.isAvailable}>
               <Link href={item.link}>
                 <a>{item.text}</a>
               </Link>
-            </li>
+            </StyledLink>
           ))}
         </ul>
       </LinkContainer>

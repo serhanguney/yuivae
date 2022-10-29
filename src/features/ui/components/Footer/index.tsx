@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { LINKS, listOfLinks } from "~/features/core/constants";
 import Github from "~/features/ui/icons/Github";
@@ -29,21 +29,30 @@ const LinkContainer = styled.ul`
     align-items: flex-start;
     margin-bottom: 2rem;
   }
-  li {
-    margin: 0 1rem;
-    ${mediaQueries.mobileMax} {
-      margin: 0.5rem 0;
-    }
-  }
-  li > a {
-    ${typography.p};
-    color: ${colors.text.darkTheme};
-    &:hover {
-      color: ${colors.secondary.darkTheme};
-    }
-  }
 `;
-
+const StyledLink = styled.li<{ $isAvailable: boolean }>`
+  ${typography.p};
+  margin: 0 1rem;
+  ${mediaQueries.mobileMax} {
+    margin: 0.5rem 0;
+  }
+  color: ${(props) =>
+    props.$isAvailable ? colors.text.darkTheme : colors.text.hover};
+  pointer-events: ${(props) => (props.$isAvailable ? "default" : "none")};
+  &:hover {
+    color: ${colors.secondary.darkTheme};
+  }
+  a {
+    color: inherit;
+  }
+  ${(props) =>
+    !props.$isAvailable &&
+    css`
+      &:after {
+        content: "(coming soon)";
+      }
+    `}
+`;
 const IconContainer = styled.ul`
   display: flex;
   ${mediaQueries.mobileMax} {
@@ -86,9 +95,9 @@ const Footer: FC = () => {
       </IconContainer>
       <LinkContainer>
         {listOfLinks.map((item) => (
-          <li key={item.text}>
+          <StyledLink key={item.text} $isAvailable={item.isAvailable}>
             <Link href={item.link}>{item.text}</Link>
-          </li>
+          </StyledLink>
         ))}
       </LinkContainer>
       <FooterLogo />

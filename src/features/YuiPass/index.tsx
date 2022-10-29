@@ -29,6 +29,7 @@ const YuiPass = () => {
     hash: "",
   });
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const { runFetch, status } = useFetch();
 
@@ -45,7 +46,8 @@ const YuiPass = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!yuiPass.value) return;
+    if (!yuiPass.value || isSubmitted) return;
+    setIsLoading(true);
     const result = await runFetch<{ yuiPass: string }>(API_ROUTES.YUIPASS, {
       method: "POST",
       body: yuiPass.value,
@@ -55,6 +57,7 @@ const YuiPass = () => {
 
     setYuiPass((prevState) => ({ ...prevState, hash: result.yuiPass }));
     setIsSubmitted(true);
+    setIsLoading(false);
   };
 
   return (
@@ -81,7 +84,11 @@ const YuiPass = () => {
             placeholder="enter any phrase"
             onChange={handleInput}
           />
-          <Button type="submit" style={{ width: "100%", maxWidth: "30rem" }}>
+          <Button
+            type="submit"
+            style={{ width: "100%", maxWidth: "30rem" }}
+            disabled={isLoading}
+          >
             GET YUIPASS
           </Button>
         </YuiPassForm>

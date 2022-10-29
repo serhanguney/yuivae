@@ -92,7 +92,7 @@ const Home: NextPage = () => {
 
   return (
     <Layout
-      title="Serhan's portfolio website"
+      title="Yuivae"
       description="A website that showcases Serhan Guney's portfolio"
     >
       <Container>

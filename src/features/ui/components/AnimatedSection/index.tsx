@@ -1,30 +1,39 @@
-import { AnimatePresence, useScroll } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+
+import useScroll from "~/features/hooks/useScroll";
+import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 
 type Props = {
   children: ReactNode;
   id: string;
-  offset: number;
+  offset?: number;
 };
 const StyledSection = styled.section`
   padding: 1px;
 `;
-const AnimatedSection: FC<Props> = ({ children, id, offset }) => {
+const Placeholder = styled.div`
+  height: 110rem;
+  width: 100vw;
+  background-color: white;
+  ${mediaQueries.mobileMin} {
+    height: 60rem;
+  }
+`;
+const AnimatedSection: FC<Props> = ({ children, id, offset = 0 }) => {
   const [isPresent, setIsPresent] = useState<boolean>(false);
-  const { scrollY } = useScroll();
+  const scrollY = useScroll((y) => (y ? Math.floor(y / 100) * 100 : undefined));
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!ref.current) return;
+    if (!ref.current || !scrollY) return;
 
     const sectionPosition = ref.current.getBoundingClientRect().y;
 
-    return scrollY.onChange((latest) => {
-      if (sectionPosition - offset < latest && !isPresent) {
-        setIsPresent(true);
-      }
-    });
+    if (sectionPosition < offset && !isPresent) {
+      setIsPresent(true);
+    }
   }, [scrollY, isPresent, id, offset]);
 
   return (
@@ -32,7 +41,7 @@ const AnimatedSection: FC<Props> = ({ children, id, offset }) => {
       {isPresent ? (
         <AnimatePresence>{children}</AnimatePresence>
       ) : (
-        <div style={{ height: "40vh", width: "100vw", background: "white" }} />
+        <Placeholder />
       )}
     </StyledSection>
   );

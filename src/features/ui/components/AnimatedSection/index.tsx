@@ -1,11 +1,15 @@
 import { AnimatePresence, useScroll } from "framer-motion";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
+import styled from "styled-components";
 
 type Props = {
   children: ReactNode;
   id: string;
   offset: number;
 };
+const StyledSection = styled.section`
+  padding: 1px;
+`;
 const AnimatedSection: FC<Props> = ({ children, id, offset }) => {
   const [isPresent, setIsPresent] = useState<boolean>(false);
   const { scrollY } = useScroll();
@@ -24,13 +28,13 @@ const AnimatedSection: FC<Props> = ({ children, id, offset }) => {
   }, [scrollY, isPresent, id, offset]);
 
   return (
-    <section ref={ref} id={id}>
+    <StyledSection ref={ref} id={id}>
       {isPresent ? (
         <AnimatePresence>{children}</AnimatePresence>
       ) : (
         <div style={{ height: "40vh", width: "100vw", background: "white" }} />
       )}
-    </section>
+    </StyledSection>
   );
 };
 

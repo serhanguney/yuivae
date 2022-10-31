@@ -12,13 +12,13 @@ export const easings: Easing = {
 
 export const revealParagraph = {
   initial: { y: "20%", opacity: 0, filter: "blur(5px)" },
-  animate: (i: number) => ({
+  animate: (i: number, delay: number = durations.myWork.medium / 2) => ({
     y: "0%",
     opacity: 1,
     filter: "blur(0px)",
     transition: {
       duration: durations.myWork.medium,
-      delay: i + durations.myWork.medium / 2,
+      delay: i + delay,
     },
   }),
   exit: {

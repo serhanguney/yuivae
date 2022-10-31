@@ -21,7 +21,7 @@ const Placeholder = styled.div`
     height: 60rem;
   }
 `;
-const AnimatedSection: FC<Props> = ({ children, id, offset = 0 }) => {
+const AnimatedSection: FC<Props> = ({ children, id, offset = 200 }) => {
   const [isPresent, setIsPresent] = useState<boolean>(false);
   const scrollY = useScroll((y) => (y ? Math.floor(y / 100) * 100 : undefined));
   const ref = useRef<HTMLDivElement>(null);

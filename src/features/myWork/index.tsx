@@ -21,7 +21,7 @@ const MyWork = () => {
     <Container>
       <SectionTitle
         initial={revealParagraph.initial}
-        animate={revealParagraph.animate(0)}
+        animate={revealParagraph.animate(0, 0)}
       >
         My Work
       </SectionTitle>

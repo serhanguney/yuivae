@@ -33,6 +33,7 @@ const Navigation: FC<Props> = ({
 }) => {
   const [pageState, setPageState] = useState(1);
   const [hoveredButton, setHoveredButton] = useState<-1 | 0 | 1>(0);
+  const [hasEnded, setHasEnded] = useState<boolean>(false);
   const controls = useAnimationControls();
 
   const pages = Array.from({ length: projectCount }, (_, i) => i + 1);
@@ -72,13 +73,17 @@ const Navigation: FC<Props> = ({
         onHoverEnd={() => setHoveredButton(0)}
         disabled={pageState === pages[0]}
       >
-        <PreviousArrow isHidden={hoveredButton === 1} />
+        <PreviousArrow isHidden={hoveredButton === 1 || !hasEnded} />
       </Button>
 
       <PageNoContainer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: animation?.delay }}
+        transition={{
+          duration: 0.5,
+          delay: animation?.delay,
+          onComplete: () => setHasEnded(true),
+        }}
       >
         {pages.map((pageNo) => (
           <PageNo
@@ -98,7 +103,7 @@ const Navigation: FC<Props> = ({
         onHoverEnd={() => setHoveredButton(0)}
         disabled={pageState === pages.length}
       >
-        <NextArrow isHidden={hoveredButton === -1} />
+        <NextArrow isHidden={hoveredButton === -1 || !hasEnded} />
       </Button>
     </Container>
   );

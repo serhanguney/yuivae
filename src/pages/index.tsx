@@ -132,7 +132,7 @@ const Home: NextPage = () => {
       <AnimatedSection id="my-work">
         <MyWork />
       </AnimatedSection>
-      <AnimatedSection id="my-story">
+      <AnimatedSection id="my-story" offset={400}>
         <MyStory />
       </AnimatedSection>
     </Layout>

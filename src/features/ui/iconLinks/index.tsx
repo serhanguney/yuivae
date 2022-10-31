@@ -40,4 +40,4 @@ const GithubLink = () => (
   </Link>
 );
 
-export { GithubLink,LinkedinLink };
+export { GithubLink, LinkedinLink };

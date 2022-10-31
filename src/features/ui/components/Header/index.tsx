@@ -1,4 +1,4 @@
-import { useElementScroll, useScroll } from "framer-motion";
+import { useScroll } from "framer-motion";
 import Link from "next/link";
 import { FC, useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";

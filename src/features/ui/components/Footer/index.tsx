@@ -2,10 +2,8 @@ import Link from "next/link";
 import { FC } from "react";
 import styled, { css } from "styled-components";
 
-import { LINKS, listOfLinks } from "~/features/core/constants";
+import { listOfLinks } from "~/features/core/constants";
 import { GithubLink, LinkedinLink } from "~/features/ui/iconLinks";
-import Github from "~/features/ui/icons/Github";
-import Linkedin from "~/features/ui/icons/Linkedin";
 import { Logo } from "~/features/ui/icons/Logo";
 import { colors } from "~/features/ui/theme/colors";
 import { mediaQueries } from "~/features/ui/theme/mediaQueries";

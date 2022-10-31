@@ -42,6 +42,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@300;400&display=swap"
             rel="stylesheet"
           />
+          <meta property="og:image" content="/share-banner.jpg" />
         </Head>
         <body>
           <Main />

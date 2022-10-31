@@ -49,8 +49,14 @@ const PYC: Project = {
 const YUI_LEARN: Project = {
   title: "YuiLearn",
   description:
-    "An application to learn Czech. You can create your own database by adding your own phrases, creating your own custom tags and you will have multiple practice modules. You'll also be levelling up and earn rewards.",
-  tags: ["Project Architecture", "Redux", "NextJS", "Complex state-management"],
+    "An application to learn Czech. This is an app that will enable you to create your own database by adding your own phrases, create your own custom tags and have practice modules tailored to you. As you level up by adding phrases and practicing, you'll be earning physical rewards that you can utilise in real life.",
+  tags: [
+    "Project Architecture",
+    "Redux",
+    "NextJS",
+    "Complex state-management",
+    "Database / Backend",
+  ],
   link: "https://yuivae.com",
   colors: {
     primary: colors.backgroundHover.default,

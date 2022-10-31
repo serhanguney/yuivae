@@ -102,8 +102,10 @@ const Home: NextPage = () => {
           animate={revealParagraph.animate(1)}
           style={{ marginTop: "3rem" }}
         >
-          Hi. This is where you can see me ‘bragging’ about the software I built
-          during my career and the knowledge I gathered over the years.
+          Hi. This is my portfolio website where I present everything I find
+          worth mentioning when it comes to my career. This is where you can see
+          me ‘bragging’ about the software I built during my career and the
+          knowledge I gathered over the years.
         </HomePageText>
         <HomePageText
           initial={revealParagraph.initial}

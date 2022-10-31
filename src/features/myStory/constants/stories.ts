@@ -44,7 +44,7 @@ export const stories: Story[] = [
   },
   {
     title: "Frontend Academy",
-    details: `When I was working at my first job as a software engineer I wanted to speed up my improvement and applied to the frontend academy led by <a href="https://strv.com" target="_blank" rel="noreferrer">STRV</a>. During this academy I had the opportunity to learn from the senior engineers in STRV. The knowledge I got from this academy was not something I could learn on my own.`,
+    details: `When I was working at my first job as a software engineer I wanted to speed up my improvement and applied to the frontend academy led by <a href="https://strv.com" target="_blank" rel="noreferrer">STRV</a>. During this academy I had the opportunity to learn from the senior engineers in STRV. This was a valuable milestone for me as the knowledge I learned during the academy was not something I could learn on my own.`,
     tags: [
       "HTML in Depth",
       "React under the hood",
@@ -60,7 +60,7 @@ export const stories: Story[] = [
   {
     title: "Software engineer",
     details:
-      "At my first job as a software engineer I was involved in different teams that dealt with member applications with complex state management, and marketing websites. Being a part of a team of such senior engineers and working on complex applications gave me a broader and more professional perspective on software engineering, and improved my coding skills immensely.",
+      "At my first job as a software engineer I was involved in different teams that dealt with member applications with complex state management, and marketing websites. Being part of teams with such senior engineers and UX/UI designers was a big step forward in my career, in that it gave me a much broader perspective on software engineering and improved my coding skills immensely.",
     tags: [
       "Redux",
       "Advanced programming",

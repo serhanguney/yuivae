@@ -29,7 +29,11 @@ type Props = {
 
 const MOTION = {
   register: { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: {} },
-  revealParagraph,
+  revealParagraph: {
+    initial: revealParagraph.initial,
+    animate: (i: number) => revealParagraph.animate(i),
+    exit: revealParagraph.exit,
+  },
 };
 
 const MyStoryDetails: FC<Props> = ({ story, drillForNavigation }) => {

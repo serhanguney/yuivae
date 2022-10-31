@@ -18,7 +18,11 @@ import { ComingSoon, MyWorkDetails, MyWorkTagContainer } from "../../styles";
 
 const MOTION = {
   register: { initial: {}, animate: {}, exit: {} },
-  revealParagraph,
+  revealParagraph: {
+    initial: revealParagraph.initial,
+    animate: (i: number) => revealParagraph.animate(i),
+    exit: revealParagraph.exit,
+  },
 };
 
 type Props = {

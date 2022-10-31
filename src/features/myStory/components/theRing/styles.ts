@@ -25,6 +25,7 @@ const Circle = styled(m.div)<{ $borderColor: string }>`
   transition: all 500ms ease;
   ${mediaQueries.mobileMax} {
     flex: 0.8;
+    border: none;
   }
 `;
 

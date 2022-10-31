@@ -6,12 +6,12 @@ import { colors } from "~/features/ui/theme/colors";
 import { mediaQueries } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
 
-const YuiPassLayout = styled.div`
+const YuiPassLayout = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  max-width: clamp(30rem, 50vw, 70rem);
+  max-width: clamp(33rem, 50vw, 70rem);
   height: 70rem;
 `;
 
@@ -41,6 +41,9 @@ const YuiPassBody = styled.p`
   span {
     white-space: nowrap;
     font-weight: bold;
+  }
+  ol {
+    list-style-position: inside;
   }
 `;
 

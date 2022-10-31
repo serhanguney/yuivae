@@ -23,6 +23,7 @@ const Circle = styled(m.div)<{ $borderColor: string }>`
   height: clamp(30rem, 27vw, 60rem);
   max-width: clamp(25rem, 22vw, 50rem);
   transition: all 500ms ease;
+  box-shadow: 0 0 16px ${(props) => `${props.$borderColor}40`};
   ${mediaQueries.mobileMax} {
     flex: 0.8;
     border: none;

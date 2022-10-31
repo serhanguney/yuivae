@@ -14,7 +14,7 @@ const Container = styled.footer`
   align-items: center;
   background-color: ${colors.background.darkTheme};
   padding: 4rem 2rem;
-  margin-top: clamp(25rem, 30vw, 45rem);
+  margin-top: auto;
   ${mediaQueries.mobileMax} {
     flex-direction: column;
     align-items: flex-start;

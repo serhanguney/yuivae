@@ -24,7 +24,7 @@ export type Project = {
 const DIANA_GUNEY: Project = {
   title: "Diana Guney",
   description:
-    "This is the first project I did in my first year; a portfolio website that focuses on visual presentation of an architect's projects.",
+    "My very first project: a portfolio website that focuses on visually introducing an emerging architect and her work.",
   tags: ["UI/UX", "CSS", "ReactJS", "Animation"],
   link: "https://dianaguney.com",
   colors: {
@@ -38,7 +38,7 @@ const DIANA_GUNEY: Project = {
 const PYC: Project = {
   title: "Private Yacht",
   description:
-    "This is the second freelance project I did in my first year; a gallery website to present private yacht charter services and display various types of yachts.",
+    "A gallery website ideated to display various types of yachts and present private yacht charter services and ",
   tags: ["UI/UX", "ReactJS", "Animation", "SASS"],
   link: "https://privateyachtingturkey.com/",
   colors: { primary: colors.pyc.primary, secondary: colors.pyc.secondary },
@@ -49,7 +49,7 @@ const PYC: Project = {
 const YUI_LEARN: Project = {
   title: "YuiLearn",
   description:
-    "An application to learn Czech. This is an app that will enable you to create your own database by adding your own phrases, create your own custom tags and have practice modules tailored to you. As you level up by adding phrases and practicing, you'll be earning physical rewards that you can utilise in real life.",
+    "Inspired by learning gamification, an application to learn Czech. This app will enable you to build your personal database by adding your own phrases. You will be able to create custom tags and have practice modules tailored to your learning needs. As you level up by adding phrases and practicing, you will earn tangible rewards to be utilized in real life.",
   tags: [
     "Project Architecture",
     "Redux",

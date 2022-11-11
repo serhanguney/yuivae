@@ -38,7 +38,7 @@ const DIANA_GUNEY: Project = {
 const PYC: Project = {
   title: "Private Yacht",
   description:
-    "A gallery website ideated to display various types of yachts and present private yacht charter services and ",
+    "A gallery website ideated to display various types of yachts and present private yacht charter services.",
   tags: ["UI/UX", "ReactJS", "Animation", "SASS"],
   link: "https://privateyachtingturkey.com/",
   colors: { primary: colors.pyc.primary, secondary: colors.pyc.secondary },
@@ -49,7 +49,7 @@ const PYC: Project = {
 const YUI_LEARN: Project = {
   title: "YuiLearn",
   description:
-    "Inspired by learning gamification, an application to learn Czech. This app will enable you to build your personal database by adding your own phrases. You will be able to create custom tags and have practice modules tailored to your learning needs. As you level up by adding phrases and practicing, you will earn tangible rewards to be utilized in real life.",
+    "Inspired by learning gamification, an application to learn Czech. This app will enable you to shape your learning process by adding your own content and have practice modules tailored to your current status. As you level up by adding phrases and practicing, you will earn tangible rewards to be utilized in real life.",
   tags: [
     "Project Architecture",
     "Redux",

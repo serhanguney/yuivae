@@ -31,7 +31,7 @@ export const stories: Story[] = [
   {
     title: "Freelance projects",
     details:
-      "Over the first year of learning programming I completed a few freelance projects. <i>Learning by doing</i> helped me to gain a steady foundation. The lack of knowledge in re-usable code, project architecture and typescript has led me to make a lot of mistakes and learn the importance of solid foundation.",
+      "Over the first year of learning programming I completed a few freelance projects. <i>Learning by doing</i> helped me to gain a steady foundation. The lack of knowledge in re-usable code, project architecture and typescript has led me to make important of mistakes that taught me the value of a solid foundation.",
     tags: [
       "Basic programming",
       "Basic hosting",
@@ -44,7 +44,7 @@ export const stories: Story[] = [
   },
   {
     title: "Frontend Academy",
-    details: `While working at my first job as a software engineer I decided to speed up my improvement and applied to the frontend academy led by <a href="https://strv.com" target="_blank" rel="noreferrer">STRV</a>. During the academy I had the opportunity to learn from the senior engineers in STRV from whom I was able to gain valuable knowledge I couldn't have learnt on my own.`,
+    details: `While working at my first job as a software engineer I decided to speed up my improvement and applied to the frontend academy led by <a href="https://strv.com" target="_blank" rel="noreferrer">STRV</a>. During the academy I had a chance to learn high-level programming techniques from the senior engineers in STRV.`,
     tags: [
       "HTML in Depth",
       "React under the hood",

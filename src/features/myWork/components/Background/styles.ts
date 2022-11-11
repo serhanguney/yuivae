@@ -33,6 +33,13 @@ const OverflowContainer = styled.div`
   grid-column: span 7;
   grid-row: 2;
   margin-top: 4rem;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 `;
 const BackgroundContainer = styled.div`
   position: relative;

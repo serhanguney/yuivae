@@ -72,6 +72,7 @@ const Navigation: FC<Props> = ({
         onHoverStart={() => pageState !== pages[0] && setHoveredButton(-1)}
         onHoverEnd={() => setHoveredButton(0)}
         disabled={pageState === pages[0]}
+        $isHidden={pageState === pages[0]}
       >
         <PreviousArrow isHidden={hoveredButton === 1 || !hasEnded} />
       </Button>
@@ -102,6 +103,7 @@ const Navigation: FC<Props> = ({
         onHoverStart={() => pageState !== pages.length && setHoveredButton(1)}
         onHoverEnd={() => setHoveredButton(0)}
         disabled={pageState === pages.length}
+        $isHidden={pageState === pages.length}
       >
         <NextArrow isHidden={hoveredButton === -1 || !hasEnded} />
       </Button>

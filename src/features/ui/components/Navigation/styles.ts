@@ -13,10 +13,12 @@ const Container = styled.div`
   max-width: 20rem;
   min-width: 20rem;
 `;
-const Button = styled(m.button)`
+const Button = styled(m.button)<{ $isHidden?: boolean }>`
   color: ${colors.text.hover};
   cursor: pointer;
   flex: 1;
+  transition: opacity 400ms ease;
+  opacity: ${(props) => (props.$isHidden ? 0 : 1)};
   &:hover {
     color: ${colors.text.default};
   }

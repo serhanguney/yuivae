@@ -40,7 +40,7 @@ const MyWorkDetails = styled(m.div)`
   text-align: right;
 
   ${mediaQueries.mobileMin} {
-    min-height: 40rem;
+    min-height: 61rem;
     grid-column: 3/6;
   }
   margin-right: clamp(2rem, 2.2vw, 5rem);

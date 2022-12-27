@@ -74,7 +74,7 @@ const renderDesktopTitle = () => (
     <m.span
       className="stroked"
       initial={{ width: 0, opacity: 0 }}
-      animate={{ width: 72, opacity: 1 }}
+      animate={{ width: 80, opacity: 1 }}
       transition={{ duration: 1, delay: 0.8, ease: "easeInOut" }}
     >
       ae

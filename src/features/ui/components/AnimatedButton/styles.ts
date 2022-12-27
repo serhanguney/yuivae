@@ -39,7 +39,8 @@ const HoverableButton = styled(m.a)`
   padding: 2rem clamp(1.5rem, 1.8vw, 2.5rem);
   overflow: hidden;
   text-align: center;
-  width: fit-content;
+  width: clamp(21rem, 60%, 30rem);
+  //max-width: 21rem;
   margin-left: auto;
   span:nth-of-type(1) {
     left: 0;

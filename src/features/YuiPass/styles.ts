@@ -12,7 +12,7 @@ const YuiPassLayout = styled.section`
   align-items: center;
   margin: 0 auto;
   max-width: clamp(33rem, 50vw, 70rem);
-  height: 70rem;
+  // height: 70rem;
 `;
 
 const YuiPassTitle = styled.h1`
@@ -42,11 +42,12 @@ const YuiPassBody = styled.p`
     white-space: nowrap;
     font-weight: bold;
   }
-  ol {
-    list-style-position: inside;
-  }
 `;
 
+const YuiPassList = styled.ol`
+  ${typography.p};
+  list-style-position: inside;
+`;
 const YuiPassForm = styled.form`
   width: 70%;
   display: flex;
@@ -59,7 +60,7 @@ const YuiPassForm = styled.form`
 `;
 const YuiPassInput = styled(Input)`
   width: 100%;
-  max-width: 30rem;
+  max-width: 35rem;
   margin-bottom: 2rem;
 `;
 
@@ -111,5 +112,6 @@ export {
   YuiPassHash,
   YuiPassInput,
   YuiPassLayout,
+  YuiPassList,
   YuiPassTitle,
 };

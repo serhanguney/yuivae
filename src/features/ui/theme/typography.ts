@@ -31,7 +31,7 @@ export const typography = {
   `,
   pageTitle: css`
     ${defaultHeadingStyles};
-    font-size: clamp(7rem, 6vw, 8.5rem);
+    font-size: clamp(7rem, 6vw, 9.5rem);
   `,
   p: css`
     ${defaultParagraphStyles};

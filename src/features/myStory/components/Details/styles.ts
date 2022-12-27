@@ -19,7 +19,7 @@ const TextWrapper = styled(m.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 2rem;
+  padding: 0 2rem;
   border-left: 1px solid ${colors.tag.default};
   width: 60%;
   ${mediaQueries.mobileMax} {

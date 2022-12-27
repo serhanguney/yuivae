@@ -16,6 +16,7 @@ const StyledLabel = styled.label<{ $hasFocus: boolean }>`
   svg {
     align-self: flex-end;
     margin-left: 1.2rem;
+    min-width: 26px;
     path {
       fill: var(--dominant-color);
     }

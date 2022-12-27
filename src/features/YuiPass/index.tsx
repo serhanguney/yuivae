@@ -17,6 +17,7 @@ import {
   YuiPassHash,
   YuiPassInput,
   YuiPassLayout,
+  YuiPassList,
   YuiPassTitle,
 } from "./styles";
 
@@ -75,13 +76,13 @@ const YuiPass = () => {
           not thinking about the password requirements some websites demand.
           <br />
           <br />
-          <ol>
-            <li>Enter a phrase that is easy to remember.</li>
-            <li>
-              Click on the returned <span>Yuipass</span> to copy.
-            </li>
-          </ol>
         </YuiPassBody>
+        <YuiPassList>
+          <li>Enter a phrase that is easy to remember.</li>
+          <li>
+            Click on the returned <span>Yuipass</span> to copy.
+          </li>
+        </YuiPassList>
         <YuiPassForm onSubmit={handleSubmit}>
           <YuiPassInput
             type="text"
@@ -91,7 +92,7 @@ const YuiPass = () => {
           />
           <Button
             type="submit"
-            style={{ width: "100%", maxWidth: "30rem" }}
+            style={{ width: "100%", maxWidth: "35rem" }}
             disabled={isLoading}
           >
             GET YUIPASS

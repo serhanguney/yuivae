@@ -14,6 +14,7 @@ type Props = {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
 `;
 
 const MainSection = styled.main`

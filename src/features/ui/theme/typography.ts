@@ -17,7 +17,7 @@ const defaultHeadingStyles = css`
 `;
 const defaultParagraphStyles = css`
   font-family: ${font.base};
-  font-size: clamp(1.6rem, 1.1vw, 2.5rem);
+  font-size: clamp(1.6rem, 1.1vw, 2rem);
   line-height: 1.3em;
 `;
 export const typography = {

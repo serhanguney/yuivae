@@ -20,6 +20,7 @@ const Container = styled.section`
   width: fit-content;
   max-width: clamp(30rem, 60vw, 90rem);
   text-align: center;
+  min-height: 100vh;
 `;
 
 const HomePageTitle = styled.h2`
@@ -132,7 +133,7 @@ const Home: NextPage = () => {
       <AnimatedSection id="my-work">
         <MyWork />
       </AnimatedSection>
-      <AnimatedSection id="my-story" offset={400}>
+      <AnimatedSection id="my-story">
         <MyStory />
       </AnimatedSection>
     </Layout>

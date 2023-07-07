@@ -12,13 +12,15 @@ type Props = {
 };
 const StyledSection = styled.section`
   padding: 1px;
+  min-height: 100vh;
+  margin: 4rem 0;
 `;
 const Placeholder = styled.div`
-  height: 110rem;
+  height: 100vh;
   width: 100vw;
   background-color: white;
   ${mediaQueries.mobileMin} {
-    height: 60rem;
+    height: 100vh;
   }
 `;
 const AnimatedSection: FC<Props> = ({ children, id, offset = 200 }) => {
@@ -27,11 +29,11 @@ const AnimatedSection: FC<Props> = ({ children, id, offset = 200 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!ref.current || !scrollY) return;
+    if (!ref.current || !scrollY || typeof window === "undefined") return;
 
-    const sectionPosition = ref.current.getBoundingClientRect().y;
+    const sectionPosition = ref.current.getBoundingClientRect();
 
-    if (sectionPosition < offset && !isPresent) {
+    if (sectionPosition.y < window.innerHeight - offset && !isPresent) {
       setIsPresent(true);
     }
   }, [scrollY, isPresent, id, offset]);

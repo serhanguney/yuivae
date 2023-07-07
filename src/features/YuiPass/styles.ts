@@ -12,7 +12,7 @@ const YuiPassLayout = styled.section`
   align-items: center;
   margin: 0 auto;
   max-width: clamp(33rem, 50vw, 70rem);
-  // height: 70rem;
+  min-height: 100vh;
 `;
 
 const YuiPassTitle = styled.h1`

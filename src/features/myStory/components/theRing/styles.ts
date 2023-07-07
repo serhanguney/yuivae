@@ -10,7 +10,7 @@ const Container = styled.div`
   grid-column: span 7;
   margin-right: clamp(2vw, 5rem, 4vw);
   ${mediaQueries.mobileMin} {
-    height: 40rem;
+    min-height: 40rem;
   }
 `;
 

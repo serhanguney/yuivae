@@ -17,9 +17,6 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const MainSection = styled.main`
-  margin-bottom: clamp(25rem, 30vw, 45rem); ;
-`;
 const Layout: FC<Props> = ({ children, title, description }) => (
   <Container>
     <Head>
@@ -28,7 +25,7 @@ const Layout: FC<Props> = ({ children, title, description }) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Header />
-    <MainSection>{children}</MainSection>
+    <main>{children}</main>
     <Footer />
   </Container>
 );

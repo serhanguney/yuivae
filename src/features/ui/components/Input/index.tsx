@@ -40,6 +40,7 @@ const Input: FC<Props> = ({
   name,
   value,
   placeholder,
+  autoFocus,
   className,
 }) => {
   const [hasFocus, setHasFocus] = useState<boolean>(false);
@@ -53,6 +54,7 @@ const Input: FC<Props> = ({
         onChange={onChange}
         onFocus={() => setHasFocus(true)}
         onBlur={() => setHasFocus(false)}
+        autoFocus={autoFocus}
       />
       <PencilIcon hasFocus={hasFocus} />
     </StyledLabel>

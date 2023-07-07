@@ -89,6 +89,7 @@ const YuiPass = () => {
             value={yuiPass.value}
             placeholder="enter any phrase"
             onChange={handleInput}
+            autoFocus
           />
           <Button
             type="submit"

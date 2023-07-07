@@ -9,25 +9,27 @@ import { MyWork } from "~/features/myWork";
 import AnimatedSection from "~/features/ui/components/AnimatedSection";
 import Layout from "~/features/ui/components/Layout";
 import { GithubLink, LinkedinLink } from "~/features/ui/iconLinks";
-import { ScreenSize } from "~/features/ui/theme/mediaQueries";
+import { mediaQueries, ScreenSize } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
 
 const Container = styled.section`
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: fit-content;
   max-width: clamp(30rem, 60vw, 90rem);
   text-align: center;
-  min-height: 100vh;
+
+  ${mediaQueries.mobileMin} {
+    min-height: 100vh;
+  }
 `;
 
 const HomePageTitle = styled.h2`
   ${typography.pageTitle};
   display: flex;
   justify-content: center;
-  margin-top: clamp(10rem, 14vw, 20rem);
+  margin-top: clamp(6rem, 14vw, 20rem);
 
   .stroked {
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */
@@ -104,9 +106,7 @@ const Home: NextPage = () => {
           style={{ marginTop: "3rem" }}
         >
           Hi. This is my portfolio website where I present everything I find
-          worth mentioning when it comes to my career. This is where you can see
-          me ‘bragging’ about the software I built during my career and the
-          knowledge I gathered over the years.
+          worth mentioning when it comes to my career.
         </HomePageText>
         <HomePageText
           initial={revealParagraph.initial}

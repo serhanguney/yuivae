@@ -14,6 +14,9 @@ const StyledSection = styled.section`
   padding: 1px;
   min-height: 100vh;
   margin: 4rem 0;
+  ${mediaQueries.mobileMax} {
+    margin: 12rem 0;
+  }
 `;
 const Placeholder = styled.div`
   height: 100vh;

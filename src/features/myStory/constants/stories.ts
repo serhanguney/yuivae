@@ -31,7 +31,7 @@ export const stories: Story[] = [
   {
     title: "Freelance projects",
     details:
-      "Over the first year of learning programming I completed a few freelance projects. <i>Learning by doing</i> helped me to gain a steady foundation. The lack of knowledge in re-usable code, project architecture and typescript has led me to make important of mistakes that taught me the value of a solid foundation.",
+      "Over the first year of programming I completed a few freelance projects. <i>Learning by doing</i> helped me to gain a steady foundation. The lack of knowledge in re-usable code, project architecture and typescript has led me to make important of mistakes that taught me the value of a solid foundation.",
     tags: [
       "Basic programming",
       "Basic hosting",
@@ -44,7 +44,7 @@ export const stories: Story[] = [
   },
   {
     title: "Frontend Academy",
-    details: `While working at my first job as a software engineer I decided to speed up my improvement and applied to the frontend academy led by <a href="https://strv.com" target="_blank" rel="noreferrer">STRV</a>. During the academy I had a chance to learn high-level programming techniques from the senior engineers in STRV.`,
+    details: `While working at my first job as a software engineer I decided to speed up my improvement and applied to the frontend academy led by <a href="https://strv.com" target="_blank" rel="noreferrer">STRV</a>. During the academy I had a chance to peek at high-level programming, different ways to solve various problems.`,
     tags: [
       "HTML in Depth",
       "React under the hood",
@@ -61,15 +61,7 @@ export const stories: Story[] = [
     title: "Software engineer",
     details:
       "As a software engineer I have been involved in different teams that operate on member applications with complex state management, and marketing websites. Collaborating with teams of senior engineers and UX/UI designers has been a big step forward in my career that provided me a much broader perspective on software engineering.",
-    tags: [
-      "Redux",
-      "Advanced programming",
-      "Advanced NextJS",
-      "TypeScript",
-      "CI/CD",
-      "Basic Testing",
-      "Styled components",
-    ],
+    tags: ["Redux", "NextJS", "TypeScript", "CI/CD", "Basic Testing"],
     coverImage: accolade,
     color: colors.accolade.primary,
   },

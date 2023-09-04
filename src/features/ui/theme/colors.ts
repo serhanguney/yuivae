@@ -13,6 +13,7 @@ export const colors = {
   dianaGuney: { primary: palette.orange, secondary: palette.creme },
   pyc: { primary: palette.blue, secondary: palette.lightBlue },
   accolade: { primary: palette.accoladeGreen },
+  rossum: { primary: palette.rossumGreen },
   background: { default: palette.white, darkTheme: palette.black },
   backgroundHover: { default: palette.gray[100] },
 };

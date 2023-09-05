@@ -70,7 +70,7 @@ export const stories: Story[] = [
     title: "Software engineer II",
     details:
       "Involved in the frontend team as mid-senior engineer working on a complex application that deals with heavy user interactivity. Features of the app contains integration with extensions, complex user interactions, dashboard and statistics. This has been a milestone that improved the way I write & review code, and go deeper in software architecture, how to deal with complex app structures in a performant,simple and scalable way.",
-    tags: ["RxJS", "Redux Observable", "TypeScript", "ReactJS"],
+    tags: ["RxJS", "Redux Observable", "Zod", "TypeScript", "ReactJS"],
     coverImage: rossum,
     color: colors.rossum.primary,
   },

@@ -12,14 +12,14 @@ const YuiPassLayout = styled.section`
   align-items: center;
   margin: 0 auto;
   max-width: clamp(33rem, 50vw, 70rem);
-  min-height: 100vh;
+  min-height: 74rem;
 `;
 
 const YuiPassTitle = styled.h1`
   ${typography.pageTitle};
   display: flex;
   justify-content: center;
-  margin-top: clamp(8rem, 14vw, 20rem);
+  margin-top: clamp(6rem, 6vw, 20rem);
   margin-bottom: 3rem;
   .stroked {
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */
@@ -53,7 +53,8 @@ const YuiPassForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5rem 0;
+  margin-top: 5rem;
+  margin-bottom: 1.6rem;
   ${mediaQueries.mobileMax} {
     width: 100%;
   }

@@ -1,26 +1,26 @@
-import { AnimatePresence } from 'framer-motion';
-import parse from 'html-react-parser';
-import { FC } from 'react';
-import { v4 as uuid } from 'uuid';
+import { AnimatePresence } from "framer-motion";
+import parse from "html-react-parser";
+import { FC } from "react";
+import { v4 as uuid } from "uuid";
 
 import {
   durations,
   revealParagraph,
-} from '~/features/core/animations/constants';
-import { stories, Story } from '~/features/myStory/constants/stories';
-import { MyStoryNavigation } from '~/features/myStory/styles';
-import { Project } from '~/features/myWork/constants/projects';
+} from "~/features/core/animations/constants";
+import { stories, Story } from "~/features/myStory/constants/stories";
+import { MyStoryNavigation } from "~/features/myStory/styles";
+import { Project } from "~/features/myWork/constants/projects";
 import {
   ProjectDescription,
   ProjectTitle,
   Tag,
-} from '~/features/ui/components/Details';
+} from "~/features/ui/components/Details";
 
 import {
   MyStoryTagContainer,
   StoryDetailsContainer,
   TextWrapper,
-} from './styles';
+} from "./styles";
 
 type Props = {
   story: Story;
@@ -59,11 +59,10 @@ const MyStoryDetails: FC<Props> = ({ story, drillForNavigation }) => {
         ))}
       </MyStoryTagContainer>
 
-      <TextWrapper variants={MOTION.register} style={{ minHeight: '480px' }}>
+      <TextWrapper variants={MOTION.register}>
         <AnimatePresence exitBeforeEnter>
           <ProjectTitle
             key={story.title}
-            style={{ marginTop: 'auto' }}
             custom={0}
             variants={MOTION.revealParagraph}
             exit={MOTION.revealParagraph.exit}

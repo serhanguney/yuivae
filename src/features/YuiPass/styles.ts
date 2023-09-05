@@ -19,7 +19,6 @@ const YuiPassTitle = styled.h1`
   ${typography.pageTitle};
   display: flex;
   justify-content: center;
-  margin-top: clamp(6rem, 6vw, 20rem);
   margin-bottom: 3rem;
   .stroked {
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */

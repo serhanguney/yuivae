@@ -29,7 +29,7 @@ const HomePageTitle = styled.h2`
   ${typography.pageTitle};
   display: flex;
   justify-content: center;
-  margin-top: clamp(6rem, 14vw, 20rem);
+  margin-top: clamp(6rem, 6vw, 10rem);
 
   .stroked {
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */
@@ -111,7 +111,7 @@ const Home: NextPage = () => {
         <HomePageText
           initial={revealParagraph.initial}
           animate={revealParagraph.animate(delayStart)}
-          style={{ marginTop: "clamp(15rem, 21vw,30rem)" }}
+          style={{ marginTop: "clamp(4rem, 4vw,10rem)" }}
         >
           Or you can just skip the whole thing...
         </HomePageText>

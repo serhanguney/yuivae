@@ -12,22 +12,24 @@ const StoryDetailsContainer = styled(m.div)`
   ${mediaQueries.mobileMax} {
     flex-direction: column;
     margin-top: 3rem;
+    min-height: 57rem;
   }
 `;
 
 const TextWrapper = styled(m.div)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 0 2rem;
   border-left: 1px solid ${colors.tag.default};
   width: 60%;
+  min-height: 52rem;
   ${mediaQueries.mobileMax} {
     width: 100%;
     text-align: right;
     border-left: none;
     order: 1;
     margin-left: auto;
+    min-height: auto;
   }
 `;
 

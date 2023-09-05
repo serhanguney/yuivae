@@ -63,7 +63,6 @@ const MyStoryDetails: FC<Props> = ({ story, drillForNavigation }) => {
         <AnimatePresence exitBeforeEnter>
           <ProjectTitle
             key={story.title}
-            style={{ marginTop: "auto" }}
             custom={0}
             variants={MOTION.revealParagraph}
             exit={MOTION.revealParagraph.exit}

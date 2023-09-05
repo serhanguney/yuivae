@@ -27,7 +27,9 @@ const Container = styled.div`
 
 const MyStoryNavigation = styled(Navigation)`
   width: 70%;
-  margin-top: auto;
+  ${mediaQueries.mobileMin} {
+    margin-top: auto;
+  }
 
   ${mediaQueries.mobileMax} {
     margin-left: auto;

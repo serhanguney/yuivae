@@ -1,5 +1,5 @@
 import { useAnimationControls } from "framer-motion";
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 
 import { easings } from "~/features/core/animations/constants";
 import { Story } from "~/features/myStory/constants/stories";
@@ -45,25 +45,28 @@ const Navigation: FC<Props> = ({
     setPageState(onHandle);
   };
 
-  const animatePageNo = (pageNo: number) => {
-    const opacity = pageNo === pageState ? 1 : 0;
-    const scale = pageNo === pageState ? 1 : 0.8;
-    return {
-      x: `${(pageState - 1) * 100 * -1}%`,
-      opacity,
-      scale,
-      transition: {
-        opacity: { delay: 0.1 },
-        duration: 0.5,
-        ease: easings.cubic1,
-      },
-    };
-  };
+  const animatePageNo = useCallback(
+    (pageNo: number) => {
+      const opacity = pageNo === pageState ? 1 : 0;
+      const scale = pageNo === pageState ? 1 : 0.8;
+      return {
+        x: `${(pageState - 1) * 100 * -1}%`,
+        opacity,
+        scale,
+        transition: {
+          opacity: { delay: 0.1 },
+          duration: 0.5,
+          ease: easings.cubic1,
+        },
+      };
+    },
+    [pageState]
+  );
 
   useEffect(() => {
     onChange(arrayToMatchPageStateWith[pageState - 1]);
     void controls.start((i) => animatePageNo(i));
-  }, [pageState, arrayToMatchPageStateWith, controls, onChange]);
+  }, [pageState, arrayToMatchPageStateWith, controls, onChange, animatePageNo]);
 
   return (
     <Container className={className}>

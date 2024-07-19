@@ -15,6 +15,7 @@ const MyStory = () => {
   const onChange = (changedStory: Story | Project) =>
     setStory(changedStory as Story);
 
+  console.log("story", stories[stories.length - 1]);
   return (
     <Container>
       <SectionTitle

@@ -18,7 +18,7 @@ export type Story = {
 
 export const stories: Story[] = [
   {
-    title: "A boutique jewelry store",
+    title: "Retail",
     details: `This is where I started using basic coding and experimenting with different tools. I created a system that automates the schedules of 40 employees, sales & finance processes and inventory control. This experience experience has been the eye opener leading me to become a developer.`,
     tags: [
       "Inventory automation",

@@ -130,11 +130,11 @@ const Home: NextPage = () => {
           </m.li>
         </LinkContainer>
       </Container>
-      <AnimatedSection id="my-work">
-        <MyWork />
-      </AnimatedSection>
       <AnimatedSection id="my-story">
         <MyStory />
+      </AnimatedSection>
+      <AnimatedSection id="my-work">
+        <MyWork />
       </AnimatedSection>
     </Layout>
   );

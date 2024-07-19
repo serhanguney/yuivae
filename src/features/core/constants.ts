@@ -12,24 +12,19 @@ export enum ROUTES {
 
 export const listOfLinks = [
   {
-    text: "My work",
-    link: ROUTES.MY_WORK,
+    text: "My story",
+    link: ROUTES.MY_STORY,
     isAvailable: true,
   },
   {
-    text: "My story",
-    link: ROUTES.MY_STORY,
+    text: "My work",
+    link: ROUTES.MY_WORK,
     isAvailable: true,
   },
   {
     text: "Yuipass",
     link: ROUTES.YUIPASS,
     isAvailable: true,
-  },
-  {
-    text: "Blog",
-    link: ROUTES.BLOG,
-    isAvailable: false,
   },
 ];
 

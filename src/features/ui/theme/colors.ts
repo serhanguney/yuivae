@@ -10,7 +10,7 @@ export const colors = {
   destructive: { default: palette.red },
   tag: { default: palette.gray[800] },
   secondary: { default: palette.darkLila, darkTheme: palette.lila },
-  dianaGuney: { primary: palette.orange, secondary: palette.creme },
+  wollem: { primary: palette.orange, secondary: palette.creme },
   pyc: { primary: palette.blue, secondary: palette.lightBlue },
   accolade: { primary: palette.accoladeGreen },
   rossum: { primary: palette.rossumGreen },

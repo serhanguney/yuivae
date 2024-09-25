@@ -2,6 +2,9 @@ import { ImageProps } from "next/image";
 
 import { colors } from "~/features/ui/theme/colors";
 
+import WOLLEM_1 from "../assets/wollem_1.webp";
+import WOLLEM_2 from "../assets/wollem_2.webp";
+import WOLLEM_3 from "../assets/wollem_3.webp";
 import YUILEARN_1 from "../assets/YuiLearn_1.jpg";
 import YUILEARN_2 from "../assets/YuiLearn_2.jpg";
 import YUILEARN_3 from "../assets/YuiLearn_3.jpg";
@@ -36,4 +39,20 @@ const YUI_LEARN: Project = {
   comingSoon: true,
 };
 
-export const myWorkArray = [YUI_LEARN];
+const WOLLEM_SHOP: Project = {
+  title: "Wollem Jewelry",
+  description:
+    "Wollem is a jewelry brand founded in Prague. The website presents the merchandise along with all the information, provides filtering and search features. It also provides blog posts. The posts and the product data come from separate databases I created.",
+  tags: [
+    "NextJS",
+    "React Query",
+    "Supabase",
+    "CDN - Contentful",
+    "Project Architecture",
+  ],
+  link: "https://wollem.com",
+  colors: colors.wollem,
+  images: [WOLLEM_1, WOLLEM_2, WOLLEM_3],
+  comingSoon: false,
+};
+export const myWorkArray = [WOLLEM_SHOP, YUI_LEARN];

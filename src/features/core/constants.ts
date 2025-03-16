@@ -3,30 +3,24 @@ export enum LINKS {
   LINKEDIN = "https://linkedin.com/in/serhan-guney/",
 }
 
-export enum ROUTES {
-  MY_WORK = "/#my-work",
-  MY_STORY = "/#my-story",
-  YUIPASS = "/yuipass",
-  BLOG = "/blog",
-}
-
-export const listOfLinks = [
-  {
-    text: "My story",
-    link: ROUTES.MY_STORY,
-    isAvailable: true,
+export const routes = {
+  myWork: {
+    path: "/#my-work",
+    label: "My work",
+    key: "my-work",
   },
-  {
-    text: "My work",
-    link: ROUTES.MY_WORK,
-    isAvailable: true,
+  myBackground: {
+    path: "/#my-background",
+    label: "My Background",
+    key: "my-background",
   },
-  {
-    text: "Yuipass",
-    link: ROUTES.YUIPASS,
-    isAvailable: true,
+  yuipass: { path: "/yuipass", label: "Yuipass", key: "yuipass" },
+  learnCzech: {
+    path: "https://czech.yuivae.com",
+    label: "Learn Czech",
+    key: "learn-czech",
   },
-];
+} as const;
 
 export enum API_ROUTES {
   YUIPASS = "/api/yuipass",

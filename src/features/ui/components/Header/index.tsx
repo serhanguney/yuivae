@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FC, useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 
-import { listOfLinks } from "~/features/core/constants";
+import { routes } from "~/features/core/constants";
 import { InvertedLogo } from "~/features/ui/icons/Logo";
 import PreviosArrow from "~/features/ui/icons/PreviosArrow";
 import { colors } from "~/features/ui/theme/colors";
@@ -151,10 +151,10 @@ const Header: FC = () => {
             <p>scroll</p>
             <PreviosArrow isHidden={isScrolled} />
           </ScrollCurtain>
-          {listOfLinks.map((item) => (
-            <StyledLink key={item.text} $isAvailable={item.isAvailable}>
-              <Link href={item.link}>
-                <a>{item.text}</a>
+          {Object.values(routes).map((item) => (
+            <StyledLink key={item.key} $isAvailable>
+              <Link href={item.path}>
+                <a>{item.label}</a>
               </Link>
             </StyledLink>
           ))}

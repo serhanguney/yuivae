@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { revealParagraph } from "~/features/core/animations/constants";
+import { routes } from "~/features/core/constants";
 import MyStoryDetails from "~/features/myStory/components/Details";
 import TheRing from "~/features/myStory/components/theRing";
 import { stories, Story } from "~/features/myStory/constants/stories";
@@ -15,14 +16,13 @@ const MyStory = () => {
   const onChange = (changedStory: Story | Project) =>
     setStory(changedStory as Story);
 
-  console.log("story", stories[stories.length - 1]);
   return (
     <Container>
       <SectionTitle
         initial={revealParagraph.initial}
         animate={revealParagraph.animate(0)}
       >
-        My Story
+        {routes.myBackground.label}
       </SectionTitle>
       <TheRing story={story} />
       <MyStoryDetails story={story} drillForNavigation={{ onChange }} />

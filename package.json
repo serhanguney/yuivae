@@ -7,8 +7,8 @@
     "build": "next build",
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
-    "start:no-cache": "yarn build && yarn start",
-    "lint": "yarn eslint --fix .",
+    "start:no-cache": "pnpm build && pnpm start",
+    "lint": "pnpm exec eslint --fix .",
     "prepare": "husky install"
   },
   "dependencies": {

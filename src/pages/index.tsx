@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import styled from "styled-components";
 
 import { revealParagraph } from "~/features/core/animations/constants";
+import { routes } from "~/features/core/constants";
 import useResize from "~/features/hooks/useResize";
 import MyStory from "~/features/myStory";
 import { MyWork } from "~/features/myWork";
@@ -130,10 +131,10 @@ const Home: NextPage = () => {
           </m.li>
         </LinkContainer>
       </Container>
-      <AnimatedSection id="my-story">
+      <AnimatedSection id={routes.myBackground.key}>
         <MyStory />
       </AnimatedSection>
-      <AnimatedSection id="my-work">
+      <AnimatedSection id={routes.myWork.key}>
         <MyWork />
       </AnimatedSection>
     </Layout>

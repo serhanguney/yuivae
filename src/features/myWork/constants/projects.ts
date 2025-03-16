@@ -20,16 +20,10 @@ export type Project = {
 };
 
 const YUI_LEARN: Project = {
-  title: "YuiLearn",
+  title: "Czech app",
   description:
-    "An application to learn a new language. This app will enable you to shape your learning process by adding your own phrases from your daily life. These can be the conversations you encounter, the stuff you read, the subtitles you see, etc. You can create your own custom labels to organise and track your progress.",
-  tags: [
-    "Project Architecture",
-    "Redux",
-    "NextJS",
-    "Complex state-management",
-    "Database / Backend",
-  ],
+    "An application to learn a Czech language. Powered with Ai, you can practice words, declensions and writing skills. Ai will evaluate the stuff you write and give you scores so you can level up.",
+  tags: [],
   link: "https://yuivae.com",
   colors: {
     primary: colors.backgroundHover.default,
@@ -43,13 +37,7 @@ const WOLLEM_SHOP: Project = {
   title: "Wollem Jewelry",
   description:
     "Wollem is a jewelry brand founded in Prague. The website presents the merchandise along with all the information, provides filtering and search features. It also provides blog posts. The posts and the product data come from separate databases I created.",
-  tags: [
-    "NextJS",
-    "React Query",
-    "Supabase",
-    "CDN - Contentful",
-    "Project Architecture",
-  ],
+  tags: [],
   link: "https://wollem.com",
   colors: colors.wollem,
   images: [WOLLEM_1, WOLLEM_2, WOLLEM_3],

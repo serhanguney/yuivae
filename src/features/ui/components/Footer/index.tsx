@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FC } from "react";
 import styled, { css } from "styled-components";
 
-import { listOfLinks } from "~/features/core/constants";
+import { routes } from "~/features/core/constants";
 import { GithubLink, LinkedinLink } from "~/features/ui/iconLinks";
 import { Logo } from "~/features/ui/icons/Logo";
 import { colors } from "~/features/ui/theme/colors";
@@ -90,9 +90,9 @@ const Footer: FC = () => {
         </li>
       </IconContainer>
       <LinkContainer>
-        {listOfLinks.map((item) => (
-          <StyledLink key={item.text} $isAvailable={item.isAvailable}>
-            <Link href={item.link}>{item.text}</Link>
+        {Object.values(routes).map((item) => (
+          <StyledLink key={item.key} $isAvailable>
+            <Link href={item.path}>{item.label}</Link>
           </StyledLink>
         ))}
       </LinkContainer>

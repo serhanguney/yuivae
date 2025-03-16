@@ -8,17 +8,25 @@ export const routes = {
     path: "/#my-work",
     label: "My work",
     key: "my-work",
+    isExternal: false,
   },
   myBackground: {
     path: "/#my-background",
     label: "My Background",
     key: "my-background",
+    isExternal: false,
   },
-  yuipass: { path: "/yuipass", label: "Yuipass", key: "yuipass" },
+  yuipass: {
+    path: "/yuipass",
+    label: "Yuipass",
+    key: "yuipass",
+    isExternal: false,
+  },
   learnCzech: {
     path: "https://czech.yuivae.com",
     label: "Learn Czech",
     key: "learn-czech",
+    isExternal: true,
   },
 } as const;
 

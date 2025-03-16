@@ -151,7 +151,13 @@ const Header: FC = () => {
           </ScrollCurtain>
           {Object.values(routes).map((item) => (
             <StyledLink key={item.key} $isAvailable>
-              <Link href={item.path}>{item.label}</Link>
+              <Link
+                href={item.path}
+                target={item.isExternal ? "_blank" : "_self"}
+                referrerPolicy={item.isExternal ? "no-referrer" : "origin"}
+              >
+                {item.label}
+              </Link>
             </StyledLink>
           ))}
         </ul>

@@ -68,7 +68,7 @@ const TheRing: FC<Props> = ({ story }) => {
                 src={mappedStory.coverImage}
                 alt=""
                 layout="fill"
-                objectFit="cover"
+                style={{ objectFit: "cover" }}
               />
             </ImageWrapper>
           );

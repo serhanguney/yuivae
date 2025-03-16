@@ -121,10 +121,14 @@ const Background: FC<Props> = ({ duration, colors, images }) => {
                   <Image
                     src={image}
                     alt=""
-                    objectFit="cover"
                     layout="responsive"
                     priority={!isMobile}
-                    {...(isMobile ? imageLayouts.mobile : imageLayouts.desktop)}
+                    style={{
+                      objectFit: "cover",
+                      ...(isMobile
+                        ? imageLayouts.mobile
+                        : imageLayouts.desktop),
+                    }}
                   />
                 </ImageWrapper>
               </AnimatePresence>

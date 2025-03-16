@@ -141,9 +141,7 @@ const Header: FC = () => {
   return (
     <HeaderContainer>
       <Link href="/">
-        <a aria-label="Go to homepage">
-          <HeaderLogo />
-        </a>
+        <HeaderLogo />
       </Link>
       <LinkContainer>
         <ul ref={ref}>
@@ -153,9 +151,7 @@ const Header: FC = () => {
           </ScrollCurtain>
           {Object.values(routes).map((item) => (
             <StyledLink key={item.key} $isAvailable>
-              <Link href={item.path}>
-                <a>{item.label}</a>
-              </Link>
+              <Link href={item.path}>{item.label}</Link>
             </StyledLink>
           ))}
         </ul>

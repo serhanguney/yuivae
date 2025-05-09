@@ -28,6 +28,12 @@ export const routes = {
     key: "learn-czech",
     isExternal: true,
   },
+  soundBoard: {
+    path: "https://soundboard.yuivae.com",
+    label: "Sound Board",
+    key: "sound-board",
+    isExternal: true,
+  },
 } as const;
 
 export enum API_ROUTES {

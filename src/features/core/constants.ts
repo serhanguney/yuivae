@@ -34,6 +34,12 @@ export const routes = {
     key: "sound-board",
     isExternal: true,
   },
+  calculator: {
+    path: "https://calc.yuivae.com",
+    label: "Calculator",
+    key: "calculator",
+    isExternal: true,
+  },
 } as const;
 
 export enum API_ROUTES {

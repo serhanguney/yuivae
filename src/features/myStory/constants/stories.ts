@@ -1,6 +1,7 @@
 import { ImageProps } from "next/image";
 
 import { colors } from "~/features/ui/theme/colors";
+import { palette } from "~/features/ui/theme/palette";
 
 import accolade from "../assets/Accolade.jpg";
 import freelancer from "../assets/freelancer.jpg";
@@ -35,7 +36,7 @@ export const stories: Story[] = [
       "Over the first year of programming I completed a few freelance projects. <i>Learning by doing</i> helped me to gain a steady foundation. The lack of knowledge in re-usable code, project architecture and typescript has led me to make important of mistakes that taught me the value of a solid foundation.",
     tags: ["HTML & CSS", "JavaScript", "ReactJS", "NextJS"],
     coverImage: freelancer,
-    color: colors.pyc.primary,
+    color: palette.blue,
   },
   {
     title: "Frontend Academy",

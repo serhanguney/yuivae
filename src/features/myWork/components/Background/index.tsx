@@ -20,17 +20,6 @@ type Props = {
   images: Array<ImageProps["src"]>;
 };
 
-const imageLayouts = {
-  desktop: {
-    width: "100%",
-    height: "51.5%",
-  },
-  mobile: {
-    width: "46%",
-    height: "100%",
-  },
-};
-
 const Background: FC<Props> = ({ duration, colors, images }) => {
   const animatePrimaryColumn = {
     initial: { height: "0%" },
@@ -125,9 +114,6 @@ const Background: FC<Props> = ({ duration, colors, images }) => {
                     priority={!isMobile}
                     style={{
                       objectFit: "cover",
-                      ...(isMobile
-                        ? imageLayouts.mobile
-                        : imageLayouts.desktop),
                     }}
                   />
                 </ImageWrapper>

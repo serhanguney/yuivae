@@ -2,12 +2,12 @@ import { ImageProps } from "next/image";
 
 import { colors } from "~/features/ui/theme/colors";
 
+import YUILEARN_1 from "../assets/Slovi_1.webp";
+import YUILEARN_2 from "../assets/Slovi_2.webp";
+import YUILEARN_3 from "../assets/Slovi_3.webp";
 import WOLLEM_1 from "../assets/wollem_1.webp";
 import WOLLEM_2 from "../assets/wollem_2.webp";
 import WOLLEM_3 from "../assets/wollem_3.webp";
-import YUILEARN_1 from "../assets/YuiLearn_1.webp";
-import YUILEARN_2 from "../assets/YuiLearn_2.webp";
-import YUILEARN_3 from "../assets/YuiLearn_3.webp";
 
 export type Project = {
   title: string;
@@ -20,14 +20,14 @@ export type Project = {
 };
 
 const YUI_LEARN: Project = {
-  title: "Czech app",
+  title: "Slovi",
   description:
     "An application to learn a Czech language. Powered with Ai, you can practice words, declensions and writing skills. Ai will evaluate the stuff you write and give you scores so you can level up.",
   tags: [],
-  link: "https://czech.yuivae.com",
+  link: "https://slovi.cz",
   colors: {
     primary: colors.backgroundHover.default,
-    secondary: colors.secondary.darkTheme,
+    secondary: colors.slovi.secondary,
   },
   images: [YUILEARN_1, YUILEARN_2, YUILEARN_3],
   comingSoon: false,

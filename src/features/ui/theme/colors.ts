@@ -11,7 +11,7 @@ export const colors = {
   tag: { default: palette.gray[800] },
   secondary: { default: palette.darkLila, darkTheme: palette.lila },
   wollem: { primary: palette.orange, secondary: palette.creme },
-  pyc: { primary: palette.blue, secondary: palette.lightBlue },
+  slovi: { primary: palette.yellow, secondary: palette.lightYellow },
   accolade: { primary: palette.accoladeGreen },
   rossum: { primary: palette.rossumGreen },
   background: { default: palette.white, darkTheme: palette.black },

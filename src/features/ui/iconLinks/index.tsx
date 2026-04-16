@@ -2,9 +2,9 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import { LINKS } from "~/features/core/constants";
+import { Calendar } from "~/features/ui/icons/Calendar";
 import Github from "~/features/ui/icons/Github";
 import Linkedin from "~/features/ui/icons/Linkedin";
-import { Calendar } from "~/features/ui/icons/Calendar"
 import { colors } from "~/features/ui/theme/colors";
 
 const AnchorTag = styled(Link)<{ $isDark?: boolean }>`

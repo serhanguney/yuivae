@@ -9,7 +9,7 @@ import MyStory from "~/features/myStory";
 import { MyWork } from "~/features/myWork";
 import AnimatedSection from "~/features/ui/components/AnimatedSection";
 import Layout from "~/features/ui/components/Layout";
-import { GithubLink, LinkedinLink } from "~/features/ui/iconLinks";
+import { CalendarLink, GithubLink, LinkedinLink } from "~/features/ui/iconLinks";
 import { mediaQueries, ScreenSize } from "~/features/ui/theme/mediaQueries";
 import { typography } from "~/features/ui/theme/typography";
 
@@ -128,6 +128,12 @@ const Home: NextPage = () => {
             animate={revealParagraph.animate(delayStart + 0.2)}
           >
             <GithubLink />
+          </m.li>
+          <m.li
+            initial={revealParagraph.initial}
+            animate={revealParagraph.animate(delayStart + 0.3)}
+          >
+            <CalendarLink />
           </m.li>
         </LinkContainer>
       </Container>

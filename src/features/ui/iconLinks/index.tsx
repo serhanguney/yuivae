@@ -37,7 +37,7 @@ const GithubLink = () => (
   </AnchorTag>
 );
 
-const GithubLink = () => (
+const CalendarLink = () => (
   <AnchorTag
     href={LINKS.ZCAL}
     target="_blank"
@@ -48,4 +48,4 @@ const GithubLink = () => (
   </AnchorTag>
 );
 
-export { GithubLink, LinkedinLink };
+export { GithubLink, LinkedinLink, CalendarLink };

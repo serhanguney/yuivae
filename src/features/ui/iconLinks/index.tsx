@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { LINKS } from "~/features/core/constants";
 import Github from "~/features/ui/icons/Github";
 import Linkedin from "~/features/ui/icons/Linkedin";
+import { Calendar } from "~/features/ui/icons/Calendar"
 import { colors } from "~/features/ui/theme/colors";
 
 const AnchorTag = styled(Link)<{ $isDark?: boolean }>`
@@ -33,6 +34,17 @@ const GithubLink = () => (
     rel="noreferrer"
   >
     <Github />
+  </AnchorTag>
+);
+
+const GithubLink = () => (
+  <AnchorTag
+    href={LINKS.ZCAL}
+    target="_blank"
+    aria-label="Go to Github profile"
+    rel="noreferrer"
+  >
+    <Calendar />
   </AnchorTag>
 );
 

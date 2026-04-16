@@ -1,6 +1,7 @@
 export enum LINKS {
   GITHUB = "https://github.com/serhanguney",
   LINKEDIN = "https://linkedin.com/in/serhan-guney/",
+  ZCAL = "https://zcal.co/serhanguney"
 }
 
 export const routes = {
